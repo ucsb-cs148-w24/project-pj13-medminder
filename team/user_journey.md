@@ -13,3 +13,5 @@ As a user I want a screen that allows me to create notifications for certain day
 As a caretaker I can create reminders for my patient.
 
 As a user I can connect to my other calendar applications.
+
+As a user I want the option for repeating alarms.
