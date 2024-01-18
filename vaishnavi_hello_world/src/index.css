@@ -1,0 +1,18 @@
+.App{
+  margin: 0;
+  font-family: cursive;
+  min-height: 100vh;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-weight: 800;
+  font-size: larger;
+  background: radial-gradient(lavender, rgb(135, 80, 175));
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
