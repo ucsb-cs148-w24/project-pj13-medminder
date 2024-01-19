@@ -25,3 +25,4 @@ An application for caretakers and individuals to remind people when to take thei
 
 Caretaker: Person who is taking care of one or more people and need reminders for when they need to take their medications
 Individual: Person who need reminders for only their medications
+Patient: Person who does not have access to modify their schedule but receives alerts, their caretaker manages their profile for them
