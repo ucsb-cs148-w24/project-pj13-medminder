@@ -2,13 +2,15 @@ import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBwBQBL9TvaZP_eH6OduToJDo6JkxX7afU",
-    authDomain: "medminder-412206.firebaseapp.com",
-    projectId: "medminder-412206",
-    storageBucket: "medminder-412206.appspot.com",
-    messagingSenderId: "48920437462",
-    appId: "1:48920437462:web:b7a5c762995a859b2c1f77"
-  };
+  apiKey: "AIzaSyAQY8aYUAdOB_0GkktSfBjUJA9QIwjstQI",
+  authDomain: "med--minder.firebaseapp.com",
+  databaseURL: "https://med--minder-default-rtdb.firebaseio.com",
+  projectId: "med--minder",
+  storageBucket: "med--minder.appspot.com",
+  messagingSenderId: "1084517488012",
+  appId: "1:1084517488012:web:417e34cddb7b6b440e72a9",
+  measurementId: "G-NTZ1316XFS"
+};
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
