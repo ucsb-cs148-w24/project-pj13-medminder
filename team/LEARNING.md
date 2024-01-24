@@ -4,4 +4,12 @@ He will ensure we follow the correct practices during our Daily scrums, retros, 
 Most of us are new to Firebase and have never used it.
 
 Generally, we will all need to become familiar with React and Firebase and will watch at least a basic React tutorial and a Firebase tutorial. 
-Since we are going to be working on different parts of the web app, we will watch tutorials and read documentation to solve any issues that may arise.
+Since we are going to be working on different parts of the web app, we will watch tutorials and read documentation to solve any issues that may arise. 
+
+Hanson commits to watch a React tutorial in Week 3-4. He will also watch a Firebase tutorial.
+Garvin commits to watch a React tutorial in Week 3-4. He will also watch a Firebase tutorial.
+James commits to watch a React tutorial in Week 3-4. He will also watch a Firebase tutorial.
+Michael commits to watch a React tutorial in Week 3-4. He will also watch a Firebase tutorial.
+Edwin commits to watch a React tutorial in Week 3-4. He will also watch a Firebase tutorial.
+Vaishnavi commits to watch a React tutorial in Week 3-4. She will also watch a Firebase tutorial.
+Tim commits to watch a React tutorial in Week 3-4. He will also watch a Firebase tutorial.
