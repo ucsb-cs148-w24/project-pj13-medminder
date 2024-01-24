@@ -1,19 +1,12 @@
 Meeting type: Standup
 
 Team: 
-
 James Pflaging [x]
-
 Garvin Young [x]
-
 Hanson Yu [x]
-
 Michael Cheng [x]
-
 Tim Choi [x]
-
 Vaishnavi Himakunthala [x]
-
 Edwin Yee [x]
 
 
