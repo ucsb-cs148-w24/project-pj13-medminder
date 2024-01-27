@@ -19,7 +19,7 @@ Webapp using React frontend, Google Firebase realtime database, Flask backend
 
 ### Description
 
-An application for caretakers and individuals to remind people when to take their medicines and in what dosages. Some of the app functionalities include setting alarms for specific medications, creating user accounts that caretakers can link with patient profiles, and managing multiple patient profiles as caretakers. If we have extra time, we may implement text-to-speech to make it easier for elderly people to use Medminde and utilize APIs to get information about medications that users input and display it in the app including side effect information. Users will have the option to switch between a weekly and daily view with daily being the default.
+An application for caretakers and individuals to remind people when to take their medicines and in what dosages. Some of the app functionalities include setting alarms for specific medications, creating user accounts that caretakers can link with patient profiles, and managing multiple patient profiles as caretakers. If we have extra time, we may implement text-to-speech to make it easier for elderly people to use Medminder and utilize APIs to get information about medications that users input and display it in the app including side effect information. Users will have the option to switch between a weekly and daily view with daily being the default.
 
 ### User Roles
 
