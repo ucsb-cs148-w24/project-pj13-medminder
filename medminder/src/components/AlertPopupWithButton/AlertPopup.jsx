@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import TextBox from "./TextBox.jsx";
 import "./AlertPopup.css";
+import "./ButtonStyles.css"
 
-export default function AlertPopup() {
+export default function AlertPopup(props) {
     const [popup, setPopup] = useState(false);
     const togglePopup = () => {
         setPopup(!popup);
@@ -16,8 +17,8 @@ export default function AlertPopup() {
     
     return (
         <>
-            <button onClick={togglePopup} className="btn-modal">
-                Open
+            <button onClick={togglePopup} className={props.buttonDesign}>
+                {props.TextInButton}
             </button>
 
             {popup && (

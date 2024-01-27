@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import "./CustomTextbox.css"
-const CustomTextBlock = ({placeholder, rows}) => {
+import "./AlertPopup.css";
+
+const TextBox = ({placeholder, rows}) => {
   const [text, setText] = useState('');
   const handleChange = (event) => {
     setText(event.target.value);
@@ -19,4 +20,4 @@ const CustomTextBlock = ({placeholder, rows}) => {
     </div>
   );
 };
-export default CustomTextBlock;
+export default TextBox;
