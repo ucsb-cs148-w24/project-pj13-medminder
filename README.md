@@ -13,18 +13,18 @@ An app to remind elderly people or their caretakers when they need to take their
 | Vaishnavi Himakunthala | vaishnaviHimakunthala |
 | Tim Choi | tim-choi |
 
-### Tech Stack, and App type
+### App Type and Tech Stack
 
-Webapp using React, Firebase realtime database, Flask backend
+Webapp using React frontend, Google Firebase realtime database, Flask backend
 
 ### Description
 
-An application for caretakers and individuals to remind people when to take their medicines and in what dosages. The app has the ability to both set alrms for specific medications and the ability to create user accounts that caretakers can link with patient profiles, caretakers also have the ability to manage multiple patient profiles. Possibly implement text to speech for elderly people. Utilize API to get information about mediactions that users input and display it in the app including side effect information. Users will have the option to switch between a weekly and daily view with daily being the default.
+An application for caretakers and individuals to remind people when to take their medicines and in what dosages. Some of the app functionalities include setting alarms for specific medications, creating user accounts that caretakers can link with patient profiles, and managing multiple patient profiles as caretakers. If we have extra time, we may implement text-to-speech to make it easier for elderly people to use Medminder and utilize APIs to get information about medications that users input and display it in the app including side effect information. Users will have the option to switch between a weekly and daily view with daily being the default.
 
 ### User Roles
 
-Caretaker: Person who is taking care of one or more people and need reminders for when they need to take their medications
+Caretaker: A person who is taking care of one or more people and needs reminders for when they need to take their medications
 
-Individual: Person who need reminders for only their medications
+Individual: A person who needs reminders for only their medications
 
 Patient: Person who does not have access to modify their schedule but receives alerts, their caretaker manages their profile for them
