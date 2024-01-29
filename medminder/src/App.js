@@ -8,6 +8,9 @@ function App() {
   return (
     <div className="App">
       <SignIn />
+      <AddEventButton />
+      <AlertPopup />
+      <SimpleDataSender />
     </div>
   );
 }
