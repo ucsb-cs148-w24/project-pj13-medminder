@@ -1,6 +1,7 @@
 import './App.css';
 import AddEventButton from './components/AddEventButton';
 import SignIn from "./components/SignIn";
+import Display from "./components/data-show";
 import SimpleDataSender from "./components/StoreTestData";
 import AlertPopup from "./components/AlertPopup/AlertPopup.jsx"
 
@@ -11,6 +12,7 @@ function App() {
       <AddEventButton />
       <AlertPopup />
       <SimpleDataSender />
+      <Display/>
     </div>
   );
 }

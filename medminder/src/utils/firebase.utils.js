@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getDatabase } from "firebase/database";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAQY8aYUAdOB_0GkktSfBjUJA9QIwjstQI",
@@ -16,7 +18,7 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 // Initialize Firebase Auth provider
 const provider = new GoogleAuthProvider();
-  
+export const database = getDatabase(firebaseApp);
 // whenever a user interacts with the provider, we force them to select an account
 provider.setCustomParameters({   
     prompt : "select_account "
