@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./AlertPopup.css";
+import "./TextBox.css";
 
 const TextBox = ({placeholder, rows}) => {
   const [text, setText] = useState('');
