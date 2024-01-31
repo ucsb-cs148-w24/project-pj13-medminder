@@ -1,35 +1,47 @@
 import { signInWithGooglePopup } from "../utils/firebase.utils";
-import { getDatabase, ref, query, get, set, orderByChild, equalTo } from 'firebase/database';
+import { getDatabase, ref, query, get, set } from 'firebase/database';
+import React, { useState } from 'react';
 
 const SignIn = () => {
+
+    // const [userData, setUserData] = useState(null);
+
     const logGoogleUser = async (name) => {
         const response = await signInWithGooglePopup();
         console.log(response);
 
         const userId = response.user.uid;
+        const email = response.user.email;
+        // setUserData({email });
+
         const database = getDatabase();
-        const usersRef = ref(database, 'Users');
-        const nameQuery = query(usersRef, orderByChild('Name'), equalTo(response.user.displayName));
 
-        const snapshot = await get(nameQuery);
+        const userRef = ref(database, `Users/${userId}`);
+        const check = query(userRef);
 
-        if (snapshot.exists()) {
-            console.log('Returning User.');
-        } else {
-            console.log('New User.');
-            const userData = {
-                Name: response.user.displayName,
-                //email: response.user.email,
-                Sex: "X",
-                Age: 24,
-                DOB: "01/01/2000",
-                // default values, to be updated later
-            };
-      
-            // Store user data under "Users/{userId}"
-            const userRef = ref(database, `Users/${userId}`);
-            set(userRef, userData);
-        }
+        get(check).then((snapshot) => {
+            if (snapshot.exists()) {
+                // The user exists
+                console.log('Returning User.');
+            } else {
+                console.log('New User.');
+                const userInfo = {
+                    Name: response.user.displayName,
+                    Email: email,
+                    // default values, to be updated later
+                    Sex: "X",
+                    Age: 24,
+                    DOB: "01/01/2000",
+                };
+        
+                // Store user data under "Users/{email}/UserInfo"
+                const userRef = ref(database, `Users/${userId}/UserInfo`);
+                set(userRef, userInfo);
+            }
+        }).catch((error) => {
+            console.error('Error querying the database:', error);
+        });
+
     }
 
     return (
