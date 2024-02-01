@@ -3,6 +3,7 @@ import SignIn from "./components/SignIn";
 import AlertPopupWithButton from "./components/AlertPopupWithButton/AlertPopupWithButton.jsx"
 import Display from "./components/data-show";
 import SimpleDataSender from "./components/StoreTestData";
+import DateNavigator from "./components/SetDateOnMain.jsx"
 
 function App() {
 
@@ -11,6 +12,8 @@ function App() {
       <SignIn />
       <AlertPopupWithButton/>
       <SimpleDataSender />
+      <DateNavigator />
+
       <Display/>
     </div>
   );
