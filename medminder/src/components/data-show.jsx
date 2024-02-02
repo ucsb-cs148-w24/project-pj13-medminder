@@ -3,7 +3,14 @@ import {ref, onValue} from 'firebase/database';
 import { getDatabase } from "firebase/database";
 import {Component} from 'react';
 
+// import statement to see userId
+import { UserIdContext } from './UserIdContext';
+
 export default class Display extends Component{
+    // this type of unwrapping due to implementation choice of "class Display extends Component"
+    // means it cannot use hooks
+    static contextType = UserIdContext;
+
     state = {
         name: '',
         med_name: 'Click the Get Data button to display info from the database',
@@ -13,6 +20,10 @@ export default class Display extends Component{
     };
 
     getData = () => {
+        // grab userId, to be used in query
+        const { userId } = this.context;
+        console.log('userId in Display component:', userId);
+
         const db = getDatabase();
         const dbref = ref(db, 'Users/testUser123/Name');
         onValue(dbref, (snapshot) => {
@@ -64,6 +75,11 @@ export default class Display extends Component{
     }
 
     render(){
+
+        // grab userId value, print in console 
+        // const { userId } = this.context;
+        // console.log('userId in Display component:', userId);
+
         return(
             <div>
             <button onClick={this.getData}>
