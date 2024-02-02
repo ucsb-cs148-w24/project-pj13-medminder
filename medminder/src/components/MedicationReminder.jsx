@@ -60,7 +60,9 @@ class MedicationReminder extends Component {
 
       const { time } = this.state;
       const currentTime = this.getCurrentTime();
-    
+      // comment the above line and put the line below to see the toast
+      // const currentTime = "03:00"; 
+      
       console.log("currentTime:" + currentTime + " medicationTime: " + time);
       
       if (time === currentTime) {

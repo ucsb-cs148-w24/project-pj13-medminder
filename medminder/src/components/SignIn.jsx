@@ -1,18 +1,23 @@
 import { signInWithGooglePopup } from "../utils/firebase.utils";
 import { getDatabase, ref, query, get, set } from 'firebase/database';
-import React, { useState } from 'react';
+import React from 'react';
+import { useUserId } from './UserIdContext';
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-
-    // const [userData, setUserData] = useState(null);
-
+    
+    const { updateUserId } = useUserId();
+    const navigate = useNavigate();
     const logGoogleUser = async (name) => {
         const response = await signInWithGooglePopup();
         console.log(response);
+        navigate("/dashboard");
 
         const userId = response.user.uid;
         const email = response.user.email;
-        // setUserData({email });
+
+        // set userId
+        updateUserId(userId);
 
         const database = getDatabase();
 
