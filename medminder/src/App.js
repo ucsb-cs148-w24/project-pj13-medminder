@@ -1,19 +1,17 @@
 import './App.css';
-import SignIn from "./components/SignIn";
-import AlertPopupWithButton from "./components/AlertPopupWithButton/AlertPopupWithButton.jsx"
-import Display from "./components/data-show";
-import SimpleDataSender from "./components/StoreTestData";
-import DateNavigator from "./components/SetDateOnMain.jsx"
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/home"
+import Dasboard from "./pages/dashboard.js"
 
 function App() {
 
   return (
     <div className="App">
-      <SignIn />
-      <AlertPopupWithButton/>
-      <SimpleDataSender />
-      <DateNavigator />
-      <Display/>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/dashboard" element={<Dasboard />} />
+    </Routes>
+  
     </div>
   );
 }
