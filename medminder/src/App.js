@@ -4,6 +4,8 @@ import AlertPopupWithButton from "./components/AlertPopupWithButton/AlertPopupWi
 import Display from "./components/data-show";
 import SimpleDataSender from "./components/StoreTestData";
 import DateNavigator from "./components/SetDateOnMain.jsx"
+import MedicationReminder from './components/MedicationReminder.jsx';
+
 
 function App() {
 
@@ -13,8 +15,10 @@ function App() {
       <AlertPopupWithButton/>
       <SimpleDataSender />
       <DateNavigator />
-
+      
       <Display/>
+
+      <MedicationReminder/>
     </div>
   );
 }
