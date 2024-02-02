@@ -5,8 +5,9 @@ import { useUserId } from './UserIdContext';
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-    const navigate = useNavigate();
+    
     const { updateUserId } = useUserId();
+    const navigate = useNavigate();
     const logGoogleUser = async (name) => {
         const response = await signInWithGooglePopup();
         console.log(response);

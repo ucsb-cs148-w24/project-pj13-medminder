@@ -9,13 +9,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 ReactDOM.render(
   <GoogleOAuthProvider clientId="48920437462-2209kti0vlp0sv5tq72egns0hm2shocg.apps.googleusercontent.com">
-      <UserIdProvider>
-          <React.StrictMode>
-            <BrowserRouter>
-         <App />
-            </BrowserRouter>
+      <React.StrictMode>
+          <UserIdProvider>
+              <BrowserRouter>
+                  <App />
+              </BrowserRouter>
+          </UserIdProvider>
       </React.StrictMode>
-      </UserIdProvider>
   </GoogleOAuthProvider>,
   document.getElementById('root')
 );
