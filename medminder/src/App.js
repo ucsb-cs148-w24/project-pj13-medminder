@@ -13,7 +13,6 @@ function App() {
       <AlertPopupWithButton/>
       <SimpleDataSender />
       <DateNavigator />
-
       <Display/>
     </div>
   );
