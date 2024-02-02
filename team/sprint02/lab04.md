@@ -31,12 +31,13 @@ James:
 
 Michael: 
 
-- did pr for deploying the app
-- want to repackage and redeploy everything package updates
+- did pr for global userId
+- working on deploying app
+    - add explanation on how to repackage and redeploy everything package updates
 
 Vaishnavi: 
 
-- finished making a log in page that connects with dashboard
+- pr for making a log in page that connects with dashboard
 - will work on making it look better
 
 Garvin: 
