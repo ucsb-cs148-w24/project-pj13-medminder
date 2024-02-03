@@ -1,7 +1,7 @@
 # Date of Retrospective: 01/26/23
 
 * Led by: James Pflaging
-* Present: James, Michael, Vaishnavi, Garvin, Hanson, Tim
+* Present: James, Michael, Vaishnavi, Garvin, Hanson, Tim, Edwin
 * Absent: none
 
 ## Action item
