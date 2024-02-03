@@ -13,24 +13,24 @@
 ## Optional
 
 Start
-Putting more detail in pull requests in terms of changes made and how the changes were tested.
-Review other people’s pull requests quickly.
-Taking initiative to find your own issue and working on it making sure to put it on kanban board
-Name your pr “Close Issue #...”
-Generating more issues
-Committing the package.json and package-lock.json file in our pull requests
+- Putting more detail in pull requests in terms of changes made and how the changes were tested.
+- Review other people’s pull requests quickly.
+- Taking initiative to find your own issue and working on it making sure to put it on kanban board
+- Name your pr “Close Issue #...”
+- Generating more issues
+- Committing the package.json and package-lock.json file in our pull requests
 
 Stop 
-Being afraid to give feedback and voice concerns during team meetings
-Stop ignoring pull requests
-Not properly reviewing PRs
-Starting side conversations during standup
+- Being afraid to give feedback and voice concerns during team meetings
+- Stop ignoring pull requests
+- Not properly reviewing PRs
+- Starting side conversations during standup
 
 Continue
-Doing stand up meetings whenever we meet as a team
-Communicating which issue we are working on for the week
-Being active on Slack
-Being open to discussing and dealing with different opinions
+- Doing stand up meetings whenever we meet as a team
+- Communicating which issue we are working on for the week
+- Being active on Slack
+- Being open to discussing and dealing with different opinions
 
 
 ## Retro Assessment
