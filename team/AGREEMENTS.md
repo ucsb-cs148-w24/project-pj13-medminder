@@ -1,4 +1,4 @@
-Members: Edwin Yee, Hanson Yu, Garvin Young, James Pflaging, Michael Chen, Timothy Choi, Vaishnavi Himakunthala
+Members: Edwin Yee, Hanson Yu, Garvin Young, James Pflaging, Michael Cheng, Timothy Choi, Vaishnavi Himakunthala
 
 1. When one of us is absent for an unavoidable reason, we will let the other team members know on the team slack channel, in advance when possible, as soon as possible afterwards when not.
 2. We will each try to keep such absences to a minimum.
