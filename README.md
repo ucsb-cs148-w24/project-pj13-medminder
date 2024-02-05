@@ -15,7 +15,7 @@ An app to remind elderly people or their caretakers when they need to take their
 
 ### App Type and Tech Stack
 
-Webapp using React frontend, Google Firebase realtime database, Flask backend
+Webapp using **React** Frontend, **Google Firebase** Realtime Database + Deployment, **Node.js** Backend
 
 ### Description
 
