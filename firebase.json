@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "/medminder/build",
+    "public": "medminder/build",
     "ignore": [
       "firebase.json",
       "**/.*",
