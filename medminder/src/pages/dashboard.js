@@ -11,7 +11,6 @@ function Dashboard() {
       <AlertPopupWithButton/>
       <SimpleDataSender />
       <DateNavigator />
-      <Display/>
       <MedicationReminder/>
     </div>
   );
