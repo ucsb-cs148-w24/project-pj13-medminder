@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DataDisplay from './MedicineAlerts';
 
 const dateStyle = {
     textAlign: 'center', // Center the text
@@ -24,6 +25,7 @@ const DateNavigator = () => {
         <button onClick={() => changeDate(-1)}>Previous Day</button>
         <h2 style={dateStyle}>{formatDate(currentDate)}</h2> {/* Apply the styles to the date */}
         <button onClick={() => changeDate(1)}>Next Day</button>
+        <DataDisplay date={currentDate.getDay()} />
         </div>
     );
 };
