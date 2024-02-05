@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: |
+      - name: Install Dependencies and Build
+        run: |
           cd medminder
           npm install
           npm run build
