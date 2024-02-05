@@ -2,6 +2,9 @@ import AlertPopupWithButton from "../components/AlertPopupWithButton/AlertPopupW
 import Display from "../components/data-show.jsx";
 import SimpleDataSender from "../components/StoreTestData.jsx";
 import DateNavigator from "../components/SetDateOnMain.jsx"
+import { BrowserRouter, Navigate } from "react-router-dom";
+import MedicationReminder from '../components/MedicationReminder.jsx';
+
 function Dashboard() {
 
   return (
@@ -10,7 +13,7 @@ function Dashboard() {
       <SimpleDataSender />
       <DateNavigator />
       <Display/>
-  
+      <MedicationReminder/>
     </div>
   );
 }
