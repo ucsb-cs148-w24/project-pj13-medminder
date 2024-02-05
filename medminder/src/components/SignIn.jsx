@@ -3,6 +3,7 @@ import { getDatabase, ref, query, get, set } from 'firebase/database';
 import React from 'react';
 import { useUserId } from './UserIdContext';
 import { useNavigate } from "react-router-dom";
+import '../App.css';
 
 const SignIn = () => {
     
@@ -51,7 +52,7 @@ const SignIn = () => {
 
     return (
         <div>
-            <button onClick={logGoogleUser}>Sign In</button>
+            <button onClick={logGoogleUser} className="signin">Sign In</button>
         </div>
     )
 }

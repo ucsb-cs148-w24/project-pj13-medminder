@@ -1,0 +1,126 @@
+body{
+    background-color: #BF9270;
+    background: radial-gradient( #E3B7A0,  #E6BAA3, #BF9270);
+    margin: 5;
+}
+.signin{
+   
+  background-color: #E3B7A0;
+  border-radius: 10px;
+  height: 70px;
+  width: 100px;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: large;
+  margin-top: 5%;
+
+}
+.signin:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+  }
+
+h1{
+    margin-top: 20%;
+}
+p{
+    font-style:oblique;
+}
+.circle{
+    margin-top: 10%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(132deg,white,#b28d71, black);
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    animation: BackgroundGradient 30s ease infinite; 
+ 
+}
+
+.circle2{
+    margin-top: 0%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(132deg,white,#b28d71, black);
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    animation: BackgroundGradient 30s ease infinite; 
+    margin-left: 85%;
+    margin-right: 25%;
+ 
+}
+
+.circle3{
+    margin-top:-80%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(132deg,white,#b28d71, black);
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    animation: BackgroundGradient 30s ease infinite; 
+    margin-left: 10%;
+    margin-right: 35%;
+ 
+}
+.circle4{
+    margin-top: 0%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(132deg,white,#b28d71, black);
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    animation: BackgroundGradient 30s ease infinite; 
+    margin-left:80%;
+    margin-right: 45%;
+ 
+}
+
+.circle5{
+    margin-top: -0%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(132deg,white,#b28d71, black);
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    animation: BackgroundGradient 30s ease infinite; 
+    margin-left: -15%;
+    margin-right: 50%;
+ 
+}
+
+.circle6{
+    margin-top: 2%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(132deg,white,#b28d71, black);
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    animation: BackgroundGradient 30s ease infinite; 
+    margin-left: 85%;
+    margin-right: 25%;
+ 
+}
+.Home{
+    background-color: #cda17f;
+    font-size: 35px;
+    text-align: center;
+    vertical-align: center;
+    position: relative;
+    margin-top: 3%;
+    border:5px solid #FFEDDB;
+    height: 600px;
+    width: 1000px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 100px;
+    padding-right: 10px;
+    font-family: monospace;
+    margin-left: 15%;
+    margin-right: 50%;
+}
