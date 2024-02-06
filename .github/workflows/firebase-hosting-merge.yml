@@ -14,7 +14,7 @@ jobs:
       - run: cd medminder && npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.MCHENG5_GITHUB_TOKEN }}'
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MED__MINDER }}'
           channelId: live
           projectId: med--minder
