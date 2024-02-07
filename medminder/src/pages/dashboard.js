@@ -7,12 +7,13 @@ import SignOut from "../components/SignOut.jsx";
 function Dashboard() {
 
   return (
-    <div className="Dasboard">
+    <div>
       <SignOut/>
-      <AlertPopupWithButton/>
-      <SimpleDataSender />
-      <DateNavigator />
-      <MedicationReminder/>
+      <div className="Dasboard" style={{textAlign: 'center', marginTop: '60px'}}>
+        <DateNavigator />
+        <AlertPopupWithButton/>
+        <MedicationReminder/>
+      </div>
     </div>
   );
 }
