@@ -2,11 +2,13 @@ import AlertPopupWithButton from "../components/AlertPopupWithButton/AlertPopupW
 import SimpleDataSender from "../components/StoreTestData.jsx";
 import DateNavigator from "../components/SetDateOnMain.jsx"
 import MedicationReminder from '../components/MedicationReminder.jsx';
+import SignOut from "../components/SignOut.jsx";
 
 function Dashboard() {
 
   return (
-    <div className="Dasboard" >
+    <div className="Dasboard">
+      <SignOut/>
       <AlertPopupWithButton/>
       <SimpleDataSender />
       <DateNavigator />

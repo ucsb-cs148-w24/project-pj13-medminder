@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 export const UserIdContext = createContext();
 
@@ -10,7 +10,7 @@ export const UserIdProvider = ({ children }) => {
   };
 
   return (
-    <UserIdContext.Provider value={{ userId, updateUserId }}>
+    <UserIdContext.Provider value={{ userId, updateUserId}}>
       {children}
     </UserIdContext.Provider>
   );
