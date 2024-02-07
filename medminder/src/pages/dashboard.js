@@ -11,7 +11,6 @@ function Dashboard() {
     <div className="Dasboard">
       <SignOut/>
        <div className="nav" >
-        <h1></h1>
        </div>
       <AlertPopupWithButton/>
       <SimpleDataSender />
