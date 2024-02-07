@@ -38,7 +38,7 @@ const DataDisplay = (props) => {
     return (
         <div style={{ textAlign: 'center', marginTop: '20px'  }}>
             {data ? Object.values(data).filter(alert => alert.day[days[props.date]] === true).map((alert) => ( 
-                <Alert key={alert} alert={alert}/>
+                <Alert key={alert.timestamp} alert={alert}/>
             )) : 'Loading or no data...'}
         </div>
     );
