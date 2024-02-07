@@ -4,7 +4,7 @@ import { useUserId } from './UserIdContext';
 import Alert from './Alert';
 
 const DataDisplay = (props) => {
-    const [data, setData] = useState([]); // Initialize state to store your data
+    const [data, setData] = useState([]);
     const { userId } = useUserId();
     const [localUserId, setLocalUserId] = useState();
     
@@ -18,7 +18,7 @@ const DataDisplay = (props) => {
     useEffect(() => {
         const database = getDatabase();
 
-        const dataRef = ref(database, 'Users/' + localUserId + '/UserData/Alerts');
+        const dataRef = ref(database, 'Users/' + localUserId + '/UserData');
 
         // Fetch the data
         onValue(dataRef, (snapshot) => {
@@ -37,8 +37,8 @@ const DataDisplay = (props) => {
 
     return (
         <div style={{ textAlign: 'center', marginTop: '20px'  }}>
-            {data ? data.filter(alert => alert.days[days[props.date]] === true).map((alert) => ( 
-                <Alert key={alert.alertId} alert={alert}/>
+            {data ? Object.values(data).filter(alert => alert.day[days[props.date]] === true).map((alert) => ( 
+                <Alert key={alert.timestamp} alert={alert}/>
             )) : 'Loading or no data...'}
         </div>
     );

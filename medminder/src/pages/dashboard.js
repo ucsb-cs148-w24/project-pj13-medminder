@@ -8,14 +8,15 @@ import '../Dash-style.css';
 function Dashboard() {
 
   return (
-    <div className="Dasboard">
+    <div>
       <SignOut/>
-       <div className="nav" >
+      <div className="nav" >
        </div>
-      <AlertPopupWithButton/>
-      <SimpleDataSender />
-      <DateNavigator />
-      <MedicationReminder/>
+      <div className="Dasboard" style={{textAlign: 'center', marginTop: '60px'}}>
+        <DateNavigator />
+        <AlertPopupWithButton/>
+        <MedicationReminder/>
+      </div>
     </div>
   );
 }

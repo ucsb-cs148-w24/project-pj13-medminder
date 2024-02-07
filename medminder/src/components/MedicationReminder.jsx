@@ -91,7 +91,6 @@ class MedicationReminder extends Component {
   render() {
     return (
       <div>
-        <p>Medicine Alert Active</p>
       </div>
     );
   }
