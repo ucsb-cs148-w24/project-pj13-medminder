@@ -6,4 +6,5 @@
 | 1/24/2024 | Edwin Yee  | Create lect04.md                             |
 | 1/26/2024  | Michael Cheng | Create lab03.md                          |
 | 1/26/2024 | James Pflaging   | Sprint1 Retrospective      | 
+| 2/07/2024 | Edwin Yee  | Create lect08.md                             |
 

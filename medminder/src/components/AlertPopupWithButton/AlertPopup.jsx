@@ -52,7 +52,10 @@ export default function AlertPopup(props) {
     const submitForm = (event) => {
         event.preventDefault();
 
+        const timestamp = new Date().toISOString();
+
         const formData = {
+            timestamp,
             medicineName,
             dosageAmount,
             dosageUnits,
