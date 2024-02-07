@@ -52,7 +52,7 @@ export default function AlertPopup(props) {
     const submitForm = (event) => {
         event.preventDefault();
 
-        const timestamp = new Date().toISOString();
+        const timestamp = new Date().toISOString().replace(/[.:]/g, '_');
 
         const formData = {
             timestamp,
