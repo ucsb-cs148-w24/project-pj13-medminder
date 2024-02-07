@@ -26,8 +26,8 @@ const Alert = ({alert}) => {
       // TODO: implement edit and delete button functionality based on key of Alert component
     return (
         <div style={styles.container}>
-            <p style={styles.detail}>{alert.medicine}</p>
-            <p style={styles.detail}>{alert.dosage}</p>
+            <p style={styles.detail}>{alert.medicineName}</p>
+            <p style={styles.detail}>{alert.dosageAmount + " " + alert.dosageUnits}</p>
             <p style={styles.detail}>{alert.time}</p>
             <button style={styles.button}>Edit</button>
             <button style={styles.button}>Delete</button>
