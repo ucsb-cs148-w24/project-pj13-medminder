@@ -1,11 +1,20 @@
 .nav{
     background-color:#FFEDDB;
     text-align: right;
-    margin-top: -450px;
+    margin-top: -470px;
     margin-left: -20px;
     height: 200px;
 }
 
+.sign-out{
+  background-color: #E3B7A0;
+  border-radius: 10px;
+}
+
+.sign-out:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  cursor: pointer;
+}
 
 .arrow-right{
     height: 5px;

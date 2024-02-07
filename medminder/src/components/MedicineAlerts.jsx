@@ -29,7 +29,7 @@ const DataDisplay = (props) => {
             console.log("No data available");
         }
         },);
-    }, [localUserId]);
+    }, [localUserId, data]);
     
 
     // Get the day of the week as a number (0-6)
