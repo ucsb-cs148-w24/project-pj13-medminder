@@ -8,6 +8,7 @@ class MedicationReminder extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      date: "",
       time: "",
     };
   }
@@ -27,27 +28,63 @@ class MedicationReminder extends Component {
 
   getCurrentTime = () => {
     const now = new Date();
+
+    let day = ""
+    switch (now.getDay()) {
+      case 0:
+        day = "Sunday";
+        break;
+      case 1:
+        day = "Monday";
+        break;
+      case 2:
+         day = "Tuesday";
+        break;
+      case 3:
+        day = "Wednesday";
+        break;
+      case 4:
+        day = "Thursday";
+        break;
+      case 5:
+        day = "Friday";
+        break;
+      case 6:
+        day = "Saturday";
+        break 
+      default:
+        day = "Unknown"; 
+    }
+
     const hours = now.getHours();
     const minutes = now.getMinutes();
-    return `${hours}:${minutes}`;
+    return `${day}:${hours}:${minutes}`;
   };
 
   getData = async () => {
+    const { userId } = this.props; // Get user ID from props
     const db = getDatabase();
-    const dbref5 = ref(db, 'Users/testUser123/medicine/day');
-    const dbref6 = ref(db, 'Users/testUser123/medicine/time');
+
+    const dbDayRef = ref(db, `Users/${userId}/UserData/`);
+
+    // const dbDayRef = ref(db, `Users/${userId}/medicine/day`);
+    // const dbTimeRef = ref(db, `Users/${userId}/medicine/time`);
+    // const dbDayRef = ref(db, 'Users/testUser123/medicine/day');
+    const dbTimeRef = ref(db, 'Users/testUser123/medicine/time');
 
     try {
-        const snapshot5 = await get(dbref5);
-        const snapshot6 = await get(dbref6);
+        const daySnapshot = await get(dbDayRef);
+        const timeSnapshot = await get(dbTimeRef);
 
-        const data1 = snapshot5.val();
-        const data2 = snapshot6.val();
+        const data1 = daySnapshot.val();
+        const data2 = timeSnapshot.val();
 
-        const time = (data1 || '') + (data2 || '');
+        console.log("daySnapshot" + Object.values(data1));
+
+        const time = (data1 || '') + ":" + (data2 || '');
 
         this.setState({
-            time: time.slice(-8, -3)
+            time: time.slice(0,-3)
         });
     } catch (error) {
         console.error('Error fetching data:', error.message);
@@ -60,10 +97,11 @@ class MedicationReminder extends Component {
 
       const { time } = this.state;
       const currentTime = this.getCurrentTime();
+
       // comment the above line and put the line below to see the toast
-      // const currentTime = "03:00"; 
+      // const currentTime = "Monday:03:00"; 
       
-      console.log("currentTime:" + currentTime + " medicationTime: " + time);
+      console.log("currentTime: " + currentTime + " medicationTime: " + time);
       
       if (time === currentTime) {
         console.log("time==currentTime!");

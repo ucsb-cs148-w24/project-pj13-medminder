@@ -11,7 +11,7 @@ function Dashboard() {
       <AlertPopupWithButton/>
       <SimpleDataSender />
       <DateNavigator />
-      <MedicationReminder/>
+      <MedicationReminder userId="ciHMLvlQJJdA03CEv9WJQca8c1t1" />
     </div>
   );
 }
