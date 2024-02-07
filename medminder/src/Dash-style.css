@@ -26,8 +26,9 @@
     border:25px solid #E3B7A0;
     border-left: 30px solid #BF9270;
     background-color: #E3B7A0;
-    right: 250px;
-    top: 200px
+    right: 180px;
+    top: 200px;
+    z-index: 100
 }
 
 .arrow-left {
@@ -41,7 +42,8 @@
     border-right:30px solid #BF9270; 
     background-color: #E3B7A0;
     top: 200px;
-    left: 250px
+    left: 180px;
+    z-index: 100
 
   }
 
