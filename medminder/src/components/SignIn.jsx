@@ -3,7 +3,6 @@ import { getDatabase, ref, query, get, set } from 'firebase/database';
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import '../App.css';
-import { useUserId } from "./AuthContext";
 
 const SignIn = () => {
     
