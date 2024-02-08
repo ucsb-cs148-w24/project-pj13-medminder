@@ -4,7 +4,7 @@ function Home() {
 
   return (
     <div className="Home">
-      <h1>Medminder</h1>
+      <h1 className="title">Medminder</h1>
       <p>Your medicine reminder.. one pill at a time</p>
       <SignIn />
       <div className="circle"></div>

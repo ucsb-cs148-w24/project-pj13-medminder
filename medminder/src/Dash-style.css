@@ -1,0 +1,66 @@
+.nav{
+    background-color:#FFEDDB;
+    text-align: right;
+    margin-top: -175px;
+    margin-left: -20px;
+    height: 200px;
+}
+
+.sign-out{
+  background-color: #E3B7A0;
+  border-radius: 10px;
+}
+
+
+.sign-out:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  cursor: pointer;
+}
+
+.arrow-right{
+    height: 5px;
+    width: 0px;
+    position: absolute;
+    border-top: 30px solid #E3B7A0;
+    border-bottom: 30px solid #E3B7A0;
+    border-right: 30px solid #E3B7A0;
+    border:25px solid #E3B7A0;
+    border-left: 30px solid #BF9270;
+    background-color: #E3B7A0;
+    right: 180px;
+    top: 150px;
+    z-index: 100
+}
+
+.arrow-left {
+    position: absolute;
+    height: 5px;
+    width: 0px;
+    border-top: 30px solid #E3B7A0;
+    border-bottom: 30px solid #E3B7A0; 
+    border-left: 30px solid #E3B7A0;
+    border:25px solid #E3B7A0;
+    border-right:30px solid #BF9270; 
+    background-color: #E3B7A0;
+    top: 150px;
+    left: 180px;
+    z-index: 100
+
+  }
+
+  .arrow-left:hover{
+    cursor: pointer;
+  }
+  .arrow-right:hover{
+    cursor: pointer;
+  }
+
+  .edit{
+    background-color: #E3B7A0;
+    border-color:#E3B7A0 ;
+  }
+
+  .delete{
+    background-color: #E3B7A0;
+    border-color:#E3B7A0 ;
+  }

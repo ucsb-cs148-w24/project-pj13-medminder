@@ -1,4 +1,8 @@
 import React from 'react';
+import { AiFillEdit } from "react-icons/ai";
+import { AiFillRest } from "react-icons/ai";
+import '../Dash-style.css';
+
 
 const Alert = ({alert}) => {
 
@@ -29,8 +33,9 @@ const Alert = ({alert}) => {
             <p style={styles.detail}>{alert.medicineName}</p>
             <p style={styles.detail}>{alert.dosageAmount + " " + alert.dosageUnits}</p>
             <p style={styles.detail}>{alert.time}</p>
-            <button style={styles.button}>Edit</button>
-            <button style={styles.button}>Delete</button>
+            <button className="edit"><AiFillEdit /></button>
+            
+            <button className="delete"><AiFillRest /></button>
         </div>
     );
 };
