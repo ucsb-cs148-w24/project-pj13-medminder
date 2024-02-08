@@ -1,8 +1,10 @@
 import React from 'react';
-import { AiFillEdit } from "react-icons/ai";
-import { AiFillRest } from "react-icons/ai";
-import '../Dash-style.css';
+import DeleteAlert from './DeleteAlert';
+import AlertPopupWithButton from "./AlertPopupWithButton/AlertPopupWithButton.jsx"
 
+// import { AiFillRest } from "react-icons/ai";
+// import { AiFillEdit} from "react-icons/ai";
+// import '../Dash-style.css';
 
 const Alert = ({alert}) => {
 
@@ -27,15 +29,20 @@ const Alert = ({alert}) => {
       };
 
 
-      // TODO: implement edit and delete button functionality based on key of Alert component
+      
     return (
         <div style={styles.container}>
             <p style={styles.detail}>{alert.medicineName}</p>
             <p style={styles.detail}>{alert.dosageAmount + " " + alert.dosageUnits}</p>
             <p style={styles.detail}>{alert.time}</p>
-            <button className="edit"><AiFillEdit /></button>
+            <DeleteAlert timestamp={alert.timestamp} />
+            <AlertPopupWithButton timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount} 
+              dosageUnits={alert.dosageUnits} frequency={alert.frequency} frequencyUnits={alert.frequencyUnits} otherNotes={alert.otherNotes} 
+              time={alert.time} repeatWeek={alert.repeatWeek} day={alert.day} editing={true}/>
             
-            <button className="delete"><AiFillRest /></button>
+
+            {/* <button className="edit"><AiFillEdit /></button>
+            <button className="delete"><AiFillRest /></button> */}
         </div>
     );
 };
