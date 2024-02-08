@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "./AlertPopup.css";
 import "./ButtonStyles.css";
 import { handleSubmit } from './formHandlers.js';
-import { useUserId } from "../AuthContext";
+import { useAuthContext } from "../AuthContext";
 
 export default function AlertPopup(props) {
-    const userId = useUserId();
+    const auth = useAuthContext();
+    const { userId } = auth.currentUser.uid;
     const [medicineName, setMedicineName] = useState("");
     const [otherNotes, setOtherNotes] = useState("");
     const [dosageAmount, setDosageAmount] = useState("");
