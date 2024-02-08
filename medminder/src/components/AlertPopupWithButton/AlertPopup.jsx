@@ -76,7 +76,7 @@ export default function AlertPopup(props) {
         };
 
         // Pass formData and other necessary arguments to handleSubmit
-        handleSubmit(formData, userId, clearForm, togglePopup);
+        handleSubmit(formData, userId, clearForm, togglePopup, timestamp);
     };
 
     if (popup) {
