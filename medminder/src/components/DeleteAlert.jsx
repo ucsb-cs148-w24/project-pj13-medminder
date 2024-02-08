@@ -21,6 +21,6 @@ export default function DeleteAlert(props) {
 
 
     return (
-      <button onClick={deleteAlert}></button>
+      <button onClick={deleteAlert}>DeleteAlert</button>
     )
 }
