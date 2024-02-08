@@ -2,9 +2,8 @@ import React from 'react';
 import DeleteAlert from './DeleteAlert';
 import AlertPopupWithButton from "./AlertPopupWithButton/AlertPopupWithButton.jsx"
 
-// import { AiFillRest } from "react-icons/ai";
-// import { AiFillEdit} from "react-icons/ai";
-// import '../Dash-style.css';
+import { AiFillEdit } from "react-icons/ai";
+import '../Dash-style.css';
 
 const Alert = ({alert}) => {
 
@@ -44,7 +43,7 @@ const Alert = ({alert}) => {
             <DeleteAlert timestamp={alert.timestamp} />
             <AlertPopupWithButton timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount} 
               dosageUnits={alert.dosageUnits} frequency={alert.frequency} frequencyUnits={alert.frequencyUnits} otherNotes={alert.otherNotes} 
-              time={alert.time} repeatWeek={alert.repeatWeek} day={alert.day} editing={true}/>
+              time={alert.time} repeatWeek={alert.repeatWeek} day={alert.day} editing={true} TextInButton={<AiFillEdit />} buttonDesign={"edit"}/>
             
 
             {/* <button className="edit"><AiFillEdit /></button>
