@@ -28,6 +28,28 @@ export default function AlertPopup(props) {
         setPopup(!popup);
     };
 
+    const togglePopup2 = () => {
+        setPopup(!popup);
+
+        setMedicineName(props.medicineName);
+        setOtherNotes(props.otherNotes);
+        setDosageAmount(props.dosageAmount);
+        setFrequency(props.frequency);
+        setTime(props.time);
+        setDosageUnits(props.dosageUnits);
+        setFrequencyUnits(props.frequencyUnits);
+        setRepeatWeek(props.repeatWeek);
+
+        setSunday(props.day['sunday']);
+        setMonday(props.day['monday']);
+        setTuesday(props.day['tuesday']);
+        setWednesday(props.day['wednesday']);
+        setThursday(props.day['thursday']);
+        setFriday(props.day['friday']);
+        setSaturday(props.day['saturday']);
+    };
+
+
     
 
     const clearForm = () => {
@@ -52,7 +74,7 @@ export default function AlertPopup(props) {
     const submitForm = (event) => {
         event.preventDefault();
 
-        const timestamp = new Date().toISOString().replace(/[.:]/g, '_');
+        const timestamp = props.editing ? props.timestamp : new Date().toISOString().replace(/[.:]/g, '_');
 
         const formData = {
             timestamp,
@@ -85,7 +107,7 @@ export default function AlertPopup(props) {
 
     return (
         <>
-            <button onClick={togglePopup} className={props.buttonDesign}>
+            <button onClick={props.editing ? togglePopup2 : togglePopup} className={props.buttonDesign}>
                 {props.TextInButton}
             </button>
 

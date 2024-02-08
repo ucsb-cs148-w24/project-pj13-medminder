@@ -6,7 +6,7 @@ export default function DeleteAlert(props) {
 
     const auth = useAuthContext();
     const userId = auth.currentUser.uid;
-    const dataRef = ref(database, 'Users/' + userId + '/UserData' + props.timestamp);
+    const dataRef = ref(database, 'Users/' + userId + '/UserData/' + props.timestamp);
 
     const deleteAlert = () => {
         remove(dataRef)
@@ -18,9 +18,7 @@ export default function DeleteAlert(props) {
           });
       }
 
-
-
     return (
-        <button onClick={deleteAlert}>DeleteAlert</button>
+      <button onClick={deleteAlert}>DeleteAlert</button>
     )
 }
