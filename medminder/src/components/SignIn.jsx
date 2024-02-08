@@ -4,10 +4,12 @@ import React from 'react';
 import { useUserId } from './UserIdContext';
 import { useNavigate } from "react-router-dom";
 import '../App.css';
+import { useAuthContext } from "./AuthContext";
 
 const SignIn = () => {
     
-    const { updateUserId } = useUserId();
+    const auth = useAuthContext();
+    const { updateUserId } = auth.currentUser.uid;
     const navigate = useNavigate();
     const logGoogleUser = async (name) => {
         const response = await signInWithGooglePopup();
