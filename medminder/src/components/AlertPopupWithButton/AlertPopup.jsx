@@ -52,7 +52,7 @@ export default function AlertPopup(props) {
     const submitForm = (event) => {
         event.preventDefault();
 
-        const timestamp = new Date().toISOString();
+        const timestamp = new Date().toISOString().replace(/[.:]/g, '_');
 
         const formData = {
             timestamp,
@@ -94,9 +94,6 @@ export default function AlertPopup(props) {
                     <div onClick={togglePopup} className="overlay"></div>
                     <div className="modal-content">
                         <form className="form">
-
-
-
                             <h1 className="header">🦠 Add a Medicine 💊</h1>
 
                                 <h4>Medicine Name:</h4>

@@ -17,6 +17,7 @@ body.active-modal {
     right: 0;
     bottom: 0;
     position: fixed;
+    z-index: 200;
 }
 
 .overlay {
@@ -28,6 +29,7 @@ body.active-modal {
     left: 50%;
     transform: translate(-50%, -50%);
     background: #95cfeb;
+    z-index: 300;
     padding: 20px 28px;
     border-radius: 10px;
     width: 800px;
@@ -151,4 +153,3 @@ textarea:focus {
 .checkbox-container input[type="checkbox"] {
     margin-right: 10px; /* Adjust spacing between checkboxes */
 }
-

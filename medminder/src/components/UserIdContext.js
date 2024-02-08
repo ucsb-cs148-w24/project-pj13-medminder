@@ -1,3 +1,6 @@
+// DEPRECATED - PLEASE USE useAuthContext().currentUser.uid for userid
+// useAuthContext() payload has much more useful information
+
 import { createContext, useContext, useState } from 'react';
 
 export const UserIdContext = createContext();
