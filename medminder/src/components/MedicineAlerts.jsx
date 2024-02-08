@@ -1,35 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database';
-import { useUserId } from './UserIdContext';
 import Alert from './Alert';
+import { useAuthContext } from './AuthContext';
 
 const DataDisplay = (props) => {
     const [data, setData] = useState([]);
-    const { userId } = useUserId();
-    const [localUserId, setLocalUserId] = useState();
-    
-    useEffect(() => { 
-        if (userId != null){
-            localStorage.setItem("localUserId", userId);
-        }
-        setLocalUserId(localStorage.getItem("localUserId"));
-    }, [userId]);
+    const auth = useAuthContext();
+    const userId = auth.currentUser.uid;
 
     useEffect(() => {
         const database = getDatabase();
-
-        const dataRef = ref(database, 'Users/' + localUserId + '/UserData');
+        const dataRef = ref(database, 'Users/' + userId + '/UserData');
 
         // Fetch the data
         onValue(dataRef, (snapshot) => {
         if (snapshot.exists()) {
             setData(snapshot.val());
             console.log(data);
+            console.log(userId);
         } else {
             console.log("No data available");
         }
         },);
-    }, [localUserId, data]);
+    }, [userId]);
     
 
     // Get the day of the week as a number (0-6)
