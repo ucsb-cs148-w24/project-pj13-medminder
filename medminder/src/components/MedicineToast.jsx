@@ -1,73 +1,84 @@
 import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database';
-import { useUserId } from './UserIdContext';
-import Alert from './Alert';
+import { useAuthContext } from './AuthContext';
+import Toastify from 'toastify-js';
 
-const DataDisplay = (props) => {
-    const [data, setData] = useState([]);
-    const [currentTime, setCurrentTime] = useState('');
-    const { userId } = useUserId();
-    const [localUserId, setLocalUserId] = useState();
-    
-    useEffect(() => { 
-        if (userId != null){
-            localStorage.setItem("localUserId", userId);
-        }
-        setLocalUserId(localStorage.getItem("localUserId"));
-    }, [userId]);
+const MedicineToast = (props) => {
+    const auth = useAuthContext();
+    const userId = auth.currentUser.uid;
 
     useEffect(() => {
-        const database = getDatabase();
+        // Run checkMedicationTime every 10 seconds
+        const intervalId = setInterval(checkMedicationTime, 10000);
+    
+        // Cleanup the interval on component unmount
+        return () => clearInterval(intervalId);
+     }, [userId]); 
+    
 
-        const dataRef = ref(database, 'Users/' + localUserId + '/UserData');
+    const checkMedicationTime = async () => {
+        try {
+            const database = getDatabase();
+            const dataRef = ref(database, 'Users/' + userId + '/UserData');
+            let data = "";
 
-        // Fetch the data
-        onValue(dataRef, (snapshot) => {
-        if (snapshot.exists()) {
-            setData(snapshot.val());
-            console.log(data);
-            console.log(localUserId);
-        } else {
-            console.log("No data available");
+            // Fetch the data
+            onValue(dataRef, (snapshot) => {
+            if (snapshot.exists()) {
+                data = snapshot.val();
+                console.log("toast user id: " + userId);
+            } else {
+                console.log("No data available");
+            }
+            });
+            const now = new Date();
+            const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+            const currentDay = daysOfWeek[now.getDay()] || "unknown";
+    
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const currentTime = `${hours}:${minutes}`;
+            
+            // For testing purposes, uncomment the code below and adjust to match 
+            // your medicine day and medicine time
+            // const currentDay = "friday";
+            // const currentTime = "05:54";
+  
+            const filteredMedications = Object.values(data).filter(medication => {
+                return medication.day[currentDay] && medication.time === currentTime;
+              });
+        
+            const medicationDetails = filteredMedications.map(medication => ({
+                medicineName: medication.medicineName,
+                time: medication.time,
+                days: medication.day
+            }));
+  
+            console.log("currentTime: " + currentTime + " medicationTime: ", medicationDetails);
+            
+            medicationDetails.forEach(medication => {
+                if (medication.time === currentTime && medication.days[currentDay]) {
+        
+                Toastify({
+                    text: `It's time to take ${medication.medicineName}!`,
+                    duration: 10000,
+                    destination: "https://github.com/apvarun/toastify-js",
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom'
+                    position: "left", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                }).showToast();
+                }
+            });
+        } catch (error) {
+            console.error('Error checking medication time:', error.message);
         }
-        },);
-    }, [localUserId, data]);
-    
-    useEffect(() => {
-      const getCurrentTime = () => {
-        const now = new Date();
-        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const day = daysOfWeek[now.getDay()] || "Unknown";
-  
-        const hours = now.getHours();
-        const minutes = now.getMinutes();
-        const formattedTime = `${day}:${hours}:${minutes}`;
-        setCurrentTime(formattedTime);
-      };
-  
-      const intervalId = setInterval(() => {
-        getCurrentTime();
-      }, 1000);
-  
-      // Cleanup interval on component unmount
-      return () => clearInterval(intervalId);
-  
-    }, []); // Empty dependency array to run effect only once on mount
+    };
 
-    
-    
-
-
-    // Get the day of the week as a number (0-6)
-    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-
-    return (
-        <div style={{ textAlign: 'center', marginTop: '20px'  }}>
-            {data ? Object.values(data).filter(alert => alert.day[days[props.date]] === true).map((alert) => ( 
-                <Alert key={alert.timestamp} alert={alert}/>
-            )) : 'Loading or no data...'}
-        </div>
-    );
 };
 
-export default DataDisplay;
+export default MedicineToast;
