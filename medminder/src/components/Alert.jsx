@@ -1,4 +1,5 @@
 import React from 'react';
+import DeleteAlert from './DeleteAlert';
 
 const Alert = ({alert}) => {
 
@@ -30,7 +31,7 @@ const Alert = ({alert}) => {
             <p style={styles.detail}>{alert.dosageAmount + " " + alert.dosageUnits}</p>
             <p style={styles.detail}>{alert.time}</p>
             <button style={styles.button}>Edit</button>
-            <button style={styles.button}>Delete</button>
+            <DeleteAlert timestamp={alert.timestamp} />
         </div>
     );
 };
