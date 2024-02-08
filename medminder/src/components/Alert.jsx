@@ -1,6 +1,6 @@
 import React from 'react';
 import DeleteAlert from './DeleteAlert';
-import EditAlert from './EditAlert';
+// import EditAlert from './EditAlert';
 // import { AiFillRest } from "react-icons/ai";
 // import { AiFillEdit} from "react-icons/ai";
 // import '../Dash-style.css';
