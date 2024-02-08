@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DataDisplay from './MedicineAlerts';
 import '../Dash-style.css';
+import MedicineToast from './MedicineToast';
 
 
 const options = {
@@ -33,6 +34,7 @@ const DateNavigator = () => {
         <h2 style={dateStyle}>{formatDate(currentDate)}</h2> {/* Apply the styles to the date */}
         <div className='date'>
         <DataDisplay date={currentDate.getDay()} />
+        <MedicineToast date={currentDate.getDay()} />
         </div>
         <button className="arrow-left" onClick={() => changeDate(-1)}></button>
         <button className="arrow-right" onClick={() => changeDate(1)}></button>
