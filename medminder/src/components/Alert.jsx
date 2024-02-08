@@ -35,6 +35,8 @@ const Alert = ({alert}) => {
             <p style={styles.detail}>{alert.dosageAmount + " " + alert.dosageUnits}</p>
             <p style={styles.detail}>{alert.time}</p>
             <DeleteAlert timestamp={alert.timestamp} />
+            {/* <button className="edit"><AiFillEdit /></button>
+            <button className="delete"><AiFillRest /></button> */}
         </div>
     );
 };
