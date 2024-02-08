@@ -1,6 +1,8 @@
-import React from 'react';
-import DeleteAlert from './DeleteAlert';
+import React, { useState } from 'react';
 import AlertPopupWithButton from "./AlertPopupWithButton/AlertPopupWithButton.jsx"
+import { useAuthContext } from './AuthContext';
+import { ref, remove } from 'firebase/database';
+import { database } from '../utils/firebase.utils';
 
 // import { AiFillRest } from "react-icons/ai";
 // import { AiFillEdit} from "react-icons/ai";
@@ -29,13 +31,34 @@ const Alert = ({alert}) => {
       };
 
 
+      const auth = useAuthContext();
+      const userId = auth.currentUser.uid;
+      const dataRef = ref(database, 'Users/' + userId + '/UserData/' + alert.timestamp);
+      const [deleted, setDeleted] = useState(false);
+
+      const deleteAlert = () => {
+        remove(dataRef)
+          .then(() => {
+            console.log('Data deleted successfully');
+            setDeleted(true);
+          })
+          .catch((error) => {
+            console.error('Error deleting data:', error);
+          });
+      }
+
+      if (deleted) {
+        return null;
+      }
+
+
       
     return (
         <div style={styles.container}>
             <p style={styles.detail}>{alert.medicineName}</p>
             <p style={styles.detail}>{alert.dosageAmount + " " + alert.dosageUnits}</p>
             <p style={styles.detail}>{alert.time}</p>
-            <DeleteAlert timestamp={alert.timestamp} />
+            <button onClick={deleteAlert}>DeleteAlert</button>
             <AlertPopupWithButton timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount} 
               dosageUnits={alert.dosageUnits} frequency={alert.frequency} frequencyUnits={alert.frequencyUnits} otherNotes={alert.otherNotes} 
               time={alert.time} repeatWeek={alert.repeatWeek} day={alert.day} editing={true}/>
