@@ -1,4 +1,5 @@
 import React from 'react';
+import MedicationReminder from './OldMedicationReminder';
 
 const Alert = ({alert}) => {
 
@@ -31,6 +32,7 @@ const Alert = ({alert}) => {
             <p style={styles.detail}>{alert.time}</p>
             <button style={styles.button}>Edit</button>
             <button style={styles.button}>Delete</button>
+            <MedicationReminder time={alert.time}/>
         </div>
     );
 };

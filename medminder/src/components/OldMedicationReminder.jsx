@@ -65,11 +65,11 @@ class MedicationReminder extends Component {
     const { userId } = this.props; // Get user ID from props
     const db = getDatabase();
 
-    const dbDayRef = ref(db, `Users/${userId}/UserData/`);
+    // const dbDayRef = ref(db, `Users/${userId}/UserData/`);
 
     // const dbDayRef = ref(db, `Users/${userId}/medicine/day`);
     // const dbTimeRef = ref(db, `Users/${userId}/medicine/time`);
-    // const dbDayRef = ref(db, 'Users/testUser123/medicine/day');
+    const dbDayRef = ref(db, 'Users/testUser123/medicine/day');
     const dbTimeRef = ref(db, 'Users/testUser123/medicine/time');
 
     try {
@@ -89,7 +89,7 @@ class MedicationReminder extends Component {
     } catch (error) {
         console.error('Error fetching data:', error.message);
     }
-};
+  };
 
   checkMedicationTime = async () => {
     try {

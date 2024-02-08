@@ -5,6 +5,7 @@ import Alert from './Alert';
 
 const DataDisplay = (props) => {
     const [data, setData] = useState([]);
+    const [currentTime, setCurrentTime] = useState('');
     const { userId } = useUserId();
     const [localUserId, setLocalUserId] = useState();
     
@@ -32,6 +33,30 @@ const DataDisplay = (props) => {
         },);
     }, [localUserId, data]);
     
+    useEffect(() => {
+      const getCurrentTime = () => {
+        const now = new Date();
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const day = daysOfWeek[now.getDay()] || "Unknown";
+  
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const formattedTime = `${day}:${hours}:${minutes}`;
+        setCurrentTime(formattedTime);
+      };
+  
+      const intervalId = setInterval(() => {
+        getCurrentTime();
+      }, 1000);
+  
+      // Cleanup interval on component unmount
+      return () => clearInterval(intervalId);
+  
+    }, []); // Empty dependency array to run effect only once on mount
+
+    
+    
+
 
     // Get the day of the week as a number (0-6)
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
