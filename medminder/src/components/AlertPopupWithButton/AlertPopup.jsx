@@ -94,9 +94,6 @@ export default function AlertPopup(props) {
                     <div onClick={togglePopup} className="overlay"></div>
                     <div className="modal-content">
                         <form className="form">
-
-
-
                             <h1 className="header">🦠 Add a Medicine 💊</h1>
 
                                 <h4>Medicine Name:</h4>

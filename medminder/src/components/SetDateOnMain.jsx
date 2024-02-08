@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
 import DataDisplay from './MedicineAlerts';
+import '../Dash-style.css';
+
+
+const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
 
 const dateStyle = {
     textAlign: 'center', // Center the text
@@ -17,15 +25,17 @@ const DateNavigator = () => {
     };
 
     const formatDate = (date) => {
-        return date.toLocaleDateString();
+        return date.toLocaleDateString("en-us", options);
     };
 
     return (
         <div style={{ textAlign: 'center' }}> {/* Center the entire content */}
-        <button onClick={() => changeDate(-1)}>Previous Day</button>
         <h2 style={dateStyle}>{formatDate(currentDate)}</h2> {/* Apply the styles to the date */}
-        <button onClick={() => changeDate(1)}>Next Day</button>
+        <div className='date'>
         <DataDisplay date={currentDate.getDay()} />
+        </div>
+        <button className="arrow-left" onClick={() => changeDate(-1)}></button>
+        <button className="arrow-right" onClick={() => changeDate(1)}></button>
         </div>
     );
 };
