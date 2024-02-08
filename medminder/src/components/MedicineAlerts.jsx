@@ -16,7 +16,6 @@ const DataDisplay = (props) => {
         onValue(dataRef, (snapshot) => {
         if (snapshot.exists()) {
             setData(snapshot.val());
-            console.log(data);
             console.log(userId);
         } else {
             console.log("No data available");
