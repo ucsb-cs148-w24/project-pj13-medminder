@@ -1,8 +1,6 @@
 import { useAuthContext } from './AuthContext';
 import { ref } from 'firebase/database';
 import { database } from '../utils/firebase.utils';
-import { AiFillEdit } from "react-icons/ai";
-import '../Dash-style.css';
 
 export default function EditAlert(props) {
 
@@ -11,13 +9,13 @@ export default function EditAlert(props) {
     const dataRef = ref(database, 'Users/' + userId + '/UserData' + props.timestamp);
 
     const editAlert = () => {
-        
+        alert("you hit the edit button")
     }
 
 
 
 
     return (
-        <button className="edit"><AiFillEdit /></button>
+        <button onClick={editAlert}>Alert</button>
     )
 }
