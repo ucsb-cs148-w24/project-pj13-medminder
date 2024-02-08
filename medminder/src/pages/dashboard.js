@@ -13,7 +13,6 @@ function Dashboard() {
       <div className="Dasboard" style={{textAlign: 'center', marginTop: '60px'}}>
         <DateNavigator />
         <AlertPopupWithButton TextInButton={"+"} buttonDesign={"button1"}/>
-        <MedicationReminder/>
       </div>
     </div>
   );
