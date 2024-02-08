@@ -10,7 +10,7 @@ export const UserIdProvider = ({ children }) => {
   };
 
   return (
-    <UserIdContext.Provider value={{ userId, updateUserId }}>
+    <UserIdContext.Provider value={{ userId, updateUserId}}>
       {children}
     </UserIdContext.Provider>
   );

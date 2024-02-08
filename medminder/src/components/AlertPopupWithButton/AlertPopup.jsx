@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./AlertPopup.css";
 import "./ButtonStyles.css";
+import { handleSubmit } from './formHandlers.js';
+import { useUserId } from '../UserIdContext';
 
 export default function AlertPopup(props) {
+    const { userId } = useUserId();
     const [medicineName, setMedicineName] = useState("");
     const [otherNotes, setOtherNotes] = useState("");
     const [dosageAmount, setDosageAmount] = useState("");
@@ -46,20 +49,20 @@ export default function AlertPopup(props) {
         setRepeatWeek(false);
     }
 
-    const handleSubmit = (event) => {
+    const submitForm = (event) => {
         event.preventDefault();
 
-        alert("submitted information!")
+        const timestamp = new Date().toISOString();
 
-        // Here, you can access all the form field values
         const formData = {
+            timestamp,
             medicineName,
             dosageAmount,
             dosageUnits,
             time,
             frequency,
             frequencyUnits,
-            day : {
+            day: {
                 sunday,
                 monday,
                 tuesday,
@@ -70,14 +73,10 @@ export default function AlertPopup(props) {
             },
             repeatWeek,
             otherNotes
-
         };
 
-        // Now you can do whatever you want with the formData, like sending it to a server
-        console.log("Form data:", formData);
-
-        clearForm();
-        togglePopup();
+        // Pass formData and other necessary arguments to handleSubmit
+        handleSubmit(formData, userId, clearForm, togglePopup);
     };
 
     if (popup) {
@@ -242,7 +241,7 @@ export default function AlertPopup(props) {
 
 
                             
-                            <button className="submit-modal" onClick={(e) => handleSubmit(e)}>This is Tim's Job 🥳 </button>
+                            <button className="submit-modal" onClick={(e) => submitForm(e)}>This is Tim's Job 🥳 </button>
                         </form>
                         <br></br><br></br><br></br>
 
