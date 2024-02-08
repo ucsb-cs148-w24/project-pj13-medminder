@@ -13,6 +13,7 @@ const MedicineToast = (props) => {
     
         // Cleanup the interval on component unmount
         return () => clearInterval(intervalId);
+        // eslint-disable-next-line
      }, [userId]); 
     
 
