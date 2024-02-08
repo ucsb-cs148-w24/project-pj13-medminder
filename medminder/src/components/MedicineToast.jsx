@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { useAuthContext } from './AuthContext';
 import Toastify from 'toastify-js';
@@ -13,7 +13,7 @@ const MedicineToast = (props) => {
     
         // Cleanup the interval on component unmount
         return () => clearInterval(intervalId);
-     }, [userId]); 
+     }, [userId, checkMedicationTime]); 
     
 
     const checkMedicationTime = async () => {
