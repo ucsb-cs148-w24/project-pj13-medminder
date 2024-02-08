@@ -13,7 +13,7 @@ const MedicineToast = (props) => {
     
         // Cleanup the interval on component unmount
         return () => clearInterval(intervalId);
-     }, [userId, checkMedicationTime]); 
+     }, [userId]); 
     
 
     const checkMedicationTime = async () => {
