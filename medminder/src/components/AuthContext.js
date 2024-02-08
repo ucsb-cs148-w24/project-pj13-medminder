@@ -30,3 +30,11 @@ export function useAuthContext() {
   const context = useContext(AuthContext);
   return context;
 };
+
+export function useUserId() {
+  const context = useContext(AuthContext);
+  if (context == null || context.currentUser == null )
+    throw new Error("using userId in null user");
+  else
+    return context.currentUser.uid;
+}
