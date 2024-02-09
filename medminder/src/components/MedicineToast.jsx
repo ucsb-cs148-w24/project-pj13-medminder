@@ -7,12 +7,14 @@ const MedicineToast = (props) => {
     const auth = useAuthContext();
     const userId = auth.currentUser.uid;
 
+    
     useEffect(() => {
         // Run checkMedicationTime every 10 seconds
         const intervalId = setInterval(checkMedicationTime, 10000);
     
         // Cleanup the interval on component unmount
         return () => clearInterval(intervalId);
+        // eslint-disable-next-line
      }, [userId]); 
     
 

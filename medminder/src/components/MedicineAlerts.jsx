@@ -15,7 +15,7 @@ const DataDisplay = (props) => {
         // Fetch the data
         onValue(dataRef, (snapshot) => {
         if (snapshot.exists()) {
-            setData(snapshot.val());
+            setData(Object.values(snapshot.val()).sort((a,b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0)));
             console.log(userId);
         } else {
             console.log("No data available");
@@ -28,8 +28,8 @@ const DataDisplay = (props) => {
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '20px'  }}>
-            {data ? Object.values(data).filter(alert => alert.day[days[props.date]] === true).map((alert) => ( 
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            {data ? data.filter(alert => alert.day[days[props.date]] === true).map((alert) => ( 
                 <Alert key={alert.timestamp} alert={alert}/>
             )) : 'Loading or no data...'}
         </div>

@@ -29,7 +29,13 @@ const Alert = ({alert}) => {
           fontFamily: 'Bahnschrift',
         }
       };
-
+      
+    const convertTo12HourFormat = (time) => {
+        const [hours, minutes] = time.split(':').map(Number);
+        const isPM = hours >= 12;
+        const convertedHours = hours % 12 || 12;
+        return `${convertedHours.toString()}:${minutes.toString().padStart(2, '0')} ${isPM ? 'PM' : 'AM'}`;
+    };
 
       const auth = useAuthContext();
       const userId = auth.currentUser.uid;
@@ -57,7 +63,7 @@ const Alert = ({alert}) => {
         <div style={styles.container}>
             <p style={styles.detail}>{alert.medicineName}</p>
             <p style={styles.detail}>{alert.dosageAmount + " " + alert.dosageUnits}</p>
-            <p style={styles.detail}>{alert.time}</p>
+            <p style={styles.detail}>{convertTo12HourFormat(alert.time)}</p>
             <button className="delete" onClick={deleteAlert}><AiFillRest/></button>
             <AlertPopupWithButton timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount} 
               dosageUnits={alert.dosageUnits} frequency={alert.frequency} frequencyUnits={alert.frequencyUnits} otherNotes={alert.otherNotes} 
