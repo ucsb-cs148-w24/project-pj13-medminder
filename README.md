@@ -1,4 +1,3 @@
-(Check the medminder folder for Installation instructions)
 ### Medminder
 
 An app to remind elderly people or their caretakers when they need to take their medications and which ones.
