@@ -260,7 +260,7 @@ export default function AlertPopup(props) {
 
 
                             
-                            <button className="submit-modal" onClick={(e) => submitForm(e)}>This is Tim's Job 🥳 </button>
+                            <button className="submit-modal" onClick={(e) => submitForm(e)}>Submit</button> 
                         </form>
                         <br></br><br></br><br></br>
 
