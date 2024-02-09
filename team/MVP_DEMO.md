@@ -1,5 +1,3 @@
-MVP video link: [youtube](insert_link_here)
+MVP video link: [youtube](https://www.youtube.com/watch?v=SbaRyFLRON0)
 
 Deployment: [firebase](https://med--minder.web.app/)
-
-TODO: update link + add to spreadsheet by end of day 02/08
