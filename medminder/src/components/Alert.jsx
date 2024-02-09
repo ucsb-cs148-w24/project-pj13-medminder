@@ -68,10 +68,6 @@ const Alert = ({alert}) => {
             <AlertPopupWithButton timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount} 
               dosageUnits={alert.dosageUnits} frequency={alert.frequency} frequencyUnits={alert.frequencyUnits} otherNotes={alert.otherNotes} 
               time={alert.time} repeatWeek={alert.repeatWeek} day={alert.day} editing={true} TextInButton={<AiFillEdit />} buttonDesign={"edit"}/>
-            
-
-            {/* <button className="edit"><AiFillEdit /></button>
-            <button className="delete"><AiFillRest /></button> */}
         </div>
     );
 };
