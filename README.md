@@ -38,13 +38,14 @@ Patient: Person who does not have access to modify their schedule but receives a
 * install Node.js
 
 ## Dependencies (if running locally)
-run `npm install` to install all dependencies
+run `npm install` once in the medminder folder to install all dependencies
 
 ## Installation Steps (If running locally)
 1. Clone the repository
-2. Ensure Node.js is installed in your machine
-3. run `npm install` to install necessary dependencies
-4. run `npm start` to run on local host
+3. Ensure Node.js is installed in your machine
+4. run `cd medminder` to go into the medminder directory
+5. run `npm install` to install necessary dependencies
+6. run `npm start` to run on local host
 
 ## If not running locally:
 * App is deployed on this url: https://med--minder.web.app/
