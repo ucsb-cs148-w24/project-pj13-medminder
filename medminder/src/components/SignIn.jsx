@@ -8,40 +8,44 @@ const SignIn = () => {
     
     const navigate = useNavigate();
     const logGoogleUser = async (name) => {
-        const response = await signInWithGooglePopup();
-        console.log(response);
-        navigate("/dashboard");
+        try{
+            const response = await signInWithGooglePopup();
+            console.log(response);
+            navigate("/dashboard");
 
-        const userId = response.user.uid;
-        const email = response.user.email;
+            const userId = response.user.uid;
+            const email = response.user.email;
 
-        const database = getDatabase();
+            const database = getDatabase();
 
-        const userRef = ref(database, `Users/${userId}`);
-        const check = query(userRef);
+            const userRef = ref(database, `Users/${userId}`);
+            const check = query(userRef);
 
-        get(check).then((snapshot) => {
-            if (snapshot.exists()) {
-                // The user exists
-                console.log('Returning User.');
-            } else {
-                console.log('New User.');
-                const userInfo = {
-                    Name: response.user.displayName,
-                    Email: email,
-                    // default values, to be updated later
-                    Sex: "X",
-                    Age: 24,
-                    DOB: "01/01/2000",
-                };
-        
-                // Store user data under "Users/{email}/UserInfo"
-                const userRef = ref(database, `Users/${userId}/UserInfo`);
-                set(userRef, userInfo);
-            }
-        }).catch((error) => {
-            console.error('Error querying the database:', error);
-        });
+            get(check).then((snapshot) => {
+                if (snapshot.exists()) {
+                    // The user exists
+                    console.log('Returning User.');
+                } else {
+                    console.log('New User.');
+                    const userInfo = {
+                        Name: response.user.displayName,
+                        Email: email,
+                        // default values, to be updated later
+                        Sex: "X",
+                        Age: 24,
+                        DOB: "01/01/2000",
+                    };
+            
+                    // Store user data under "Users/{email}/UserInfo"
+                    const userRef = ref(database, `Users/${userId}/UserInfo`);
+                    set(userRef, userInfo);
+                }
+            }).catch((error) => {
+                console.error('Error querying the database:', error);
+            });
+        }catch(err){
+            console.log("Caught Error: Firebase: Error (auth/popup-closed-by-user)");
+        }
 
     }
 
