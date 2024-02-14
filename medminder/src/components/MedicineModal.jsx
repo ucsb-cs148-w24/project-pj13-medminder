@@ -30,18 +30,18 @@ const MedicineModal = (props) => {
             if (snapshot.exists()) {
                 data = snapshot.val();
                 console.log("toast user id: " + userId);
-                // const now = new Date();
-                // const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-                // const currentDay = daysOfWeek[now.getDay()] || "unknown";
+                const now = new Date();
+                const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+                const currentDay = daysOfWeek[now.getDay()] || "unknown";
         
-                // const hours = now.getHours();
-                // const minutes = now.getMinutes();
-                // const currentTime = `${hours}:${minutes}`;
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const currentTime = `${hours}:${minutes}`;
                 
                 // For testing purposes, uncomment the code below and adjust to match 
                 // your medicine day and medicine time
-                const currentDay = "friday";
-                const currentTime = "05:54";
+                // const currentDay = "friday";
+                // const currentTime = "05:54";
                 
                 const filteredMedications = Object.values(data).filter(medication => {
                     return medication.day[currentDay] && medication.time === currentTime;
