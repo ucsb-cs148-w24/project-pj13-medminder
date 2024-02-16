@@ -18,3 +18,16 @@ about what I wanted, helped Gemini generate more relevat / useful code.
 4. Can you style my button so that it looks like a medicine pill?
 5. My button is too close to the text. How can I move my button further down the modal?
 
+**Garvin Young:**
+The Ai Tool I used was ChatGPT 3.5. I wanted to get help on making ui that was pleasant to look at and since this is my first time making .css files, I asked ChatGPT for the general rundown for some of the most usefull .css file fields and how to use them.
+The prompts I gave chat gpt was:
+1. what are some common css fields and how do you use them
+2. what are all the possible fields for position and how do they differ from one another
+3. what are some other css fields that weren't already mentioned
+4. how do you make a grid layout for a page in css
+As well as additional clarifying questions.
+
+Given how I was using AI as a search tool for simple css fields instead of a tool writer for more complex problems I would say that it was pretty helpful. At least in this experience, it acted as a better google for figuring out the basics of css. In the past I have used ai to try to write more complex functions and it wasn't always the best due to limitations in how much information I'm able to give in a prompt. Another issue is that once ChatGPT gives one way to solve it problem, it never really deviates from that one solution even if you tell it to give a different way to solve the problem. Overall, I would say ChatGPT is much for helpful to be used as a search function instead of a code writer since it is much easier to use than having to look at stack exchange or trying to understand monotonous function documentation. 
+
+It wasn't too hard figuring out if the outcome was correct given I was asking very simple questions. I would just use the functions on my local machine and play around with values to see how it changes. As mentioned before, once you get to more complex problems ai isn't necessarily the best since it's prone to errors whether that may be the code not working or the ai not understanding the user exactly. In that case, it would be better to search up a youtube video since that is a human that can give a step by step walkthrough of a file although that requires a bit more critical thinking from the user. As for it being fair use, it really isn't feasible for the user to know where ChatGPT got the code from. Given my simple questions on css, the outputs were simple fields for a css file which would be part of basic documentation so that is probably fair use, but for more complex problems that actually require problem solving, the ai doesn't have that benefit of the doubt.
+
