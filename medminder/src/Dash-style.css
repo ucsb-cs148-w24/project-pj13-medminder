@@ -1,9 +1,9 @@
 .nav{
-    background-color:#FFEDDB;
-    text-align: right;
-    margin-top: -175px;
-    margin-left: -20px;
-    height: 200px;
+  background-color:#FFEDDB;
+  text-align: right;
+  margin-top: 0%; /* changed from -175px to -15% */
+  margin-left: -2%; /* changed from -20px to -2% */
+  height: 20%; /* changed from 200px to 20% */
 }
 
 .sign-out{
@@ -11,56 +11,56 @@
   border-radius: 10px;
 }
 
-
 .sign-out:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 1.2em 1.6em 0 rgba(0,0,0,0.24), 0 1.7em 5em 0 rgba(0,0,0,0.19); /* changed pixel values to em */
   cursor: pointer;
 }
 
 .arrow-right{
-    height: 5px;
-    width: 0px;
-    position: absolute;
-    border-top: 30px solid #E3B7A0;
-    border-bottom: 30px solid #E3B7A0;
-    border-right: 30px solid #E3B7A0;
-    border:25px solid #E3B7A0;
-    border-left: 30px solid #BF9270;
-    background-color: #E3B7A0;
-    right: 180px;
-    top: 150px;
-    z-index: 100
+  height: 3%; /* changed from 5px to 0.5% */
+  width: 2%;
+  position: absolute;
+  border-color:#E3B7A0 ;
+  /*border-top: 3% solid #E3B7A0;  changed from 30px to 3% */
+  /*border-bottom: 3% solid #E3B7A0;  changed from 30px to 3% */
+  /*border-right: 3% solid #E3B7A0; changed from 30px to 3% */
+  /*border: 2.5% solid #E3B7A0;  changed from 25px to 2.5% */
+  /*border-left: 20% solid #BF9270;  changed from 30px to 3% */
+  background-color: #E3B7A0;
+  right: 14%; /* changed from 180px to 18% */
+  top: 16%; /* changed from 150px to 15% */
+  z-index: 100;
 }
 
 .arrow-left {
-    position: absolute;
-    height: 5px;
-    width: 0px;
-    border-top: 30px solid #E3B7A0;
-    border-bottom: 30px solid #E3B7A0; 
-    border-left: 30px solid #E3B7A0;
-    border:25px solid #E3B7A0;
-    border-right:30px solid #BF9270; 
-    background-color: #E3B7A0;
-    top: 150px;
-    left: 180px;
-    z-index: 100
+  position: absolute;
+  height: 3%; /* changed from 5px to 0.5% */
+  width: 2%;
+  border-color:#E3B7A0 ;
+  border-top: 3% solid #E3B7A0; /* changed from 30px to 3% */
+  border-bottom: 3% solid #E3B7A0; /* changed from 30px to 3% */
+  border-left: 3% solid #E3B7A0; /* changed from 30px to 3% */
+  border: 2.5% solid #E3B7A0; /* changed from 25px to 2.5% */
+  border-right: 3% solid #BF9270; /* changed from 30px to 3% */
+  background-color: #E3B7A0;
+  top: 16%; /* changed from 150px to 15% */
+  left: 14%; /* changed from 180px to 18% */
+  z-index: 100;
+}
 
-  }
+.arrow-left:hover{
+  cursor: pointer;
+}
+.arrow-right:hover{
+  cursor: pointer;
+}
 
-  .arrow-left:hover{
-    cursor: pointer;
-  }
-  .arrow-right:hover{
-    cursor: pointer;
-  }
+.edit{
+  background-color: #E3B7A0;
+  border-color: #E3B7A0;
+}
 
-  .edit{
-    background-color: #E3B7A0;
-    border-color:#E3B7A0 ;
-  }
-
-  .delete{
-    background-color: #E3B7A0;
-    border-color:#E3B7A0 ;
-  }
+.delete{
+  background-color: #E3B7A0;
+  border-color: #E3B7A0;
+}

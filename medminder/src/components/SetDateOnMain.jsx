@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import DataDisplay from './MedicineAlerts';
 import '../Dash-style.css';
 import MedicineToast from './MedicineToast';
+import { GoChevronRight } from "react-icons/go";
+import { GoChevronLeft } from "react-icons/go";
 
 
 const options = {
@@ -36,8 +38,9 @@ const DateNavigator = () => {
         <DataDisplay date={currentDate.getDay()} />
         <MedicineToast date={currentDate.getDay()} />
         </div>
-        <button className="arrow-left" onClick={() => changeDate(-1)}></button>
-        <button className="arrow-right" onClick={() => changeDate(1)}></button>
+        <button className="arrow-left" onClick={() => changeDate(-1)}><GoChevronLeft />
+</button>
+        <button className="arrow-right" onClick={() => changeDate(1)}><GoChevronRight /></button>
         </div>
     );
 };
