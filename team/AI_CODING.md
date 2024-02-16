@@ -31,3 +31,9 @@ Given how I was using AI as a search tool for simple css fields instead of a too
 
 It wasn't too hard figuring out if the outcome was correct given I was asking very simple questions. I would just use the functions on my local machine and play around with values to see how it changes. As mentioned before, once you get to more complex problems ai isn't necessarily the best since it's prone to errors whether that may be the code not working or the ai not understanding the user exactly. In that case, it would be better to search up a youtube video since that is a human that can give a step by step walkthrough of a file although that requires a bit more critical thinking from the user. As for it being fair use, it really isn't feasible for the user to know where ChatGPT got the code from. Given my simple questions on css, the outputs were simple fields for a css file which would be part of basic documentation so that is probably fair use, but for more complex problems that actually require problem solving, the ai doesn't have that benefit of the doubt.
 
+**Vaishnavi Himakunthala:**
+AI tool: Chat-GPT
+Prompts:
+Given this CSS file, can you modify it so that when we zoom in/ change the screen size, the components don't overlap each other.
+
+The code that chat-gpt gave me was not entirely accurate, and I had to change a lot of things. Even after that, some of the components were overlapping even with the css code that changed. However, when I zoomed in, none of the components overlapped so I think that worked. In general, I think it's probably not a good idea to fully depend on chat-gpt for ui changes.
