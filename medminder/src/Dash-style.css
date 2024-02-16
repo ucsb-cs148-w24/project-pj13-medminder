@@ -1,10 +1,4 @@
-.nav{
-  background-color:#FFEDDB;
-  text-align: right;
-  margin-top: 0%; /* changed from -175px to -15% */
-  margin-left: -2%; /* changed from -20px to -2% */
-  height: 20%; /* changed from 200px to 20% */
-}
+
 
 .sign-out{
   background-color: #E3B7A0;
@@ -19,7 +13,7 @@
 .arrow-right{
   height: 3%; /* changed from 5px to 0.5% */
   width: 2%;
-  position: absolute;
+  position: relative;
   border-color:#E3B7A0 ;
   /*border-top: 3% solid #E3B7A0;  changed from 30px to 3% */
   /*border-bottom: 3% solid #E3B7A0;  changed from 30px to 3% */
@@ -27,13 +21,13 @@
   /*border: 2.5% solid #E3B7A0;  changed from 25px to 2.5% */
   /*border-left: 20% solid #BF9270;  changed from 30px to 3% */
   background-color: #E3B7A0;
-  right: 14%; /* changed from 180px to 18% */
-  top: 16%; /* changed from 150px to 15% */
+  right: -35%; /* changed from 180px to 18% */
+   /* changed from 150px to 15% */
   z-index: 100;
 }
 
 .arrow-left {
-  position: absolute;
+  position: relative;
   height: 3%; /* changed from 5px to 0.5% */
   width: 2%;
   border-color:#E3B7A0 ;
@@ -43,8 +37,8 @@
   border: 2.5% solid #E3B7A0; /* changed from 25px to 2.5% */
   border-right: 3% solid #BF9270; /* changed from 30px to 3% */
   background-color: #E3B7A0;
-  top: 16%; /* changed from 150px to 15% */
-  left: 14%; /* changed from 180px to 18% */
+   /* changed from 150px to 15% */
+  left: -35%; /* changed from 180px to 18% */
   z-index: 100;
 }
 
@@ -64,3 +58,4 @@
   background-color: #E3B7A0;
   border-color: #E3B7A0;
 }
+
