@@ -41,8 +41,8 @@ const DateNavigator = () => {
         <DataDisplay date={currentDate.getDay()} />
         <MedicineToast date={currentDate.getDay()} />
         </div>
-        <button className="arrow-left" onClick={() => changeDate(-1)}></button>
-        <button className="arrow-right" onClick={() => changeDate(1)}></button>
+        <button className="arrow-left" aria-label="arrow-left" onClick={() => changeDate(-1)}></button>
+        <button className="arrow-right" aria-label="arrow-right" onClick={() => changeDate(1)}></button>
         </div>
     );
 };
