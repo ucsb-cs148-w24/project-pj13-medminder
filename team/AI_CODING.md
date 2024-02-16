@@ -37,3 +37,9 @@ Prompts:
 Given this CSS file, can you modify it so that when we zoom in/ change the screen size, the components don't overlap each other.
 
 The code that chat-gpt gave me was not entirely accurate, and I had to change a lot of things. Even after that, some of the components were overlapping even with the css code that changed. However, when I zoomed in, none of the components overlapped so I think that worked. In general, I think it's probably not a good idea to fully depend on chat-gpt for ui changes.
+
+**Hanson Yu:**
+I used ChatGPT 4 to help me figure out how to create a jest unit test. I asked ChatGPT to create a basic unit test and ran the generated code in the project and found which parts were not compatible and attempted to figure out how to resolve the problems. I asked ChatGPT how to resolve the problems I ran into and implemented those changes. By doing this I was able to implement a simple unit test.
+
+This tool could be used to help us figure out how to use new technologies and figure out how to resolve errors. The steps that I took to make sure there were no errors in the code generated was to read through the code line by line and run in in the app itself and resolve any issues that showed up.
+
