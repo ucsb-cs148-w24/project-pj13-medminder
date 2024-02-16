@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DataDisplay from './MedicineAlerts';
 import '../Dash-style.css';
-import MedicineToast from './MedicineToast';
+import MedicineToast from './MedicineModal';
 
 
 const options = {
