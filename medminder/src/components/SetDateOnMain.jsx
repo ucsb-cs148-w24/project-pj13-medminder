@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import DataDisplay from './MedicineAlerts';
+
 import './styles.css';
+import '../Dash-style.css';
+import MedicineToast from './MedicineToast';
+
+const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
 
 const dateNavigatorStyle = {
     display: 'flex',
@@ -34,25 +43,19 @@ const DateNavigator = () => {
     };
 
     const formatDate = (date) => {
-        return date.toLocaleDateString();
+        return date.toLocaleDateString("en-us", options);
     };
 
     return (
         <div style={{ textAlign: 'center' }}> {/* Center the entire content */}
-            <div style={dateNavigatorStyle}>
-                <button style={buttonStyle} onClick={() => changeDate(-1)}>
-                    Previous Day
-                </button>
-                <h2 style={dateStyle}>{formatDate(currentDate)}</h2>
-                <button style={buttonStyle} onClick={() => changeDate(1)}>
-                    Next Day
-                </button>
-                
-            </div>
-            <button className="todayButton" onClick={goToToday}>
-                Today
-            </button>
-            <DataDisplay date={currentDate.getDay()} />
+        <h2 style={dateStyle}>{formatDate(currentDate)}</h2> {/* Apply the styles to the date */}
+        <div className='date'>
+        <DataDisplay date={currentDate.getDay()} />
+        <MedicineToast date={currentDate.getDay()} />
+        </div>
+        <button className="arrow-left" onClick={() => changeDate(-1)}></button>
+        <button className="arrow-right" onClick={() => changeDate(1)}></button>
+        <button className="todayButton" onClick={goToToday}>Today</button>
         </div>
     );
 };

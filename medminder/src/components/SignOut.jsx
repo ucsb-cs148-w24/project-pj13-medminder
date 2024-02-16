@@ -1,6 +1,7 @@
-import { getAuth, onAuthStateChanged, signOut, currentUser } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import '../Dash-style.css';
 
 const SignOut = () => {
     const auth = getAuth()
@@ -29,7 +30,7 @@ const SignOut = () => {
     }
 
     return (
-        <button onClick={logOutGoogleUser}>
+        <button className="sign-out" onClick={logOutGoogleUser}>
             {isLoggedIn? 'signout' : 'not signed in'}
         </button>
     )

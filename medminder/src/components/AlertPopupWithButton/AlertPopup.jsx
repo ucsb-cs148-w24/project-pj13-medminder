@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./AlertPopup.css";
 import "./ButtonStyles.css";
 import { handleSubmit } from './formHandlers.js';
-import { useUserId } from '../UserIdContext';
+import { useUserId } from "../AuthContext";
 
 export default function AlertPopup(props) {
-    const { userId } = useUserId();
+    const userId = useUserId();
     const [medicineName, setMedicineName] = useState("");
     const [otherNotes, setOtherNotes] = useState("");
     const [dosageAmount, setDosageAmount] = useState("");
@@ -27,6 +27,28 @@ export default function AlertPopup(props) {
     const togglePopup = () => {
         setPopup(!popup);
     };
+
+    const togglePopup2 = () => {
+        setPopup(!popup);
+
+        setMedicineName(props.medicineName);
+        setOtherNotes(props.otherNotes);
+        setDosageAmount(props.dosageAmount);
+        setFrequency(props.frequency);
+        setTime(props.time);
+        setDosageUnits(props.dosageUnits);
+        setFrequencyUnits(props.frequencyUnits);
+        setRepeatWeek(props.repeatWeek);
+
+        setSunday(props.day['sunday']);
+        setMonday(props.day['monday']);
+        setTuesday(props.day['tuesday']);
+        setWednesday(props.day['wednesday']);
+        setThursday(props.day['thursday']);
+        setFriday(props.day['friday']);
+        setSaturday(props.day['saturday']);
+    };
+
 
     
 
@@ -52,7 +74,10 @@ export default function AlertPopup(props) {
     const submitForm = (event) => {
         event.preventDefault();
 
+        const timestamp = props.editing ? props.timestamp : new Date().toISOString().replace(/[.:]/g, '_');
+
         const formData = {
+            timestamp,
             medicineName,
             dosageAmount,
             dosageUnits,
@@ -73,7 +98,7 @@ export default function AlertPopup(props) {
         };
 
         // Pass formData and other necessary arguments to handleSubmit
-        handleSubmit(formData, userId, clearForm, togglePopup);
+        handleSubmit(formData, userId, clearForm, togglePopup, timestamp);
     };
 
     if (popup) {
@@ -82,7 +107,7 @@ export default function AlertPopup(props) {
 
     return (
         <>
-            <button onClick={togglePopup} className={props.buttonDesign}>
+            <button onClick={props.editing ? togglePopup2 : togglePopup} className={props.buttonDesign}>
                 {props.TextInButton}
             </button>
 
@@ -91,10 +116,7 @@ export default function AlertPopup(props) {
                     <div onClick={togglePopup} className="overlay"></div>
                     <div className="modal-content">
                         <form className="form">
-
-
-
-                            <h1 className="header">🦠 Add a Medicine 💊</h1>
+                            <h1 className="header">{props.editing ? `🦠 Edit a Medicine 💊` : `🦠 Add a Medicine 💊`}</h1>
 
                                 <h4>Medicine Name:</h4>
                                 <input
@@ -238,7 +260,7 @@ export default function AlertPopup(props) {
 
 
                             
-                            <button className="submit-modal" onClick={(e) => submitForm(e)}>This is Tim's Job 🥳 </button>
+                            <button className="submit-modal" onClick={(e) => submitForm(e)}>Submit</button> 
                         </form>
                         <br></br><br></br><br></br>
 

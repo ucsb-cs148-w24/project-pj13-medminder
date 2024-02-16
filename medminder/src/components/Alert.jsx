@@ -1,4 +1,7 @@
 import React from 'react';
+import AlertPopupWithButton from "./AlertPopupWithButton/AlertPopupWithButton.jsx"
+import { AiFillEdit } from "react-icons/ai";
+import DeleteAlert from './DeleteAlert.jsx';
 
 const Alert = ({alert}) => {
 
@@ -21,16 +24,25 @@ const Alert = ({alert}) => {
           fontFamily: 'Bahnschrift',
         }
       };
+      
+    const convertTo12HourFormat = (time) => {
+        const [hours, minutes] = time.split(':').map(Number);
+        const isPM = hours >= 12;
+        const convertedHours = hours % 12 || 12;
+        return `${convertedHours.toString()}:${minutes.toString().padStart(2, '0')} ${isPM ? 'PM' : 'AM'}`;
+    };
 
 
-      // TODO: implement edit and delete button functionality based on key of Alert component
+      
     return (
         <div style={styles.container}>
-            <p style={styles.detail}>{alert.medicine}</p>
-            <p style={styles.detail}>{alert.dosage}</p>
-            <p style={styles.detail}>{alert.time}</p>
-            <button style={styles.button}>Edit</button>
-            <button style={styles.button}>Delete</button>
+            <p style={styles.detail}>{alert.medicineName}</p>
+            <p style={styles.detail}>{alert.dosageAmount + " " + alert.dosageUnits}</p>
+            <p style={styles.detail}>{convertTo12HourFormat(alert.time)}</p>
+            <DeleteAlert timestamp={alert.timestamp}/>
+            <AlertPopupWithButton timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount} 
+              dosageUnits={alert.dosageUnits} frequency={alert.frequency} frequencyUnits={alert.frequencyUnits} otherNotes={alert.otherNotes} 
+              time={alert.time} repeatWeek={alert.repeatWeek} day={alert.day} editing={true} TextInButton={<AiFillEdit />} buttonDesign={"edit"}/>
         </div>
     );
 };
