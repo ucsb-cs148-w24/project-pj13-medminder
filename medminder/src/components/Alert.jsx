@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AlertPopupWithButton from "./AlertPopupWithButton/AlertPopupWithButton.jsx"
-import { AiFillEdit } from "react-icons/ai";
+import { AiFillEdit, AiFillCheckCircle } from "react-icons/ai";
 import DeleteAlert from './DeleteAlert.jsx';
 
 const Alert = ({alert}) => {
+    const [opacity, setOpacity] = useState(1);
 
     const styles = {
         container: {
+          opacity: opacity,
           padding: '0px',
           margin: '15px',
           display: 'flex',
@@ -43,6 +45,7 @@ const Alert = ({alert}) => {
             <AlertPopupWithButton timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount} 
               dosageUnits={alert.dosageUnits} frequency={alert.frequency} frequencyUnits={alert.frequencyUnits} otherNotes={alert.otherNotes} 
               time={alert.time} repeatWeek={alert.repeatWeek} day={alert.day} editing={true} TextInButton={<AiFillEdit />} buttonDesign={"edit"}/>
+            <button className="complete" onClick={() => opacity === 1? setOpacity(.3) : setOpacity(1)}><AiFillCheckCircle/></button>
         </div>
     );
 };
