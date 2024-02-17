@@ -37,3 +37,15 @@ Prompts:
 Given this CSS file, can you modify it so that when we zoom in/ change the screen size, the components don't overlap each other.
 
 The code that chat-gpt gave me was not entirely accurate, and I had to change a lot of things. Even after that, some of the components were overlapping even with the css code that changed. However, when I zoomed in, none of the components overlapped so I think that worked. In general, I think it's probably not a good idea to fully depend on chat-gpt for ui changes.
+
+**Hanson Yu:**
+I used ChatGPT 4 to help me figure out how to create a jest unit test. I asked ChatGPT to create a basic unit test and ran the generated code in the project and found which parts were not compatible and attempted to figure out how to resolve the problems. I asked ChatGPT how to resolve the problems I ran into and implemented those changes. By doing this I was able to implement a simple unit test.
+
+This tool could be used to help us figure out how to use new technologies and figure out how to resolve errors. The steps that I took to make sure there were no errors in the code generated was to read through the code line by line and run in in the app itself and resolve any issues that showed up.
+
+
+**James Pflaging:**
+AI tool: Chat-GPT
+Process and outcomes: I used Chat-GPT to help generate code for connecting our stored reminders to a user's google calendar. Honestly its done a really solid job - while the code isn't perfect and has some problems it has a great baseline and has saved me a tone of time. I was already aware of the google calendar api that it referenced which helped me in understanding its response. This isn't the first time I've used chatGPT to help me on our project and its been pretty reliable each time. Before this quarter I thought it produced code with way more errors but GPT4 does better than I thought but maybe not as good as I hoped.
+Reflections: I'm sure these kind of tools will become increasingly helpful going foward. It's kind of scary in a way but at least for now there are certainly problems with the output it produces. Also, when using it to generate code in an area I don't understand it can be counterproductive because I don't have to learn things as well. Sometimes using the code it produces and then diagnosing all of the issues takes longer than reading stuff on stackOverflow or youtube. That being said it definitely provides a new way of learning since you can get a boilerplate and contribute to it as you go instead of building things from the ground up.
+

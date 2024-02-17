@@ -68,7 +68,7 @@ const MedicineModal = (props) => {
         <div>
           {modalOpen && (
             <div className="modal-overlay">
-              <div className="modal">
+              <div className="medicine_modal">
                 {medicationDetails.map(medication => (
                   <div key={medication.medicineName}>
                     <h2> Reminder to take {medication.dosageAmount} {medication.dosageUnits} of {medication.medicineName}! </h2>

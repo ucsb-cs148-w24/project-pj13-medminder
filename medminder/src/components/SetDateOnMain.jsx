@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DataDisplay from './MedicineAlerts';
 import '../Dash-style.css';
 import './styles.css';
-import MedicineToast from './MedicineModal';
+import MedicineModal from './MedicineModal';
 
 const options = {
     year: "numeric",
@@ -39,7 +39,7 @@ const DateNavigator = () => {
         <div className='date'>
         <button className="todayButton" onClick={goToToday}>Today</button>
         <DataDisplay date={currentDate.getDay()} />
-        <MedicineToast date={currentDate.getDay()} />
+        <MedicineModal date={currentDate.getDay()} />
         </div>
         <button className="arrow-left" aria-label="arrow-left" onClick={() => changeDate(-1)}></button>
         <button className="arrow-right" aria-label="arrow-right" onClick={() => changeDate(1)}></button>
