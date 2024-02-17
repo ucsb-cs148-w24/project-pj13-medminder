@@ -4,7 +4,7 @@ what steps you needed to (or couldn’t) take to ensure that the AI output was c
 A new Slack channel help_ai was created to provide pointers to useful AI coding tools. In addition to documenting your
 efforts in your own team-internal team/AI_CODING.md file, please share pointers to the tools you were most excited about in there.
 
-##Edwin Yee:
+## **Edwin Yee**:
 AI tool used: Google Gemini
 Outcomes produced: Generated code for the improved medicine reminder popup (replacing the hard to read medicine toast)
 Reflections: Google Gemini was very useful in helping me change and write code. Although I had to adjust certain pieces of code to 
