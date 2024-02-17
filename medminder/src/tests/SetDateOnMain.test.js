@@ -4,9 +4,9 @@ import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom';
 import DateNavigator from '../components/SetDateOnMain.jsx';
 
-// Mock the DataDisplay and MedicineToast components
+// Mock the DataDisplay and MedicineModal components
 jest.mock('../components/MedicineAlerts.jsx', () => ({ date }) => <div data-testid="data-display">{date}</div>);
-jest.mock('../components/MedicineToast.jsx', () => ({ date }) => <div data-testid="medicine-toast">{date}</div>);
+jest.mock('../components/MedicineModal.jsx', () => ({ date }) => <div data-testid="medicine-modal">{date}</div>);
 
 describe('DateNavigator Component', () => {
   it('renders the current date and buttons', () => {
