@@ -105,6 +105,12 @@ export default function AlertPopup(props) {
         document.body.classList.add("active-modal");
     }
 
+    document.onkeydown = function (event) {
+        if (event.key === "Escape") {
+            setPopup(false);
+        }
+    };
+
     return (
         <>
             <button onClick={props.editing ? togglePopup2 : togglePopup} className={props.buttonDesign}>
