@@ -7,4 +7,5 @@
 | 1/26/2024  | Michael Cheng | Create lab03.md                          |
 | 1/26/2024 | James Pflaging   | Sprint1 Retrospective      | 
 | 2/07/2024 | Edwin Yee  | Create lect08.md                             |
+| 2/16/2024 | Garvin Young  | Sprint2 Retospective                            |
 

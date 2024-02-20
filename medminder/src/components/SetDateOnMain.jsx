@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import DataDisplay from './MedicineAlerts';
 import '../Dash-style.css';
-import MedicineToast from './MedicineToast';
+import './styles.css';
+import MedicineModal from './MedicineModal';
 import { GoChevronRight } from "react-icons/go";
 import { GoChevronLeft } from "react-icons/go";
-
 
 const options = {
     year: "numeric",
@@ -27,6 +27,10 @@ const DateNavigator = () => {
         setCurrentDate(newDate);
     };
 
+    const goToToday = () => {
+        setCurrentDate(new Date());
+    };
+
     const formatDate = (date) => {
         return date.toLocaleDateString("en-us", options);
     };
@@ -35,8 +39,9 @@ const DateNavigator = () => {
         <div style={{ textAlign: 'center' }}> {/* Center the entire content */}
         <h2 style={dateStyle}>{formatDate(currentDate)}</h2> {/* Apply the styles to the date */}
         <div className='date'>
+        <button className="todayButton" onClick={goToToday}>Today</button>
         <DataDisplay date={currentDate.getDay()} />
-        <MedicineToast date={currentDate.getDay()} />
+        <MedicineModal date={currentDate.getDay()} />
         </div>
         <button className="arrow-left" onClick={() => changeDate(-1)}><GoChevronLeft />
 </button>
