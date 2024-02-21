@@ -15,12 +15,14 @@
   border-color:#BF9270 ;
   background-color: #BF9270;
   border-radius: 5px;
-  right: -35%; 
+  right: -30%; 
   top: -30%;
   padding: 5px 5px;
   z-index: 100;
   font-size: x-large;
   border: none;
+  transition: all 0.25s ease;
+
 }
 
 .arrow-left {
@@ -32,7 +34,7 @@
   padding: 5px 5px;
   border-radius: 5px;
    /* changed from 150px to 15% */
-  left: -35%; /* changed from 180px to 18% */
+  left: -40%; /* changed from 180px to 18% */
   z-index: 100;
   top: -30%;
 

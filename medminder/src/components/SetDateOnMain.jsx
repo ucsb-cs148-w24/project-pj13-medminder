@@ -37,19 +37,20 @@ const DateNavigator = () => {
     };
 
     return (
-        <div className='alignment'>
         <div style={{ textAlign: 'center' }}> {/* Center the entire content */}
-        <h2 style={dateStyle}>{formatDate(currentDate)}</h2> {/* Apply the styles to the date */}
+        <h2 style={dateStyle}>{formatDate(currentDate)}</h2> 
+{/* Apply the styles to the date */}
         <div className='date'>
+        <div className='alignment'>
         <button className="todayButton" onClick={goToToday}>Today</button>
+        <button className="arrow-left" onClick={() => changeDate(-1)}><BsCaretLeftFill /></button>
+        <button className="arrow-right" onClick={() => changeDate(1)}><BsCaretRightFill /></button>
+        </div>
         <DataDisplay date={currentDate.getDay()} />
         <MedicineModal date={currentDate.getDay()} />
         </div>
-        <button className="arrow-left" onClick={() => changeDate(-1)}><BsCaretLeftFill /></button>
-        <button className="arrow-right" onClick={() => changeDate(1)}><BsCaretRightFill />
-</button>
         </div>
-        </div>
+
     );
 };
 
