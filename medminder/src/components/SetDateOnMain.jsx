@@ -43,8 +43,8 @@ const DateNavigator = () => {
         <div className='date'>
         <div className='alignment'>
         <button className="todayButton" onClick={goToToday}>Today</button>
-        <button className="arrow-left" onClick={() => changeDate(-1)}><BsCaretLeftFill /></button>
-        <button className="arrow-right" onClick={() => changeDate(1)}><BsCaretRightFill /></button>
+        <button className="arrow-left" aria-label="arrow-left" onClick={() => changeDate(-1)}><BsCaretLeftFill /></button>
+        <button className="arrow-right" aria-label="arrow-right" onClick={() => changeDate(1)}><BsCaretRightFill /></button>
         </div>
         <DataDisplay date={currentDate.getDay()} />
         <MedicineModal date={currentDate.getDay()} />
