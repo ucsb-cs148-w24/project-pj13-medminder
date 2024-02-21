@@ -3,9 +3,10 @@
     font-weight: bold;
     padding: 20px 40px;
     margin: 10px 0;
-    background-color: pink;
+    background-color:#BF9270;
+    border-color: black;
     color: black;
-    border: none;
+    border: 20px;
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;

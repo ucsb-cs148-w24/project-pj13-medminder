@@ -3,8 +3,9 @@ import DataDisplay from './MedicineAlerts';
 import '../Dash-style.css';
 import './styles.css';
 import MedicineModal from './MedicineModal';
-import { GoChevronRight } from "react-icons/go";
-import { GoChevronLeft } from "react-icons/go";
+import { BsCaretLeftFill } from "react-icons/bs";
+import { BsCaretRightFill } from "react-icons/bs";
+
 
 const options = {
     year: "numeric",
@@ -36,6 +37,7 @@ const DateNavigator = () => {
     };
 
     return (
+        <div className='alignment'>
         <div style={{ textAlign: 'center' }}> {/* Center the entire content */}
         <h2 style={dateStyle}>{formatDate(currentDate)}</h2> {/* Apply the styles to the date */}
         <div className='date'>
@@ -43,9 +45,10 @@ const DateNavigator = () => {
         <DataDisplay date={currentDate.getDay()} />
         <MedicineModal date={currentDate.getDay()} />
         </div>
-        <button className="arrow-left" onClick={() => changeDate(-1)}><GoChevronLeft />
+        <button className="arrow-left" onClick={() => changeDate(-1)}><BsCaretLeftFill /></button>
+        <button className="arrow-right" onClick={() => changeDate(1)}><BsCaretRightFill />
 </button>
-        <button className="arrow-right" onClick={() => changeDate(1)}><GoChevronRight /></button>
+        </div>
         </div>
     );
 };
