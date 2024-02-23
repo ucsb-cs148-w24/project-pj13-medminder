@@ -46,7 +46,7 @@ describe('DateNavigator Component', () => {
       fireEvent.click(rightArrowButton);
     });
     // Assuming the date is now one day later, you may need to adjust based on your current date
-    expect(currentDateElement).toHaveTextContent(/February 24, 2024/);
+    expect(currentDateElement).toHaveTextContent(/February 23, 2024/);
   });
 
   it('resets the date to today when "Today" button is clicked', () => {

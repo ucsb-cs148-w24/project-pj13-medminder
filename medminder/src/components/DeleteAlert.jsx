@@ -10,23 +10,22 @@ export default function DeleteAlert(props) {
     const userId = auth.currentUser.uid;
     const dataRef = ref(database, 'Users/' + userId + '/UserData/' + props.timestamp);
 
-    const deleteAlert = () => {
+    const deleteAlert = async () => {
         // Display a confirmation dialog
         const isConfirmed = window.confirm('Are you sure you want to remove this medicine?');
         
         // If the user confirms, proceed with the delete operation
         if (isConfirmed) {
-            remove(dataRef)
-                .then(() => {
-                    console.log('Data deleted successfully');
-                })
-                .catch((error) => {
-                    console.error('Error deleting data:', error);
-                });
+            try {
+                await remove(dataRef);
+                console.log('Data deleted successfully');
+            } catch (error) {
+                console.error('Error deleting data:', error);
+            }
         }
     }
 
     return (
-        <button className="delete" onClick={deleteAlert}><AiFillRest/></button>
+        <button className="delete" onClick={deleteAlert}><AiFillRest data-testid="delete-icon"/></button>
     );
 }
