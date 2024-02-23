@@ -36,4 +36,4 @@ expect(jest.requireMock('firebase/database').remove).not.toHaveBeenCalled();
 ```
 
 This experiment focused on common use cases of Jest + React Testing Library. 
-Our next target(s) are to verify the rest of our components are working as intended. 
+Our next target(s) are to verify the rest of our components are working as intended. We plan to continue using both unit tests and higher level tests (especially component tests).
