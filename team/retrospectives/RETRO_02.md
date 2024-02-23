@@ -1,7 +1,7 @@
 # Retrospective #2, 2/16/2023 
 
 * Led by: Garvin Young
-* Present: James, Edwin, Vaishnavi, Michael, Tim, Hanson
+* Present: Garvin, James, Edwin, Vaishnavi, Michael, Tim, Hanson
 * Absent: None
 
 ## Action item
