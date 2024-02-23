@@ -13,7 +13,7 @@ describe('DateNavigator Component', () => {
     render(<DateNavigator />);
     
     // Check if the current date is rendered
-    const currentDateElement = screen.getByText(/February 16, 2024/); // Change this based on your current date
+    const currentDateElement = screen.getByText(/February 23, 2024/); // Change this based on your current date
     expect(currentDateElement).toBeInTheDocument();
 
     // Check if the "Today" button is rendered
@@ -30,7 +30,7 @@ describe('DateNavigator Component', () => {
   it('updates the date when arrow buttons are clicked', () => {
     render(<DateNavigator />);
 
-    const currentDateElement = screen.getByText(/February 16, 2024/); // Change this based on your current date
+    const currentDateElement = screen.getByText(/February 23, 2024/); // Change this based on your current date
     const leftArrowButton = screen.getByRole('button', { name: /arrow-left/i });
     const rightArrowButton = screen.getByRole('button', { name: /arrow-right/i });
 
@@ -39,20 +39,20 @@ describe('DateNavigator Component', () => {
       fireEvent.click(leftArrowButton);
     });
     // Assuming the date is now one day earlier, you may need to adjust based on your current date
-    expect(currentDateElement).toHaveTextContent(/February 15, 2024/);
+    expect(currentDateElement).toHaveTextContent(/February 22, 2024/);
 
     // Click the right arrow button
     act(() => {
       fireEvent.click(rightArrowButton);
     });
     // Assuming the date is now one day later, you may need to adjust based on your current date
-    expect(currentDateElement).toHaveTextContent(/February 16, 2024/);
+    expect(currentDateElement).toHaveTextContent(/February 24, 2024/);
   });
 
   it('resets the date to today when "Today" button is clicked', () => {
     render(<DateNavigator />);
 
-    const currentDateElement = screen.getByText(/February 16, 2024/); // Change this based on your current date
+    const currentDateElement = screen.getByText(/February 23, 2024/); // Change this based on your current date
     const todayButton = screen.getByText(/Today/);
 
     // Click the right arrow button to change the date
@@ -66,7 +66,7 @@ describe('DateNavigator Component', () => {
       fireEvent.click(todayButton);
     });
     // Assuming the date is now reset to today, you may need to adjust based on your current date
-    expect(currentDateElement).toHaveTextContent(/February 16, 2024/);
+    expect(currentDateElement).toHaveTextContent(/February 23, 2024/);
   });
 
   it('renders DataDisplay components with the correct date prop', () => {
