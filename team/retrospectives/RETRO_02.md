@@ -25,7 +25,6 @@ Continue: working on the project, working as a team, we love teamwork wooooooooo
 * What advice would you give to the next person leading a retro based on what you learned today? Try to allow everyone to talk, give encouragement or unbiased leading questions to encourage conversation.
 
 ## Experiment/Change
-# TODO:
-* A brief description of what constitutes your change/experiment
-* A brief assessment of how its results (did it improve things? move the needle at all?)
-* A decision going forward: keep the change, revert to previous procedure, make a new change?
+* Our experiment was to help improve the efficiency of our workflow to get pull requests through quicker
+* The experiment somewhat improved the time to complete pull request reviews
+* The change right now is alright, we just need more people to actively check slack/pull requests of have notifications on to review the pull requests
