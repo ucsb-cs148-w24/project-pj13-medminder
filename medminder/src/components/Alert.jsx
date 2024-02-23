@@ -4,7 +4,7 @@ import { AiFillEdit, AiFillCheckCircle } from "react-icons/ai";
 import DeleteAlert from './DeleteAlert.jsx';
 import MedicineInfoButton from './MedicineInfoButton.jsx';
 
-const Alert = ({alert}) => {
+const Alert = ({alert, displayTime}) => {
     const [opacity, setOpacity] = useState(1);
 
     const styles = {
@@ -41,7 +41,7 @@ const Alert = ({alert}) => {
         <div style={styles.container}>
             <p style={styles.detail}>{alert.medicineName}</p>
             <p style={styles.detail}>{alert.dosageAmount + " " + alert.dosageUnits}</p>
-            <p style={styles.detail}>{convertTo12HourFormat(alert.time)}</p>
+            <p style={styles.detail}>{convertTo12HourFormat(displayTime)}</p>
             <DeleteAlert timestamp={alert.timestamp}/>
             <AlertPopupWithButton timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount} 
               dosageUnits={alert.dosageUnits} frequency={alert.frequency} frequencyUnits={alert.frequencyUnits} otherNotes={alert.otherNotes} 
