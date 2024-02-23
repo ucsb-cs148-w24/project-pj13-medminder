@@ -30,41 +30,46 @@ body.active-modal {
     transform: translate(-50%, -50%);
     background: #95cfeb;
     z-index: 300;
-    padding: 20px 28px;
+    padding: 20px 30px;
     border-radius: 10px;
-    width: 800px;
-    height: 650px;
+    width: 450px;
+    height: 600px;
+    text-align: left;
+    animation: popupAnimation 0.2s ease-out forwards;
 }
 
 .close-modal {
     position: absolute;
     top: 10px;
     right: 15px;
-    padding: 5px 7px;
     cursor: pointer;
     border: none;
-    font-size: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 4px 8px;
 }
 
 .clear-modal {
     position: absolute;
     bottom: 10px;
     right: 15px;
-    padding: 5px 7px;
     cursor: pointer;
     border: none;
-    font-size: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 4px 8px;
 }
 
 .submit-modal {
     position: absolute;
     bottom: 10px;
     left: 15px;
-    padding: 5px 7px;
     cursor: pointer;
     border: none;
     font-size: 20px;
-    background-color: rgb(0, 0, 180);
+    background-color: rgb(0, 0, 255);
+    border-radius: 10px;
+    padding: 4px 8px;
 }
 
 .submit-modal:hover {
@@ -72,84 +77,90 @@ body.active-modal {
 }
 
 .clear-modal:hover {
-    background-color: rgb(190, 190, 190);
+    background-color: rgb(220, 220, 220);
 }
 
 .close-modal:hover {
-    background-color: rgb(190, 190, 190);
+    background-color: rgb(220, 220, 220);
 }
 
 
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
 
-.form > input {
-  padding: 5px;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  border: 2px solid lightgray;
-  background: #fff;
-  font-size: 14px;
-  color: rgb(0, 0, 32);
-  outline: none;
-  resize: none;
-  min-width: 30%;
-}
-
-.form > div > input {
-    padding: 5px;
-    border-radius: 3px;
-    margin-bottom: 10px;
-    border: 2px solid lightgray;
-    background: #fff;
-    font-size: 14px;
-    color: rgb(0, 0, 32);
-    outline: none;
-    resize: none;
-    width: 30%;
-  }
-
-.form > textarea {
-    padding: 10px;
-    border-radius: 3px;
-    margin-bottom: 10px;
-    border: 2px solid lightgray;
-    background: #fff;
-    font-size: 16px;
-    color: rgb(0, 0, 32);
-    outline: none;
-    resize: none;
-    width: 95%;
-    height: 74px
-  }
-
-.form > input:focus,
-textarea:focus {
-  border: 2px solid rgb(0, 163, 196);
-}
-
-.form > div >input:focus,
-textarea:focus {
-  border: 2px solid rgb(0, 163, 196);
-}
 
 .row {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px; /* Adjust margin as needed */
+    margin-bottom: 10px;
 }
 
-.checkbox-container {
-    display: flex; /* Display checkboxes horizontally */
-    flex-wrap: wrap; /* Allow wrapping if the container width is exceeded */
+.header {
+    margin-top: 10px;
+    margin-left: 15px;
+    font-size: 20px
 }
 
-.checkbox-container input[type="checkbox"] {
-    margin-right: 10px; /* Adjust spacing between checkboxes */
+.main-header {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 40px;
 }
+
+.textbox {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    border: 2px solid lightgray;
+    margin-left: 15px;
+  }
+.textbox:focus {
+    border: 2px solid rgb(0, 163, 196);
+}
+
+.textbox-num {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    border: 2px solid lightgray;
+    margin-left: 15px;
+  }
+.textbox-num:focus {
+    border: 2px solid rgb(0, 163, 196);
+}
+
+.selector {
+    width: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    border: 2px solid lightgray;
+  }
+
+.selector:focus {
+    border: 2px solid rgb(0, 163, 196);
+}
+
+.day-button {
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    aspect-ratio: 1 / 1;
+    margin: 5px;
+  }
+  
+  
