@@ -103,3 +103,9 @@
   flex-direction: row;
   justify-content: center;
 }
+
+
+  .addToCalendar {
+    background-color: #E3B7A0;
+    border-color:#E3B7A0 ;
+  }

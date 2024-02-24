@@ -1,4 +1,6 @@
 import React from 'react';
+import { AiFillCalendar } from 'react-icons/ai';
+import '../Dash-style.css';
 
 export default function CreateGCalEvent(props) {
     const accessToken = localStorage.getItem("accessToken"); //useAccessToken();
@@ -45,8 +47,8 @@ export default function CreateGCalEvent(props) {
     }
 
     return (
-        <button className="createGEvent" onClick={createEvent}>
-            Add to Gcal
+        <button className="addToCalendar" onClick={createEvent}>
+            <AiFillCalendar/>
         </button>
     )
 }
