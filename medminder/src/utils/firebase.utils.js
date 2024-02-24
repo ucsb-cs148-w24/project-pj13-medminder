@@ -18,6 +18,8 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 // Initialize Firebase Auth provider
 const provider = new GoogleAuthProvider();
+provider.addScope('https://www.googleapis.com/auth/calendar');
+
 export const database = getDatabase(firebaseApp);
 // whenever a user interacts with the provider, we force them to select an account
 provider.setCustomParameters({   
