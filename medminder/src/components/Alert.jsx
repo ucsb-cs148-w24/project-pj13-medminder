@@ -18,13 +18,13 @@ const Alert = ({alert, displayTime}) => {
         },
         detail: {
           margin: '0 50px',
-          fontSize: '17px',
-          fontFamily: 'Bahnschrift',
+          fontSize: '50px',
+          fontFamily: 'monospace',
         },
         button: {
           margin: '0 5px',
           fontSize: '15px',
-          fontFamily: 'Bahnschrift',
+          fontFamily: 'monospace',
         }
       };
       

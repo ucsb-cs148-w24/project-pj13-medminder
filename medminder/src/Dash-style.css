@@ -54,16 +54,21 @@
 .edit{
   background-color: #E3B7A0;
   border-color: #E3B7A0;
+  font-size: x-large;
 }
 
   .delete{
     background-color: #E3B7A0;
     border-color:#E3B7A0 ;
+    font-size: x-large;
+
   }
 
   .complete{
     background-color: #E3B7A0;
     border-color:#E3B7A0 ;
+    font-size: x-large;
+
   }
 
   .alignment{
