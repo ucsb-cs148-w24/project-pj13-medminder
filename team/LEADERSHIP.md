@@ -11,13 +11,13 @@
 | 2/26/2024 | Michael Cheng | Lecture 12 stand-up                       |
 
 Roles:
-Hanson - Product Owner
-Tim - Scrum Master & UX Coordinator
-Michael - Testing/QA Coordinator & Deployment Document Coordinator
-Edwin - Retro 3 leader
-Vaishnavi - Design Document Coordinator
-Garvin - User Manual Coordinator
-James - Final presentation leader (week 9/10)
+- Hanson - Product Owner
+- Tim - Scrum Master & UX Coordinator
+- Michael - Testing/QA Coordinator & Deployment Document Coordinator
+- Edwin - Retro 3 leader
+- Vaishnavi - Design Document Coordinator
+- Garvin - User Manual Coordinator
+- James - Final presentation leader (week 9/10)
 
 Role Description:
 Product Owner. Together with Scrum Master, leads the Sprint Planning meeting(s) to come Responsible for making sure that the team comes up with a set of user stories for the “final” product that your team will deliver, and marking those stories with a label “final” (just like the label MVP that you used previously).
