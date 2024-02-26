@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BsFillInfoCircleFill } from 'react-icons/bs';
-import { getDatabase, ref, onValue } from 'firebase/database';
 import './MedicineInfoButton.css';
 
 const MedicineInfoButton = (props) => {
@@ -9,21 +8,18 @@ const MedicineInfoButton = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-        try {
-            const database = getDatabase();
-            const dataRef = ref(database, `Medicines/${props.medicineName}`);
-            let description = "";
+        try {  
+            // Make API request to FDA API
+            const fdaApiResponse = await fetch(`https://api.fda.gov/drug/event.json?search=patient.drug.openfda.generic_name:%22${props.medicineName}%22&count=patient.reaction.reactionmeddrapt.exact`);
+            const fdaApiData = await fdaApiResponse.json();
+            const terms = fdaApiData.results.slice(0, 5).map(entry => entry.term.toLowerCase());
+      
+            if (terms.length > 0) {
+              setMedicineInfo('Most common side effects: ' + terms.join(', '));
+            } else {
+              setMedicineInfo('Medicine Side Effects not found');
+            }
 
-            onValue(dataRef, (snapshot) => {    
-                if (snapshot.exists()) {
-                    description = snapshot.val();
-                    // console.log(`Description for ${props.medicineName}: ${description}`);
-                    setMedicineInfo(description);
-                }else {
-                    // console.log(`No information found for ${props.medicineName}`);
-                    setMedicineInfo('No info :(');
-                }
-            });
         } catch (error) {
             console.error('Error fetching medicine information:', error);
             setMedicineInfo('Error fetching info');
