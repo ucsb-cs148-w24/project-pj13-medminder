@@ -15,7 +15,7 @@ const MedicineInfoButton = (props) => {
             const terms = fdaApiData.results.slice(0, 5).map(entry => entry.term.toLowerCase());
       
             if (terms.length > 0) {
-              setMedicineInfo('Most common side effects: ' + terms.join(', '));
+              setMedicineInfo('Most common side effects for ' + props.medicineName + ": " + terms.join(', '));
             } else {
               setMedicineInfo('Medicine Side Effects not found');
             }
