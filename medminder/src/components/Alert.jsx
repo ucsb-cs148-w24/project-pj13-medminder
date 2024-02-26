@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AlertPopupWithButton from "./AlertPopupWithButton/AlertPopupWithButton.jsx"
 import { AiFillEdit, AiFillCheckCircle } from "react-icons/ai";
 import DeleteAlert from './DeleteAlert.jsx';
+import MedicineInfoButton from './MedicineInfoButton.jsx';
 
 const Alert = ({alert, displayTime}) => {
     const [opacity, setOpacity] = useState(1);
@@ -46,6 +47,7 @@ const Alert = ({alert, displayTime}) => {
               dosageUnits={alert.dosageUnits} frequency={alert.frequency} frequencyUnits={alert.frequencyUnits} 
               time={alert.time} day={alert.day} editing={true} TextInButton={<AiFillEdit />} buttonDesign={"edit"}/>
             <button className="complete" onClick={() => opacity === 1? setOpacity(.3) : setOpacity(1)}><AiFillCheckCircle/></button>
+            <MedicineInfoButton medicineName={alert.medicineName}></MedicineInfoButton>
         </div>
     );
 };
