@@ -10,7 +10,8 @@ export default function CreateGCalEvent(props) {
     const minutes = Number(("" + alertTime).substring(alertTime.indexOf(':') + 1));
 
     const date_target = props.dateObj;
-    date_target.setHours(hours, minutes);
+    try {date_target.setHours(hours, minutes);}
+    catch {console.error('problem setting hours for gcal date');}
 
 
     const otherNotes = props.alert.otherNotes.length > 0 ? props.alert.otherNotes : 'none';
