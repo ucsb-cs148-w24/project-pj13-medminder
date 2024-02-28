@@ -30,7 +30,7 @@ const DataDisplay = (props) => {
         totalMinutes += hoursToAdd * 60;
         
         const newHours = Math.floor(totalMinutes / 60);
-        const newMinutes = totalMinutes % 60;
+        const newMinutes = Math.floor(totalMinutes % 60);
         if (newHours > 24 || (newHours === 24 && newMinutes > 0)){
             return -1;
         }

@@ -1,57 +1,73 @@
+/* Dashboard Layout and Header */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+}
 
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #E3B7A0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-.sign-out{
+.header-content h1 {
+  margin: 0; /* Removes default margin */
+  font-size: 1.5rem; /* Adjusts the size */
+  color: #333; /* Sets the text color */
+  /* Add more styling as needed */
+}
+
+.dashboard-main {
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* Sign-out Button */
+.sign-out {
   background-color: #E3B7A0;
   border-radius: 10px;
+  margin-left: auto; /* Aligns the sign-out button to the right */
 }
 
 .sign-out:hover {
-  box-shadow: 0 1.2em 1.6em 0 rgba(0,0,0,0.24), 0 1.7em 5em 0 rgba(0,0,0,0.19); /* changed pixel values to em */
+  box-shadow: 0 1.2em 1.6em 0 rgba(0,0,0,0.24), 0 1.7em 5em 0 rgba(0,0,0,0.19);
   cursor: pointer;
 }
 
-.arrow-right{
-  position: relative;
-  border-color:#BF9270 ;
-  background-color: #BF9270;
-  border-radius: 5px;
-  right: -30%; 
-  top: -30%;
-  padding: 5px 5px;
-  z-index: 100;
-  font-size: x-large;
-  border: none;
-  transition: all 0.25s ease;
-
-}
-
-.arrow-left {
+/* Arrow Navigation */
+.arrow-right, .arrow-left {
   position: relative;
   background-color: #BF9270;
   border-color: #BF9270;
-  border: none;
-  font-size: x-large;
-  padding: 5px 5px;
   border-radius: 5px;
-   /* changed from 150px to 15% */
-  left: -40%; /* changed from 180px to 18% */
+  padding: 5px 5px;
+  font-size: x-large;
+  border: none;
+  transition: all 0.25s ease;
   z-index: 100;
+}
+
+.arrow-right {
+  right: -30%;
   top: -30%;
-
 }
 
-.arrow-left:hover{
+.arrow-left {
+  left: -40%;
+  top: -30%;
+}
+
+.arrow-left:hover, .arrow-right:hover {
   cursor: pointer;
   transform: scale(1.05);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
-.arrow-right:hover{
-  cursor: pointer;
-  transform: scale(1.05);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.edit{
+/* Button Styles */
+.edit, .delete, .complete {
   background-color: #E3B7A0;
   border-color: #E3B7A0;
   font-size: x-large;
