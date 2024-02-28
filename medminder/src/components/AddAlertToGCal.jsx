@@ -4,18 +4,26 @@ import '../Dash-style.css';
 
 export default function CreateGCalEvent(props) {
     const accessToken = localStorage.getItem("accessToken"); //useAccessToken();
-    console.log("dateobj: ", props.dateObj.toISOString());
-    console.log("dateobjunformatted: ", props);
+
+    const alertTime = "" + props.alert.time;
+    const hours = Number(alertTime.substring(0, alertTime.indexOf(':')));
+    const minutes = Number(("" + alertTime).substring(alertTime.indexOf(':') + 1));
+
+    const date_target = props.dateObj;
+    date_target.setHours(hours, minutes);
+
+
+    const otherNotes = props.alert.otherNotes.length > 0 ? props.alert.otherNotes : 'none';
     const createEvent = () => {
         var event = {
-          'summary': props.alert.medicineName,
-          'description': 'dummy medicine alert to be updated',
+          'summary': 'take ' + props.alert.medicineName + ' | reminder by MedMinder',
+          'description': 'Dosage amount: ' + props.alert.dosageAmount + props.alert.dosageUnits + "\nOther notes: " + otherNotes,
           'start': {
-            'dateTime': '2024-02-25T12:00:00-07:00',
+            'dateTime': date_target.toISOString(),
             'timeZone': 'America/Los_Angeles',
           },
           'end': {
-            'dateTime': '2024-02-25T12:00:00-07:00',
+            'dateTime': date_target.toISOString(),
             'timeZone': 'America/Los_Angeles',
           },
           'reminders': {
@@ -38,7 +46,6 @@ export default function CreateGCalEvent(props) {
         .catch((error) => {
           console.error('Error creating event: ', error);
         });
-        console.log("completed");
     }
 
     return (
