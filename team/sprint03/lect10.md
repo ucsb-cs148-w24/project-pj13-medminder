@@ -1,7 +1,7 @@
 Meeting Time: lect10
 
 Type of meeting: daily scrum/standup
-led by: Garvin Young
+led by: Tim Choi
 
 Team: 
 - [x] James Pflaging
