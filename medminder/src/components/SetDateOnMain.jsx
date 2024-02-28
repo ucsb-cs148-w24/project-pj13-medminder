@@ -6,7 +6,6 @@ import MedicineModal from './MedicineModal';
 import { BsCaretLeftFill } from "react-icons/bs";
 import { BsCaretRightFill } from "react-icons/bs";
 
-
 const options = {
     year: "numeric",
     month: "long",
@@ -36,19 +35,30 @@ const DateNavigator = () => {
         return date.toLocaleDateString("en-us", options);
     };
 
+    const handleChange = (event) => {
+        const parts = event.target.value.split('-');
+        if (parts.length === 3) {
+            const [year, month, day] = parts;
+            const date = new Date(year, month - 1, day);
+            setCurrentDate(date);
+        }
+    };
+
     return (
-        <div style={{ textAlign: 'center' }}> {/* Center the entire content */}
-        <h2 style={dateStyle}>{formatDate(currentDate)}</h2> 
-{/* Apply the styles to the date */}
-        <div className='date'>
-        <div className='alignment'>
-        <button className="todayButton" onClick={goToToday}>Today</button>
-        <button className="arrow-left" aria-label="arrow-left" onClick={() => changeDate(-1)}><BsCaretLeftFill /></button>
-        <button className="arrow-right" aria-label="arrow-right" onClick={() => changeDate(1)}><BsCaretRightFill /></button>
-        </div>
-        <DataDisplay date={currentDate.getDay()} />
-        <MedicineModal date={currentDate.getDay()} />
-        </div>
+        <div style={{ textAlign: 'center' }}>
+            <h2 style={dateStyle}>
+                {formatDate(currentDate)}
+            </h2>
+            <input type="date" onChange={handleChange}/>
+            <div className='date'>
+                <div className='alignment'>
+                    <button className="todayButton" onClick={goToToday}>Today</button>
+                    <button className="arrow-left" aria-label="arrow-left" onClick={() => changeDate(-1)}><BsCaretLeftFill /></button>
+                    <button className="arrow-right" aria-label="arrow-right" onClick={() => changeDate(1)}><BsCaretRightFill /></button>
+                </div>
+                <DataDisplay date={currentDate.getDay()} />
+                <MedicineModal date={currentDate.getDay()} />
+            </div>
         </div>
 
     );
