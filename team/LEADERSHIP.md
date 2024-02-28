@@ -2,13 +2,27 @@
 
 | Date      | Name              | Activity                                               |
 |-----------|-------------------|--------------------------------------------------------|
-| 1/23/2024 | Hanson Yu  | Sprint Planning Meeting                      | 
-| 1/24/2024 | Edwin Yee  | Lecture 4 stand-up                             |
-| 1/26/2024  | Michael Cheng | Lab 03 stand-up                          |
-| 1/26/2024 | James Pflaging   | Sprint1 Retrospective                  | 
-| 2/07/2024 | Edwin Yee  | Lecture 8 stand-up                            |
-| 2/16/2024 | Garvin Young  | Sprint2 Retospective                      |
-| 2/26/2024 | Michael Cheng | Lecture 12 stand-up                       |
+| 1/12/2024 | Hanson Yu         | Lab 01 stand-up                           |
+| 1/17/2024 | James Pflagging   | Lecture 02 stand-up                       |
+| 1/19/2024 | Hanson Yu         | Lab 02 stand-up                           |
+| 1/22/2024 | Garvin Young      | Lecture 03 stand-up                       |
+| 1/23/2024 | Hanson Yu         | Sprint 01 Planning Meeting                | 
+| 1/24/2024 | Edwin Yee         | Lecture 04 stand-up                       |
+| 1/26/2024 | Michael Cheng     | Lab 03 stand-up                           |
+| 1/26/2024 | James Pflaging    | Sprint 01 Retrospective                   |
+| 1/29/2024 | Vaishnavi Himakunthala | Lecture 05 stand-up                  |
+| 1/31/2024 | Vaishnavi Himakunthala | Lecture 06 stand-up                  |
+| 2/2/2024  | Vaishnavi Himakunthala | Lab 04 stand-up                      |
+| 2/5/2024  | Tim Choi          | Lecture 07 stand-up                       |
+| 2/07/2024 | Edwin Yee         | Lecture 08 stand-up                       |
+| 2/12/2024 | Garvin Young      | Lecture 09 stand-up                       |
+| 2/14/2024 | Tim Choi          | Lecture 10 stand-up                       |
+| 2/16/2024 | Vaishnavi Himakunthala | Lab 06 stand-up                      |
+| 2/16/2024 | Garvin Young      | Sprint 02 Retospective                    |
+| 2/21/2024 | Vaishnavi Himakunthala | Lecture 11 stand-up                  |
+| 2/23/2024 | Garvin Young      | Lab 07 stand-up                           |
+| 2/26/2024 | Michael Cheng     | Lecture 12 stand-up                       |
+| 2/28/2024 | Michael Cheng     | Lecture 13 stand-up                       |
 
 Roles:
 - Hanson - Product Owner
