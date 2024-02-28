@@ -4,9 +4,9 @@ import '../Dash-style.css';
 
 export default function CreateGCalEvent(props) {
     const accessToken = localStorage.getItem("accessToken"); //useAccessToken();
-
+    console.log("dateobj: ", props.dateObj.toISOString());
+    console.log("dateobjunformatted: ", props);
     const createEvent = () => {
-        console.log(accessToken);
         var event = {
           'summary': props.alert.medicineName,
           'description': 'dummy medicine alert to be updated',
@@ -19,11 +19,7 @@ export default function CreateGCalEvent(props) {
             'timeZone': 'America/Los_Angeles',
           },
           'reminders': {
-            'useDefault': false,
-            'overrides': [
-              {'method': 'email', 'minutes': 24 * 60},
-              {'method': 'popup', 'minutes': 10},
-            ],
+            'useDefault': true
           },
         };
     
@@ -38,7 +34,6 @@ export default function CreateGCalEvent(props) {
         .then(response => response.json())
         .then(data => {
           console.log('Event created: ', data);
-          console.log('access token: ', accessToken);
         })
         .catch((error) => {
           console.error('Error creating event: ', error);
