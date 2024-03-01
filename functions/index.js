@@ -63,14 +63,7 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
         const alertTime = alert.time;
         const isDay = alert.day[currentDay];
 
-        // DEBUG:
-        console.log("alertTime:", alertTime);
-        console.log("currentTime:", currentTime);
-        console.log("result:", isDay && alertTime == currentTime);
-        console.log();
-
         if (isDay && alertTime == currentTime) {
-          console.log("attempting to send email, matched");
           const amt = alert.dosageAmount;
           const unit = alert.dosageUnits;
           const name = alert.medicineName;
