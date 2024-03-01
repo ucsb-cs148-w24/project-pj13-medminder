@@ -26,6 +26,20 @@ transporter.verify((error, success) => {
 // Cloud Function to send email notifications
 exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
   try {
+    const now = new Date();
+
+    const hours = (now.getHours() - 8) % 24;
+    const adjustedHours = (hours < 10) ? `0${hours}` : hours;
+    const minutes = now.getMinutes();
+    const adjustedMinutes = (minutes < 10) ? `0${minutes}` : minutes;
+    const currentTime = `${adjustedHours}:${adjustedMinutes}`;
+
+    const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday",
+      "thursday", "friday", "saturday"];
+    const day = now.getDay();
+    const adjustment = hours < 8 ? -1 : 0;
+    const currentDay = daysOfWeek[(day + adjustment) % 7] || "unknown";
+
     // Reference to the root of your database
     const rootRef = admin.database().ref();
 
@@ -35,6 +49,7 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
 
     // Iterate through UserIDs
     for (const userID of userIDs) {
+      console.log("UserID:", userID);
       // Get all alerts for the current user
       const alertsSnapshot =
         await rootRef.child(`/Users/${userID}/UserData`).once("value");
@@ -45,23 +60,11 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
             .val();
 
       for (const alertKey of Object.keys(alerts)) {
-        const now = new Date();
-
-        const hours = (now.getHours() - 8) % 24;
-        const adjustedHours = (hours < 10) ? `0${hours}` : hours;
-        const minutes = now.getMinutes();
-        const adjustedMinutes = (minutes < 10) ? `0${minutes}` : minutes;
-        const currentTime = `${adjustedHours}:${adjustedMinutes}`;
-
-        const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday",
-          "thursday", "friday", "saturday"];
-        const day = now.getDay();
-        const adjustment = hours < 8 ? -1 : 0;
-        const currentDay = daysOfWeek[(day + adjustment) % 7] || "unknown";
-
         const alert = alerts[alertKey];
         const alertTime = alert.time;
         const isDay = alert.day[currentDay];
+
+        console.log("time:", alertTime);
 
         if (isDay && alertTime == currentTime) {
           const amt = alert.dosageAmount;
