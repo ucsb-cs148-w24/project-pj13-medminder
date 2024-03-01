@@ -47,17 +47,20 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
       for (const alertKey of Object.keys(alerts)) {
         // date/time check adapted from Medicine Modal
         const now = new Date();
-        const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday",
-          "thursday", "friday", "saturday"];
-        const currentDay = daysOfWeek[now.getDay()] || "unknown";
 
         const hours = now.getHours();
         const minutes = now.getMinutes();
-        const currentTime = `${hours}:${minutes}`;
+        const currentTime = `${(hours-8)%24}:${minutes}`;
 
         const alert = alerts[alertKey];
         const alertTime = alert.time;
         const isDay = alert.day[currentDay];
+
+        const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday",
+          "thursday", "friday", "saturday"];
+        const day = now.getDay();
+        const adjustment = hours < 8 ? -1 : 0;
+        const currentDay = daysOfWeek[(day + adjustment) % 7] || "unknown";
 
         // DEBUG:
         console.log("isDay:", isDay);
