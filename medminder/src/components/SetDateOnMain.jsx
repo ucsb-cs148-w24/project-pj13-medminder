@@ -35,6 +35,10 @@ const DateNavigator = () => {
         return date.toLocaleDateString("en-us", options);
     };
 
+    const formatDatePicker = (date) => {
+        return date.getFullYear() + "-" + (date.getMonth()+1).toString().padStart(2, '0') + "-" + date.getDate().toString().padStart(2, '0');
+    };
+
     const handleChange = (event) => {
         const parts = event.target.value.split('-');
         if (parts.length === 3) {
@@ -49,7 +53,7 @@ const DateNavigator = () => {
             <h2 style={dateStyle}>
                 {formatDate(currentDate)}
             </h2>
-            <input type="date" onChange={handleChange}/>
+            <input type="date" value={formatDatePicker(currentDate)} onChange={handleChange}/>
             <div className='date'>
                 <div className='alignment'>
                     <button className="todayButton" onClick={goToToday}>Today</button>
