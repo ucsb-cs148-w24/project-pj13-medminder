@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home"
 import Dashboard from "./pages/dashboard.js"
 import ProtectedRoute from './components/LoginProtectedRoute.jsx';
-import backgroundImage from './images/background.png';
+//import backgroundImage from './images/background.png';
 
 
 function App() {
