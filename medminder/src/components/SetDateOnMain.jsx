@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import DataDisplay from './MedicineAlerts';
 import '../Dash-style.css';
-import './styles.css';
 import MedicineModal from './MedicineModal';
 import { BsCaretLeftFill } from "react-icons/bs";
 import { BsCaretRightFill } from "react-icons/bs";
@@ -14,7 +13,7 @@ const options = {
 
 const dateStyle = {
     textAlign: 'center', // Center the text
-    fontSize: '100px',    // Increase font size
+    fontSize: '80px',    // Increase font size
     marginTop: '0%',    // Adjust vertical positioning (optional)
 };
 
