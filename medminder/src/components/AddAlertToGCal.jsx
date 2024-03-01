@@ -13,8 +13,9 @@ export default function CreateGCalEvent(props) {
     try {date_target.setHours(hours, minutes);}
     catch {console.error('problem setting hours for gcal date');}
 
-
-    const otherNotes = props.alert.otherNotes.length > 0 ? props.alert.otherNotes : 'none';
+    let otherNotes = 'none';
+    if (otherNotes)
+      otherNotes = props.alert.otherNotes.length > 0 ? props.alert.otherNotes : 'none';
     const createEvent = () => {
         var event = {
           'summary': 'take ' + props.alert.medicineName + ' | reminder by MedMinder',
