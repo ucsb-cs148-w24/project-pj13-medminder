@@ -47,9 +47,10 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
       for (const alertKey of Object.keys(alerts)) {
         const now = new Date();
 
-        const hours = now.getHours();
+        const hours = (now.getHours() - 8) % 24;
+        const adjustedHours = (hours < 10) ? `0${hours}` : hours;
         const minutes = now.getMinutes();
-        const currentTime = `${(hours-8)%24}:${minutes}`;
+        const currentTime = `${adjustedHours}:${minutes}`;
 
         const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday",
           "thursday", "friday", "saturday"];
