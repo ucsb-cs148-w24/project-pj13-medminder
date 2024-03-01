@@ -63,7 +63,7 @@ const DataDisplay = (props) => {
         while(updatedTime !== -1){
             updatedTime = addHoursToTime(currentData[i].time, Number(currentData[i].frequency) * j);
             if (updatedTime !== -1){
-                alertArray.push(<Alert key={updatedTime} alert={currentData[i]} displayTime={updatedTime} dateObj={props}/>);
+                alertArray.push(<Alert key={updatedTime} alert={currentData[i]} displayTime={updatedTime} dateObj={props.dateObj}/>);
             }
             j++;
         }
