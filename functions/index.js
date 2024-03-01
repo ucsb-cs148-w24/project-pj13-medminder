@@ -50,7 +50,8 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
         const hours = (now.getHours() - 8) % 24;
         const adjustedHours = (hours < 10) ? `0${hours}` : hours;
         const minutes = now.getMinutes();
-        const currentTime = `${adjustedHours}:${minutes}`;
+        const adjustedMinutes = (minutes < 10) ? `0${minutes}` : minutes;
+        const currentTime = `${adjustedHours}:${adjustedMinutes}`;
 
         const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday",
           "thursday", "friday", "saturday"];
@@ -63,7 +64,6 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
         const isDay = alert.day[currentDay];
 
         // DEBUG:
-        console.log("isDay:", isDay);
         console.log("alertTime:", alertTime);
         console.log("currentTime:", currentTime);
         console.log("result:", isDay && alertTime == currentTime);
