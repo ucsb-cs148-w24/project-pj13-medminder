@@ -1,11 +1,10 @@
 const functions = require("firebase-functions");
 const username = functions.config().medminder.username;
 const password = functions.config().medminder.password;
-// const admin = require("firebase-admin");
+const admin = require("firebase-admin");
 const nodemailer = require("nodemailer");
-// const cron = require("node-cron");
 
-// admin.initializeApp();
+admin.initializeApp();
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -25,31 +24,87 @@ transporter.verify((error, success) => {
 });
 
 // Cloud Function to send email notifications
-exports.sendScheduledEmails = functions.https.onRequest((req, res) => {
-  sendEmailNotifications();
-  res.status(200).send("Email sent successfully.");
+exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
+  try {
+    // Reference to the root of your database
+    const rootRef = admin.database().ref();
+
+    // Get all user IDs
+    const userIDsSnapshot = await rootRef.child("/Users").once("value");
+    const userIDs = Object.keys(userIDsSnapshot.val() || {});
+
+    // Iterate through UserIDs
+    for (const userID of userIDs) {
+      // Get all alerts for the current user
+      const alertsSnapshot =
+        await rootRef.child(`/Users/${userID}/UserData`).once("value");
+      const alerts = alertsSnapshot.val() || {};
+
+      const email =
+        (await rootRef.child(`/Users/${userID}/UserInfo/Email`).once("value"))
+            .val();
+
+      for (const alertKey of Object.keys(alerts)) {
+        // date/time check adapted from Medicine Modal
+        const now = new Date();
+        const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday",
+          "thursday", "friday", "saturday"];
+        const currentDay = daysOfWeek[now.getDay()] || "unknown";
+
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const currentTime = `${hours}:${minutes}`;
+
+        const alert = alerts[alertKey];
+        const alertTime = alert.time;
+        const isDay = alert.day[currentDay];
+
+        // DEBUG:
+        console.log("isDay:", isDay);
+        console.log("alertTime:", alertTime);
+        console.log("currentTime:", currentTime);
+        console.log("result:", isDay && alertTime == currentTime);
+        console.log();
+
+        if (isDay && alertTime == currentTime) {
+          console.log("attempting to send email, matched");
+          const amt = alert.dosageAmount;
+          const unit = alert.dosageUnits;
+          const name = alert.medicineName;
+
+          const subject = "Medicine Notification";
+          const body = `This is a reminder to take ${amt} ${unit} of ${name}!`;
+          sendEmail(email, subject, body);
+        }
+      }
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
+
+  res.status(200).send("Email(s) sent successfully.");
 });
 
 /**
- * Function to send email notifications.
+ * Send an email from "medminder.notifications@gmail.com"
+ * @param {string} dest - destination email address
+ * @param {string} sub - subject of email to be sent
+ * @param {string} body - body of email to be sent
  */
-function sendEmailNotifications() {
-  // const db = admin.database();
-  // const ref = db.ref("/notifications");
+function sendEmail(dest, sub, body) {
+  // const mailOptions = {
+  // from: username,
+  // to: "medminder.notifications@gmail.com",
+  // subject: "Medicine Notification",
+  // text: "This is a reminder to take X units of Medication Y!",
+  // };
 
-  // ref.once("value", (snapshot) => {
-  // snapshot.forEach((childSnapshot) => {
-  // const data = childSnapshot.val();
-  // const email = data.email;
-  // const message = data.message;
-  // });
-
-  // Send Email
   const mailOptions = {
     from: username,
-    to: "medminder.notifications@gmail.com",
-    subject: "Medicine Notification",
-    text: "This is a reminder to take X units of Medication Y!",
+    to: dest,
+    subject: sub,
+    text: body,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -59,5 +114,4 @@ function sendEmailNotifications() {
       console.log("Email sent:", info.response);
     }
   });
-// });
 }
