@@ -13,13 +13,10 @@ export default function CreateGCalEvent(props) {
     try {date_target.setHours(hours, minutes);}
     catch {console.error('problem setting hours for gcal date');}
 
-    let otherNotes = 'none';
-    if (otherNotes)
-      otherNotes = props.alert.otherNotes.length > 0 ? props.alert.otherNotes : 'none';
     const createEvent = () => {
         var event = {
           'summary': 'take ' + props.alert.medicineName + ' | reminder by MedMinder',
-          'description': 'Dosage amount: ' + props.alert.dosageAmount + props.alert.dosageUnits + "\nOther notes: " + otherNotes,
+          'description': 'Dosage amount: ' + props.alert.dosageAmount + props.alert.dosageUnits,
           'start': {
             'dateTime': date_target.toISOString(),
             'timeZone': 'America/Los_Angeles',
