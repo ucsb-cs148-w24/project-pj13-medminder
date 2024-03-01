@@ -14,11 +14,11 @@ Team:
 
 
 James: 
-Gooogle calendar functional, main portion done, follow up issues to take on like adding a popup
+Google calendar functional, main portion done, follow up issues to take adding a popup
 
 Garvin: 
-finished popup made the fields required so you cannot submit blank fields, 
-deleted frequency units and replaced with hours and min selector
+finished popup and made the fields required so you cannot submit blank fields, 
+deleted frequency units and replaced with hours and minute selector
 
 Michael:
 set up email notifications, approved PRs, next step working on toggle buttons if you don't want email notifications
