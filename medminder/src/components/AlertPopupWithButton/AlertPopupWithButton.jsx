@@ -8,7 +8,7 @@ function AlertPopupWithButton(props) {
   return (
     <>
       <AlertPopup timestamp={props.timestamp} medicineName={props.medicineName} dosageAmount={props.dosageAmount} 
-        dosageUnits={props.dosageUnits} frequency={props.frequency} frequencyUnits={props.frequencyUnits}
+        dosageUnits={props.dosageUnits} selectedHour={props.selectedHour} selectedMinute={props.selectedMinute}
         time={props.time} day={props.day} editing={props.editing} TextInButton={TextInButton} buttonDesign={buttonDesign}/>
     </>
   );

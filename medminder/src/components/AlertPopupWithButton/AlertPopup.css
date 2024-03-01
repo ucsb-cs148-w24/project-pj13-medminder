@@ -90,7 +90,6 @@ body.active-modal {
 .row {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
 }
 
 .header {
@@ -101,8 +100,8 @@ body.active-modal {
 
 .main-header {
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 35px;
+    margin-bottom: 15px;
     font-size: 40px;
 }
 
@@ -162,5 +161,59 @@ body.active-modal {
     aspect-ratio: 1 / 1;
     margin: 5px;
   }
+
+.random-text {
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+.random-text2 {
+    font-size: 14px;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.random-text3 {
+    font-size: 14px;
+    margin-left: 60px;
+    font-weight: bold;
+}
+
+.hour-selector {
+    width: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    border: 2px solid lightgray;
+    margin-left: 15px;
+}
+
+.hour-selector:focus {
+    border: 2px solid rgb(0, 163, 196);
+}
+
+.hour-selector::-webkit-scrollbar {
+    width: 0;
+}
+
+.minute-selector {
+    width: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    border: 2px solid lightgray;
+}
+
+
+.minute-selector:focus {
+    border: 2px solid rgb(0, 163, 196);
+}
+
   
   

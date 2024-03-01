@@ -8,10 +8,10 @@ export default function AlertPopup(props) {
     const userId = useUserId();
     const [medicineName, setMedicineName] = useState("");
     const [dosageAmount, setDosageAmount] = useState("");
-    const [frequency, setFrequency] = useState("");
     const [time, setTime] = useState("");
-    const [dosageUnits, setDosageUnits] = useState("");
-    const [frequencyUnits, setFrequencyUnits] = useState("");
+    const [dosageUnits, setDosageUnits] = useState("-");
+    const [selectedHour, setSelectedHour] = useState("00");
+    const [selectedMinute, setSelectedMinute] = useState("00");
 
     const [popup, setPopup] = useState(false);
     const [sunday, setSunday] = useState(false);
@@ -21,6 +21,14 @@ export default function AlertPopup(props) {
     const [thursday, setThursday] = useState(false);
     const [friday, setFriday] = useState(false);
     const [saturday, setSaturday] = useState(false);
+  
+    const handleHourChange = (event) => {
+      setSelectedHour(parseInt(event.target.value));
+    };
+  
+    const handleMinuteChange = (event) => {
+      setSelectedMinute(parseInt(event.target.value));
+    };
 
     const togglePopup = () => {
         setPopup(!popup);
@@ -52,10 +60,10 @@ export default function AlertPopup(props) {
 
         setMedicineName(props.medicineName);
         setDosageAmount(props.dosageAmount);
-        setFrequency(props.frequency);
         setTime(props.time);
         setDosageUnits(props.dosageUnits);
-        setFrequencyUnits(props.frequencyUnits);
+        setSelectedHour(props.selectedHour);
+        setSelectedMinute(props.selectedMinute);
 
         setSunday(props.day['sunday']);
         setMonday(props.day['monday']);
@@ -72,10 +80,10 @@ export default function AlertPopup(props) {
     const clearForm = () => {
         setMedicineName("");
         setDosageAmount("");
-        setFrequency("");
         setTime("");
         setDosageUnits("");
-        setFrequencyUnits("");
+        setSelectedHour("00");
+        setSelectedMinute("00")
 
         setSunday(false);
         setMonday(false);
@@ -89,29 +97,52 @@ export default function AlertPopup(props) {
     const submitForm = (event) => {
         event.preventDefault();
 
-        const timestamp = props.editing ? props.timestamp : new Date().toISOString().replace(/[.:]/g, '_');
+        if (medicineName==="") {
+            alert("Please enter a medicine name")
+        }
+        else if (dosageAmount==="" || dosageUnits==="-") {
+            alert("Please enter an amount or units for your dosage")
+        }
+        else if (time==="") {
+            alert("Please enter a time to take your medicine")
+        }
+        else if (
+            !sunday &&
+            !monday &&
+            !tuesday &&
+            !wednesday &&
+            !thursday &&
+            !friday &&
+            !saturday
+        ) {
+            alert("Please select a day to set the alert for")
+        }
 
-        const formData = {
-            timestamp,
-            medicineName,
-            dosageAmount,
-            dosageUnits,
-            time,
-            frequency,
-            frequencyUnits,
-            day: {
-                sunday,
-                monday,
-                tuesday,
-                wednesday,
-                thursday,
-                friday,
-                saturday
-            },
-        };
+        else {
+            const timestamp = props.editing ? props.timestamp : new Date().toISOString().replace(/[.:]/g, '_');
 
-        // Pass formData and other necessary arguments to handleSubmit
-        handleSubmit(formData, userId, clearForm, togglePopup, timestamp);
+            const formData = {
+                timestamp,
+                medicineName,
+                dosageAmount,
+                dosageUnits,
+                time,
+                selectedHour,
+                selectedMinute,
+                day: {
+                    sunday,
+                    monday,
+                    tuesday,
+                    wednesday,
+                    thursday,
+                    friday,
+                    saturday
+                },
+            };
+    
+            // Pass formData and other necessary arguments to handleSubmit
+            handleSubmit(formData, userId, clearForm, togglePopup, timestamp);
+        }
     };
 
     if (popup) {
@@ -180,16 +211,35 @@ export default function AlertPopup(props) {
 
 
                             <h4 className='header'>Repeat Alarm Every:</h4>
-                            <input className='textbox-num'
-                                type="number"
-                                placeholder="Enter a number"
-                                value={frequency}
-                                onChange={(e) => setFrequency(e.target.value)}
-                            />
-                            <select className='selector' value={frequencyUnits} onChange={(e) => setFrequencyUnits(e.target.value)}>
-                                <option>-</option>
-                                <option>Hours</option>
-                            </select>
+
+                            <div className='row'>
+                                <div className='random-text2'>
+                                    Hours
+                                </div>
+                                <div className='random-text3'>
+                                    Minutes
+                                </div>
+                            </div>
+
+                            <div className='row'>
+                                <select className='hour-selector' value={selectedHour} onChange={handleHourChange}>
+                                    {Array.from({ length: 24 }, (_, i) => (
+                                    <option key={i} value={i}>
+                                        {i < 10 ? `0${i}` : i}
+                                    </option>
+                                    ))}
+                                </select>
+                                <select className='minute-selector' value={selectedMinute} onChange={handleMinuteChange}>
+                                    {Array.from({ length: 12 }, (_, i) => (
+                                    <option key={i * 5} value={i * 5}>
+                                        {i * 5 < 10 ? `0${i * 5}` : i * 5}
+                                    </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="random-text">
+                                Leave both fields above blank for non repeating alerts within one day
+                            </div>
 
 
 
