@@ -23,6 +23,8 @@
 | 2/23/2024 | Garvin Young      | Lab 07 stand-up                           |
 | 2/26/2024 | Michael Cheng     | Lecture 12 stand-up                       |
 | 2/28/2024 | Michael Cheng     | Lecture 13 stand-up                       |
+| 3/1/2024  | Edwin Yee         | Lab 08 stand-up                           |
+
 
 Roles:
 - Hanson - Product Owner

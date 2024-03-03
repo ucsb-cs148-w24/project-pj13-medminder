@@ -31,7 +31,7 @@ const SignOut = () => {
 
     return (
         <button className="sign-out" onClick={logOutGoogleUser}>
-            {isLoggedIn? 'signout' : 'not signed in'}
+            {isLoggedIn? 'Sign Out' : 'not signed in'}
         </button>
     )
 }

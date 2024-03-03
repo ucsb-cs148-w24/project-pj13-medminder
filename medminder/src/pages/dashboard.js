@@ -10,7 +10,7 @@ function Dashboard() {
     <div className="dashboard-container">
       <header className="dashboard-header">
         <div className="header-content">
-          <h1>Medminder</h1> {/* Header text added here */}
+          <h1>Medminder</h1> {}
         </div>
         <SignOut />
       </header>

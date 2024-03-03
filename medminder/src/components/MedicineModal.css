@@ -39,4 +39,5 @@
 .button:hover {
     /* Change background color on hover */
     background-color: #f4f2f0;
+    transform: scale(1.05);
 }

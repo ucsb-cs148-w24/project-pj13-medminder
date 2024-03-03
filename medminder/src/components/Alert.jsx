@@ -5,28 +5,29 @@ import DeleteAlert from './DeleteAlert.jsx';
 import MedicineInfoButton from './MedicineInfoButton.jsx';
 
 const Alert = ({alert, displayTime}) => {
-    const [opacity, setOpacity] = useState(1);
+  const [opacity, setOpacity] = useState(1);
 
-    const styles = {
-        container: {
-          opacity: opacity,
-          padding: '0px',
-          margin: '15px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        },
-        detail: {
-          margin: '0 50px',
-          fontSize: '50px',
-          fontFamily: 'monospace',
-        },
-        button: {
-          margin: '0 5px',
-          fontSize: '15px',
-          fontFamily: 'monospace',
-        }
-      };
+  const styles = {
+      container: {
+        background: '#ffffff',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // Optional: add shadow for depth
+        borderRadius: '10px', // Optional: round the corners
+        padding: '15px', // Add padding to prevent content from touching the edges
+        margin: '10px auto',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        opacity: opacity, // Keep your dynamic opacity
+        transition: 'opacity 0.3s ease', // Smooth transition for opacity change
+        width: '80%', // Changed width to 80% of the parent container
+          maxWidth: '800px',
+      },
+      detail: {
+        margin: '0 50px',
+        fontSize: '17px',
+      },
+      
+  };
       
     const convertTo12HourFormat = (time) => {
         const [hours, minutes] = time.split(':').map(Number);
@@ -44,7 +45,7 @@ const Alert = ({alert, displayTime}) => {
             <p style={styles.detail}>{convertTo12HourFormat(displayTime)}</p>
             <DeleteAlert timestamp={alert.timestamp}/>
             <AlertPopupWithButton timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount} 
-              dosageUnits={alert.dosageUnits} frequency={alert.frequency} frequencyUnits={alert.frequencyUnits} 
+              dosageUnits={alert.dosageUnits} selectedHour={alert.selectedHour} selectedMinute={alert.selectedMinute}
               time={alert.time} day={alert.day} editing={true} TextInButton={<AiFillEdit />} buttonDesign={"edit"}/>
             <button className="complete" onClick={() => opacity === 1? setOpacity(.3) : setOpacity(1)}><AiFillCheckCircle/></button>
             <MedicineInfoButton medicineName={alert.medicineName}></MedicineInfoButton>
