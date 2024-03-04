@@ -59,7 +59,7 @@ const DateNavigator = () => {
                     <button className="arrow-left" aria-label="arrow-left" onClick={() => changeDate(-1)}><BsCaretLeftFill /></button>
                     <button className="arrow-right" aria-label="arrow-right" onClick={() => changeDate(1)}><BsCaretRightFill /></button>
                 </div>
-                <DataDisplay date={currentDate.getDay()} />
+                <DataDisplay date={currentDate.getDay()} dateObj={currentDate} />
                 <MedicineModal date={currentDate.getDay()} />
             </div>
         </div>

@@ -53,7 +53,7 @@ const DataDisplay = (props) => {
     for (let i = 0; i < currentData.length; i++) {
         // If frequenmcy is not valid or evals to <= 0 push base time with no repeats
         if (isNaN(Number(currentData[i].frequency)) || Number(currentData[i].frequency) <= 0){
-            alertArray.push(<Alert key={currentData[i].time} alert={currentData[i]} displayTime={currentData[i].time}/>);
+            alertArray.push(<Alert key={currentData[i].time} alert={currentData[i]} displayTime={currentData[i].time} dateObj={props.dateObj}/>);
             continue;
         }
 
@@ -63,7 +63,7 @@ const DataDisplay = (props) => {
         while(updatedTime !== -1){
             updatedTime = addHoursToTime(currentData[i].time, Number(currentData[i].frequency) * j);
             if (updatedTime !== -1){
-                alertArray.push(<Alert key={updatedTime} alert={currentData[i]} displayTime={updatedTime}/>);
+                alertArray.push(<Alert key={updatedTime} alert={currentData[i]} displayTime={updatedTime} dateObj={props.dateObj}/>);
             }
             j++;
         }
