@@ -69,7 +69,7 @@
 }
 
 /* Button Styles */
-.edit, .delete, .complete {
+.edit, .delete, .complete, .addToCalendar {
   background-color: #ffffff;
   border-color: #e9e9e9;
 }
@@ -103,9 +103,3 @@
   flex-direction: row;
   justify-content: center;
 }
-
-
-  .addToCalendar {
-    background-color: #E3B7A0;
-    border-color:#E3B7A0 ;
-  }
