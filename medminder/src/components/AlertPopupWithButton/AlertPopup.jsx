@@ -85,7 +85,7 @@ export default function AlertPopup(props) {
         resetTranscript,
         browserSupportsSpeechRecognition
         } = useSpeechRecognition();
-
+    
     const clearForm = () => {
         setMedicineName("");
         setDosageAmount("");
@@ -167,6 +167,9 @@ export default function AlertPopup(props) {
         setMedicineName(transcript)
     }, [transcript])
 
+    if (!browserSupportsSpeechRecognition) {
+        return <span>Browser doesn't support speech recognition.</span>;
+      }
     
     return (
         <>
