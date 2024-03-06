@@ -25,13 +25,6 @@
   text-align: center;
 }
 
-/* Email Notifications Swtich*/
-.email-switch {
-  margin: 0; /* Removes default margin */
-  font-size: 1.5rem; /* Adjusts the size */
-  color: #ffffff; /* Sets the text color */
-}
-
 /* Sign-out Button */
 .sign-out {
   background-color: #ffffff;
