@@ -19,7 +19,7 @@ Garvin:
 Working on issue - deleting specific alert instead of all the alerts with the same frequency, no roadblocks
 
 Hanson: 
-date picker: calendar, html input field
+working on getting user profiles implemented, no blockers
 
 Michael: 
 Putting up PR for turning off medicine notifications, no roadblocks
