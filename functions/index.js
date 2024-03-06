@@ -59,6 +59,16 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
         (await rootRef.child(`/Users/${userID}/UserInfo/Email`).once("value"))
             .val();
 
+      const notifOn =
+        (await rootRef.child(`/Users/${userID}/UserPref/Email`).once("value"))
+            .val();
+
+      // If Email Notifications are tooggled off, skip user
+      if (!notifOn) {
+        console.log("skipped:", userID);
+        continue;
+      }
+
       for (const alertKey of Object.keys(alerts)) {
         const alert = alerts[alertKey];
         const alertTime = alert.time;
