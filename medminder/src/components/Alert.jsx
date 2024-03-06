@@ -25,7 +25,7 @@ const Alert = ({alert, displayTime, dateObj}) => {
       },
       detail: {
         margin: '0 50px',
-        fontSize: '17px',
+        fontSize: '25px',
       },
       
   };

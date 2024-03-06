@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AlertPopup.css";
 import "./ButtonStyles.css";
 import { handleSubmit } from './formHandlers.js';
 import { useUserId } from "../AuthContext";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 export default function AlertPopup(props) {
     const userId = useUserId();
@@ -58,6 +59,9 @@ export default function AlertPopup(props) {
     const togglePopup2 = () => {
         setPopup(!popup);
 
+    
+        
+
         setMedicineName(props.medicineName);
         setDosageAmount(props.dosageAmount);
         setTime(props.time);
@@ -74,9 +78,14 @@ export default function AlertPopup(props) {
         setSaturday(props.day['saturday']);
     };
 
-
+    const startListening = () => SpeechRecognition.startListening({ continuous: true });
+    const {
+        transcript,
+        listening,
+        resetTranscript,
+        browserSupportsSpeechRecognition
+        } = useSpeechRecognition();
     
-
     const clearForm = () => {
         setMedicineName("");
         setDosageAmount("");
@@ -154,7 +163,14 @@ export default function AlertPopup(props) {
             setPopup(false);
         }
     };
+    useEffect(() =>{
+        setMedicineName(transcript)
+    }, [transcript])
 
+    if (!browserSupportsSpeechRecognition) {
+        return <span>Browser doesn't support speech recognition.</span>;
+      }
+    
     return (
         <>
             <button onClick={props.editing ? togglePopup2 : togglePopup} className={props.buttonDesign}>
@@ -167,8 +183,16 @@ export default function AlertPopup(props) {
                     <div className="modal-content">
 
                             <h1 className='main-header'>{props.editing ? `🦠 Edit a Medicine 💊` : `🦠 Add a Medicine 💊`}</h1>
-
+                            
                                 <h4 className='header'>Medicine Name:</h4>
+                                <p>Microphone: {listening ? 'on' : 'off'}</p>
+                                <button
+                                    onTouchStart={startListening}
+                                    onMouseDown={startListening}
+                                    onTouchEnd={SpeechRecognition.abortListening}
+                                    onMouseUp={SpeechRecognition.abortListening}
+                                    >Hold to say medicine name</button>
+                                <button onClick={resetTranscript}>reset</button>
                                 <input className='textbox'
                                     placeholder="Enter the name of the medicine..."
                                     value={medicineName}
