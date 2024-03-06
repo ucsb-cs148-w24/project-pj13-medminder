@@ -272,44 +272,44 @@ export default function AlertPopup(props) {
                             <div className='row'>
                                 <button 
                                     className='day-button' 
-                                    style={{backgroundColor: sunday ? 'blue' : 'white', marginLeft: '15px' }}
+                                    style={{backgroundColor: sunday ? 'yellow' : 'white', marginLeft: '15px' }}
                                     onClick={toggleSunday}>
                                         S
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleMonday}
-                                    style={{ backgroundColor: monday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: monday ? 'yellow' : 'white' }}>
                                         M
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleTuesday}
-                                    style={{ backgroundColor: tuesday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: tuesday ? 'yellow' : 'white' }}>
                                         T
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleWednesday}
-                                    style={{ backgroundColor: wednesday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: wednesday ? 'yellow' : 'white' }}>
                                         W
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleThursday}
-                                    style={{ backgroundColor: thursday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: thursday ? 'yellow' : 'white' }}>
                                         T
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleFriday}
-                                    style={{ backgroundColor: friday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: friday ? 'yellow' : 'white' }}>
                                         F
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleSaturday}
-                                    style={{ backgroundColor: saturday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: saturday ? 'yellow' : 'white' }}>
                                         S
                                 </button>
                             </div>
