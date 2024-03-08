@@ -9,16 +9,16 @@ export default function DeleteAlert(props) {
 
     const auth = useAuthContext();
     const userId = auth.currentUser.uid;
-    // file path to access the medicine in the database
-    const dataRef = ref(database, 'Users/' + userId + '/UserData/' + props.timestamp);
+    const userProfile = auth.currentProfile;
+    const dataRef = ref(database, 'Users/' + userId + '/' + userProfile + '/' + props.timestamp);
 
     const current_day = props.date.getDay();
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     const dayToRemove = days[current_day]
     // file path to set a specific day to false
-    const dataRef2 = ref(database, 'Users/' + userId + '/UserData/' + props.timestamp + '/day/' + dayToRemove);
+    const dataRef2 = ref(database, 'Users/' + userId + '/' + userProfile + '/' + props.timestamp + '/day/' + dayToRemove);
     // file path to access all the other days and check if they're false, if so delete the entire medicine object
-    const dataRef3 = ref(database, 'Users/' + userId + '/UserData/' + props.timestamp + '/day/');
+    const dataRef3 = ref(database, 'Users/' + userId + '/' + userProfile + '/' + props.timestamp + '/day/');
 
 
 
