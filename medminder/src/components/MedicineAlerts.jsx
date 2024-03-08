@@ -9,47 +9,72 @@ const DataDisplay = (props) => {
     const userId = auth.currentUser.uid;
 
     useEffect(() => {
-        const fetchData = () => {
-            const database = getDatabase();
-            const dataRef = ref(database, 'Users/' + userId + '/UserData');
+        const database = getDatabase();
+        const dataRef = ref(database, 'Users/' + userId + '/UserData');
 
-            onValue(dataRef, (snapshot) => {
-                if (snapshot.exists()) {
-                    const newData = Object.values(snapshot.val()).map((item, index) => ({
-                        ...item,
-                        id: Object.keys(snapshot.val())[index] // Assuming each item's key is its id
-                    })).sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0));
-
-                    setData(newData);
-                } else {
-                    console.log("No data available");
-                }
-            });
-        };
-
-        fetchData(); // Call fetchData within useEffect
+        // Fetch the data
+        onValue(dataRef, (snapshot) => {
+        if (snapshot.exists()) {
+            setData(Object.values(snapshot.val()).sort((a,b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0)));
+            console.log(userId);
+        } else {
+            console.log("No data available");
+        }
+        },);
     }, [userId]);
+    
+    const addHoursToTime = (timeString, hoursToAdd) => {
+        let [hours, minutes] = timeString.split(':').map(Number);
 
-    // Handler to be called when an alert is deleted
-    const handleAlertDelete = (deletedAlertId) => {
-        setData(currentData => currentData.filter(alert => alert.id !== deletedAlertId));
-    };
+        let totalMinutes = hours * 60 + minutes;
+        totalMinutes += hoursToAdd * 60;
+        
+        const newHours = Math.floor(totalMinutes / 60);
+        const newMinutes = Math.floor(totalMinutes % 60);
+        if (newHours > 24 || (newHours === 24 && newMinutes > 0)){
+            return -1;
+        }
+        const formattedHours = newHours.toString().padStart(2, '0');
+        const formattedMinutes = newMinutes.toString().padStart(2, '0');
+        
+        return `${formattedHours}:${formattedMinutes}`;
+    }
 
-    // Rendering logic remains mostly unchanged
-    // The key change is passing handleAlertDelete down to each Alert component
-    const alertComponents = data.map((alert) => (
-        <Alert 
-            key={alert.id}
-            alert={alert}
-            displayTime={alert.time} // Or any other logic you use to determine displayTime
-            dateObj={props.dateObj}
-            onDelete={() => handleAlertDelete(alert.id)} // Passing the delete handler down
-        />
-    ));
+    // Get the day of the week as a number (0-6)
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+    // Array of Alerts to be rendered
+    let alertArray = [];
+
+    // Filter for alerts that will be displayed today
+    const currentData = data.filter(alert => alert.day[days[props.date]] === true);
+
+    // Push Alerts to aray based on frequency
+    for (let i = 0; i < currentData.length; i++) {
+        // If frequenmcy is not valid or evals to <= 0 push base time with no repeats
+        if (isNaN(Number(currentData[i].frequency)) || Number(currentData[i].frequency) <= 0){
+            alertArray.push(<Alert key={currentData[i].time} alert={currentData[i]} displayTime={currentData[i].time} dateObj={props.dateObj}/>);
+            continue;
+        }
+
+        // Push Alerts to array based on frequency while updatedTime <= 24:00
+        let j = 0;
+        let updatedTime = 0;
+        while(updatedTime !== -1){
+            updatedTime = addHoursToTime(currentData[i].time, Number(currentData[i].frequency) * j);
+            if (updatedTime !== -1){
+                alertArray.push(<Alert key={updatedTime} alert={currentData[i]} displayTime={updatedTime} dateObj={props.dateObj}/>);
+            }
+            j++;
+        }
+    }
+
+    // Sort array of Alerts by displayTime
+    alertArray.sort((a,b) => (a.key > b.key) ? 1 : ((b.key > a.key) ? -1 : 0));
 
     return (
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-            {alertComponents.length > 0 ? alertComponents : 'Create an alert!'}
+            {data ? alertArray : 'Loading or no data...'}
         </div>
     );
 };
