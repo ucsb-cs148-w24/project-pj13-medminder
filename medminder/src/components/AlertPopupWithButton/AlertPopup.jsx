@@ -181,7 +181,7 @@ export default function AlertPopup(props) {
     
     return (
         <>
-            <button onClick={props.editing ? togglePopup2 : togglePopup} className={props.buttonDesign} title="edit medicine">
+            <button onClick={props.editing ? togglePopup2 : togglePopup} className={props.buttonDesign} title="add medicine">
                 {props.TextInButton}
             </button>
 
