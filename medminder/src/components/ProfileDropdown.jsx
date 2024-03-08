@@ -3,7 +3,7 @@ import { useAuthContext, AuthContext } from './AuthContext';
 import { ref, set, onValue, query, get, } from 'firebase/database';
 import { database } from '../utils/firebase.utils';
 
-function DropdownWithAdd() {
+function ProfileDropdown() {
   const auth = useAuthContext();
   const userId = auth.currentUser.uid;
   const { setCurrentProfile } = useContext(AuthContext);
@@ -50,10 +50,13 @@ function DropdownWithAdd() {
 
   // Function to handle adding a new item
   const handleAddProfile = () => {
-    const userRef = ref(database, `Users/${userId}/UserInfo/numProfiles`);
-    const newNumProfiles = numProfiles + 1;
-    setNumProfiles(newNumProfiles); // Update state
-    set(userRef, newNumProfiles); // Update database
+    const isConfirmed = window.confirm("Are you sure you want to add a new profile?");
+    if (isConfirmed){
+      const userRef = ref(database, `Users/${userId}/UserInfo/numProfiles`);
+      const newNumProfiles = numProfiles + 1;
+      setNumProfiles(newNumProfiles); // Update state
+      set(userRef, newNumProfiles); // Update database
+    }
   };
 
   const handleSelectChange = (event) => {
@@ -77,4 +80,4 @@ function DropdownWithAdd() {
   );
 }
 
-export default DropdownWithAdd;
+export default ProfileDropdown;
