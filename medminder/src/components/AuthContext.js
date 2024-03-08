@@ -23,10 +23,6 @@ export const AuthContextProvider = ({ children }) => {
     return () => unsubscribe();
   }, [auth]);
 
-  // const updateCurrentProfile = (newProfile) => {
-  //   setCurrentProfile(newProfile);
-  // };
-
   return (
     <AuthContext.Provider value={{ currentUser, accessToken, setAccessToken, currentProfile, setCurrentProfile }}>
       {!loading && children}
@@ -54,12 +50,3 @@ export function useAccessToken() {
   else
     return context.accessToken;
 }
-
-// export function setCurrentProfile(newProfile) {
-//   setCurrentProfile(newProfile);
-//   const context = useContext(AuthContext);
-//   if (context == null || context.currentProfile == null )
-//     throw new Error("using userId in null user");
-//   else
-//     return 1;
-// }
