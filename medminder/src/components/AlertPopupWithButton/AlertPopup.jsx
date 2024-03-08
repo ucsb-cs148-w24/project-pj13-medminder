@@ -4,12 +4,16 @@ import "./ButtonStyles.css";
 import { handleSubmit } from './formHandlers.js';
 import { useUserId } from "../AuthContext";
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
+import { useAuthContext } from '../AuthContext';
 import { CiMicrophoneOn } from "react-icons/ci";
 import { GrPowerReset } from "react-icons/gr";
 
 
 
 export default function AlertPopup(props) {
+    const auth = useAuthContext();
+    const userProfile = auth.currentProfile;
+    
     const userId = useUserId();
     const [medicineName, setMedicineName] = useState("");
     const [dosageAmount, setDosageAmount] = useState("");
@@ -154,7 +158,7 @@ export default function AlertPopup(props) {
             };
     
             // Pass formData and other necessary arguments to handleSubmit
-            handleSubmit(formData, userId, clearForm, togglePopup, timestamp);
+            handleSubmit(formData, userId, clearForm, togglePopup, timestamp, userProfile);
         }
     };
 
