@@ -1,7 +1,7 @@
 Meeting Time: lect05
 
 Type of meeting: daily scrum/standup
-
+Leader: Vaishnavi Himakunthala
 Team: James Pflaging [x], Garvin Young [x], Hanson Yu [x], Michael Cheng [x], Tim Choi [x], Vaishnavi Himakunthala [x], Edwin Yee [x]
 
 James: Merged button, thinking of new issue
