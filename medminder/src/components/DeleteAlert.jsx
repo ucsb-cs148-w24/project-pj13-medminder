@@ -26,6 +26,6 @@ export default function DeleteAlert(props) {
     }
 
     return (
-        <button className="delete" onClick={deleteAlert}><AiFillRest data-testid="delete-icon"/></button>
+        <button className="delete" title="delete medicine" onClick={deleteAlert}><AiFillRest data-testid="delete-icon"/></button>
     );
 }
