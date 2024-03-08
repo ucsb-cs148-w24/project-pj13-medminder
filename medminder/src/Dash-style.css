@@ -97,6 +97,28 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/*notification toggle button*/
+.notifButton {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 10px 10px;
+  background-color:#ffffff;
+  border-color: black;
+  color: black;
+  border: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.4s;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin-left: 10px;
+}
+
+.notifButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 /* Misc */
 .alignment {
   display: flex;
