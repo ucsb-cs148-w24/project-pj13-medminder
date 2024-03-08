@@ -1,11 +1,13 @@
 import SignIn from "../components/SignIn";
 import '../App.css';
-function Home() {
+import medicon from '../images/medicon.png';
 
+function Home() {
   return (
     <div className="Home">
+      <img src={medicon} alt="Medicon" className="mediconImage" />
       <h1 className="title">Medminder</h1>
-      <p>Your medicine reminder.. one pill at a time</p>
+      <p className="slogan">Your medicine reminder.. one pill at a time</p>
       <SignIn />
       <div className="circle"></div>
       <div className="circle2"></div>
@@ -13,7 +15,6 @@ function Home() {
       <div className="circle4"></div>
       <div className="circle5"></div>
       <div className="circle6"></div>
-   
     </div>
   );
 }

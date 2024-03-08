@@ -3,10 +3,14 @@ import { getDatabase, ref, query, get, set } from 'firebase/database';
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import '../App.css';
+import { GoogleAuthProvider } from "firebase/auth";
+//import { useAuthContext } from "./AuthContext";
 
 const SignIn = () => {
     
     const navigate = useNavigate();
+
+    //const setAccessToken = useAuthContext();
     const logGoogleUser = async (name) => {
         try{
             const response = await signInWithGooglePopup();
@@ -15,6 +19,12 @@ const SignIn = () => {
 
             const userId = response.user.uid;
             const email = response.user.email;
+
+            const apiAuth = GoogleAuthProvider.credentialFromResult(response);
+            const accessToken = apiAuth.accessToken;
+            console.log("calling..." + accessToken);
+            //setAccessToken(accessToken);
+            localStorage.setItem("accessToken", accessToken);
 
             const database = getDatabase();
 

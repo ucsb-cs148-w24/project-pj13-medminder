@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AlertPopup.css";
 import "./ButtonStyles.css";
 import { handleSubmit } from './formHandlers.js';
 import { useUserId } from "../AuthContext";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
+import { useAuthContext } from '../AuthContext';
 
 export default function AlertPopup(props) {
+    const auth = useAuthContext();
+    const userProfile = auth.currentProfile;
+    
     const userId = useUserId();
     const [medicineName, setMedicineName] = useState("");
     const [dosageAmount, setDosageAmount] = useState("");
@@ -58,6 +63,9 @@ export default function AlertPopup(props) {
     const togglePopup2 = () => {
         setPopup(!popup);
 
+    
+        
+
         setMedicineName(props.medicineName);
         setDosageAmount(props.dosageAmount);
         setTime(props.time);
@@ -74,9 +82,14 @@ export default function AlertPopup(props) {
         setSaturday(props.day['saturday']);
     };
 
-
+    const startListening = () => SpeechRecognition.startListening({ continuous: true });
+    const {
+        transcript,
+        listening,
+        resetTranscript,
+        browserSupportsSpeechRecognition
+        } = useSpeechRecognition();
     
-
     const clearForm = () => {
         setMedicineName("");
         setDosageAmount("");
@@ -141,7 +154,7 @@ export default function AlertPopup(props) {
             };
     
             // Pass formData and other necessary arguments to handleSubmit
-            handleSubmit(formData, userId, clearForm, togglePopup, timestamp);
+            handleSubmit(formData, userId, clearForm, togglePopup, timestamp, userProfile);
         }
     };
 
@@ -154,7 +167,14 @@ export default function AlertPopup(props) {
             setPopup(false);
         }
     };
+    useEffect(() =>{
+        setMedicineName(transcript)
+    }, [transcript])
 
+    if (!browserSupportsSpeechRecognition) {
+        return <span>Browser doesn't support speech recognition.</span>;
+      }
+    
     return (
         <>
             <button onClick={props.editing ? togglePopup2 : togglePopup} className={props.buttonDesign}>
@@ -167,8 +187,16 @@ export default function AlertPopup(props) {
                     <div className="modal-content">
 
                             <h1 className='main-header'>{props.editing ? `🦠 Edit a Medicine 💊` : `🦠 Add a Medicine 💊`}</h1>
-
+                            
                                 <h4 className='header'>Medicine Name:</h4>
+                                <p>Microphone: {listening ? 'on' : 'off'}</p>
+                                <button
+                                    onTouchStart={startListening}
+                                    onMouseDown={startListening}
+                                    onTouchEnd={SpeechRecognition.abortListening}
+                                    onMouseUp={SpeechRecognition.abortListening}
+                                    >Hold to say medicine name</button>
+                                <button onClick={resetTranscript}>reset</button>
                                 <input className='textbox'
                                     placeholder="Enter the name of the medicine..."
                                     value={medicineName}
@@ -248,44 +276,44 @@ export default function AlertPopup(props) {
                             <div className='row'>
                                 <button 
                                     className='day-button' 
-                                    style={{backgroundColor: sunday ? 'blue' : 'white', marginLeft: '15px' }}
+                                    style={{backgroundColor: sunday ? 'yellow' : 'white', marginLeft: '15px' }}
                                     onClick={toggleSunday}>
                                         S
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleMonday}
-                                    style={{ backgroundColor: monday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: monday ? 'yellow' : 'white' }}>
                                         M
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleTuesday}
-                                    style={{ backgroundColor: tuesday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: tuesday ? 'yellow' : 'white' }}>
                                         T
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleWednesday}
-                                    style={{ backgroundColor: wednesday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: wednesday ? 'yellow' : 'white' }}>
                                         W
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleThursday}
-                                    style={{ backgroundColor: thursday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: thursday ? 'yellow' : 'white' }}>
                                         T
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleFriday}
-                                    style={{ backgroundColor: friday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: friday ? 'yellow' : 'white' }}>
                                         F
                                 </button>
                                 <button 
                                     className='day-button' 
                                     onClick={toggleSaturday}
-                                    style={{ backgroundColor: saturday ? 'blue' : 'white' }}>
+                                    style={{ backgroundColor: saturday ? 'yellow' : 'white' }}>
                                         S
                                 </button>
                             </div>

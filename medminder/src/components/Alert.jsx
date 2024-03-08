@@ -3,8 +3,9 @@ import AlertPopupWithButton from "./AlertPopupWithButton/AlertPopupWithButton.js
 import { AiFillEdit, AiFillCheckCircle } from "react-icons/ai";
 import DeleteAlert from './DeleteAlert.jsx';
 import MedicineInfoButton from './MedicineInfoButton.jsx';
+import CreateGCalEvent from './AddAlertToGCal.jsx';
 
-const Alert = ({alert, displayTime}) => {
+const Alert = ({alert, displayTime, dateObj}) => {
   const [opacity, setOpacity] = useState(1);
 
   const styles = {
@@ -24,7 +25,7 @@ const Alert = ({alert, displayTime}) => {
       },
       detail: {
         margin: '0 50px',
-        fontSize: '17px',
+        fontSize: '25px',
       },
       
   };
@@ -49,6 +50,7 @@ const Alert = ({alert, displayTime}) => {
               time={alert.time} day={alert.day} editing={true} TextInButton={<AiFillEdit />} buttonDesign={"edit"}/>
             <button className="complete" onClick={() => opacity === 1? setOpacity(.3) : setOpacity(1)}><AiFillCheckCircle/></button>
             <MedicineInfoButton medicineName={alert.medicineName}></MedicineInfoButton>
+            <CreateGCalEvent alert={alert} dateObj={dateObj}/>
         </div>
     );
 };

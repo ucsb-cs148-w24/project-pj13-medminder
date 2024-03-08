@@ -2,10 +2,9 @@
 import { ref, set } from 'firebase/database';
 import { database } from '../../utils/firebase.utils'; // Ensure this path is correct
 
-export const handleSubmit = (formData, userId, clearForm, togglePopup, timestamp) => {
-    
+export const handleSubmit = (formData, userId, clearForm, togglePopup, timestamp, userProfile) => {
     // Adjust the database reference to include the userId in the path
-    const dataRef = ref(database, `Users/${userId}/UserData/` + timestamp);
+    const dataRef = ref(database, `Users/${userId}/${userProfile}/` + timestamp);
 
     set(dataRef, formData)
         .then(() => alert('Data sent to Firebase!'))

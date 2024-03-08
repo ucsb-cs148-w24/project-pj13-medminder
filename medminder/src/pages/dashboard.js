@@ -3,6 +3,7 @@ import AlertPopupWithButton from "../components/AlertPopupWithButton/AlertPopupW
 import DateNavigator from "../components/SetDateOnMain.jsx";
 import SignOut from "../components/SignOut.jsx";
 import EmailToggle from "../components/EmailToggle.jsx"
+import ProfileDropdown from '../components/ProfileDropdown.jsx';
 
 import '../Dash-style.css';
 
@@ -18,6 +19,7 @@ function Dashboard() {
       </header>
       <div className="nav">
         {/* Navigation content if any */}
+        <ProfileDropdown/>
       </div>
       <div className="dashboard-main" style={{textAlign: 'center', marginTop: '60px'}}>
         <DateNavigator />
