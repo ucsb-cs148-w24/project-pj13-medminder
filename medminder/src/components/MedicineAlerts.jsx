@@ -7,27 +7,31 @@ const DataDisplay = (props) => {
     const [data, setData] = useState([]);
     const auth = useAuthContext();
     const userId = auth.currentUser.uid;
+    const userProfile = auth.currentProfile;
 
     useEffect(() => {
         const database = getDatabase();
-        const dataRef = ref(database, 'Users/' + userId + '/UserData');
+        const dataRef = ref(database, 'Users/' + userId + '/' + userProfile);
 
         // Fetch the data
         onValue(dataRef, (snapshot) => {
         if (snapshot.exists()) {
-            setData(Object.values(snapshot.val()).sort((a,b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0)));
+            setData(Object.values(snapshot.val()));
             console.log(userId);
+            console.log(userProfile);
         } else {
+            setData([]);
             console.log("No data available");
+            console.log(userProfile);
         }
         },);
-    }, [userId]);
+    }, [userId, userProfile]);
     
-    const addHoursToTime = (timeString, hoursToAdd) => {
+    const addFrequencyToTime = (timeString, hoursToAdd, minutesToAdd) => {
         let [hours, minutes] = timeString.split(':').map(Number);
 
         let totalMinutes = hours * 60 + minutes;
-        totalMinutes += hoursToAdd * 60;
+        totalMinutes += hoursToAdd * 60 + minutesToAdd;
         
         const newHours = Math.floor(totalMinutes / 60);
         const newMinutes = Math.floor(totalMinutes % 60);
@@ -52,7 +56,7 @@ const DataDisplay = (props) => {
     // Push Alerts to aray based on frequency
     for (let i = 0; i < currentData.length; i++) {
         // If frequenmcy is not valid or evals to <= 0 push base time with no repeats
-        if (isNaN(Number(currentData[i].frequency)) || Number(currentData[i].frequency) <= 0){
+        if (isNaN(Number(currentData[i].selectedMinute)) || isNaN(Number(currentData[i].selectedHour)) || (Number(currentData[i].selectedHour) <= 0 && Number(currentData[i].selectedMinute) <= 0)){
             alertArray.push(<Alert key={currentData[i].time} alert={currentData[i]} displayTime={currentData[i].time} dateObj={props.dateObj}/>);
             continue;
         }
@@ -61,7 +65,7 @@ const DataDisplay = (props) => {
         let j = 0;
         let updatedTime = 0;
         while(updatedTime !== -1){
-            updatedTime = addHoursToTime(currentData[i].time, Number(currentData[i].frequency) * j);
+            updatedTime = addFrequencyToTime(currentData[i].time, Number(currentData[i].selectedHour) * j, Number(currentData[i].selectedMinute) * j);
             if (updatedTime !== -1){
                 alertArray.push(<Alert key={updatedTime} alert={currentData[i]} displayTime={updatedTime} dateObj={props.dateObj}/>);
             }

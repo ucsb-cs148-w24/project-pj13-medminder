@@ -1,12 +1,14 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [accessToken, setAccessToken] = useState(null);
+
+  const [currentProfile, setCurrentProfile] = useState(null);
   // could use some implementation of loading state to prevent some weirdness
   const auth = getAuth()
 
@@ -15,13 +17,18 @@ export const AuthContextProvider = ({ children }) => {
         setAccessToken(null);
         setCurrentUser(user);
         setLoading(false);
+        setCurrentProfile("UserData")
     });
 
     return () => unsubscribe();
   }, [auth]);
 
+  // const updateCurrentProfile = (newProfile) => {
+  //   setCurrentProfile(newProfile);
+  // };
+
   return (
-    <AuthContext.Provider value={{ currentUser, accessToken, setAccessToken }}>
+    <AuthContext.Provider value={{ currentUser, accessToken, setAccessToken, currentProfile, setCurrentProfile }}>
       {!loading && children}
     </AuthContext.Provider>
   );
@@ -47,3 +54,12 @@ export function useAccessToken() {
   else
     return context.accessToken;
 }
+
+// export function setCurrentProfile(newProfile) {
+//   setCurrentProfile(newProfile);
+//   const context = useContext(AuthContext);
+//   if (context == null || context.currentProfile == null )
+//     throw new Error("using userId in null user");
+//   else
+//     return 1;
+// }

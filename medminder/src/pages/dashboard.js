@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AlertPopupWithButton from "../components/AlertPopupWithButton/AlertPopupWithButton.jsx";
 import DateNavigator from "../components/SetDateOnMain.jsx";
 import SignOut from "../components/SignOut.jsx";
+import DropdownWithAdd from '../components/DropdownWithAdd.jsx';
 
 import '../Dash-style.css';
 
@@ -16,6 +17,7 @@ function Dashboard() {
       </header>
       <div className="nav">
         {/* Navigation content if any */}
+        <DropdownWithAdd/>
       </div>
       <div className="dashboard-main" style={{textAlign: 'center', marginTop: '60px'}}>
         <DateNavigator />

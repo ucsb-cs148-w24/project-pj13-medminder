@@ -8,7 +8,8 @@ import '../Dash-style.css';
 export default function DeleteAlert(props) {
     const auth = useAuthContext();
     const userId = auth.currentUser.uid;
-    const dataRef = ref(database, 'Users/' + userId + '/UserData/' + props.timestamp);
+    const userProfile = auth.currentProfile;
+    const dataRef = ref(database, 'Users/' + userId + '/' + userProfile + '/' + props.timestamp);
 
     const deleteAlert = async () => {
         // Display a confirmation dialog
