@@ -1,132 +1,114 @@
-body{
+/* App.css */
+body {
     background-color: #efefef;
-}
-.signin{
-   
-  background-color: #ffffff;
-  border-radius: 10px;
-  height: 70px;
-  width: 100px;
-  font-weight: bold;
-  font-size: large;
-  margin-top: 5%;
-
-}
-.signin:hover {
+  }
+  
+  .signin {
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 70px;
+    width: 100px;
+    font-weight: bold;
+    font-size: large;
+    margin-top: 50%;
+  }
+  
+  .signin:hover {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     transform: scale(1.05);
     cursor: pointer;
   }
-
-.title{
+  
+  .title {
     margin-top: 2%;
-}
-
-.circle{
-    margin-top: 10%;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(132deg,white,#1769c0, black);
-    -moz-border-radius: 60px;
-    -webkit-border-radius: 60px;
-    border-radius: 60px;
-    animation: BackgroundGradient 30s ease infinite; 
- 
-}
-
-.circle2{
-    margin-top: 0%;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(132deg,white,#1769c0, black);
-    -moz-border-radius: 60px;
-    -webkit-border-radius: 60px;
-    border-radius: 60px;
-    animation: BackgroundGradient 30s ease infinite; 
-    margin-left: 85%;
-    margin-right: 25%;
- 
-}
-
-.circle3{
-    margin-top:-80%;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(132deg,white,#1769c0, black);
-    -moz-border-radius: 60px;
-    -webkit-border-radius: 60px;
-    border-radius: 60px;
-    animation: BackgroundGradient 30s ease infinite; 
-    margin-left: 10%;
-    margin-right: 35%;
- 
-}
-.circle4{
-    margin-top: 0%;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(132deg,white,#1769c0, black);
-    -moz-border-radius: 60px;
-    -webkit-border-radius: 60px;
-    border-radius: 60px;
-    animation: BackgroundGradient 30s ease infinite; 
-    margin-left:80%;
-    margin-right: 45%;
- 
-}
-
-.circle5{
-    margin-top: -0%;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(132deg,white,#1769c0, black);
-    -moz-border-radius: 60px;
-    -webkit-border-radius: 60px;
-    border-radius: 60px;
-    animation: BackgroundGradient 30s ease infinite; 
-    margin-left: -15%;
-    margin-right: 50%;
- 
-}
-
-.circle6{
-    margin-top: 10%;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(132deg,white,#1769c0, black);
-    -moz-border-radius: 60px;
-    -webkit-border-radius: 60px;
-    border-radius: 60px;
-    animation: BackgroundGradient 30s ease infinite; 
-    margin-left: 85%;
-    margin-right: 25%;
- 
-}
-.Home {
+  }
+  
+  .Home {
     background-color: rgb(255, 255, 255);
     font-size: 35px;
     text-align: center;
-    position: absolute; /* Changed from relative to absolute */
+    position: absolute;
     border: 5px solid #7b98ff;
-    height: 700px;
-    width: 1200px;
+    height: 700px; /* Adjust based on screen size if necessary */
+    width: 1200px; /* Adjust based on screen size if necessary */
     padding: 10px;
     font-family: Urbanist;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    margin: auto; /* This will center the element */
-    /* Ensure the element's box size includes padding and border */
+    margin: auto;
     box-sizing: border-box;
     border-radius: 20px;
-}
-
-.mediconImage {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+  }
+  .circlesContainer {
+    position: relative;
+    width: 100%; /* Ensure it spans the full width of its parent */
+    height: 600px; /* Adjust based on your design */
+  }
+  
+  .circle, .circle2, .circle3, .circle4, .circle5, .circle6 {
+    position: absolute;
+  }
+  
+  .circle {
+    top: -350%;
+    left: 20%;
+  }
+  
+  .circle2 {
+    top: -200%;
+    left: 90%;
+  }
+  
+  .circle3 {
+    top: -180%;
+    left: -5%;
+  }
+  
+  .circle4 {
+    top: 60%;
+    left: 10%;
+  }
+  
+  .circle5 {
+    top: 30%;
+    left: 60%;
+  }
+  
+  .circle6 {
+    top: 20%;
+    left: 100%;
+  }
+  .circle, .circle2, .circle3, .circle4, .circle5, .circle6 {
     width: 100px;
     height: 100px;
-    display: block; /* Ensures the image is block-level, which can help with alignment */
-    margin: 12% auto 0; /* Adds 20px of space above the icon and centers it horizontally */
-    /* Additional styling such as border-radius, box-shadow, etc. */
-}
+    background: linear-gradient(132deg, white, #1769c0, black);
+    border-radius: 60px;
+    animation: BackgroundGradient 30s ease infinite;
+  }
+  
+  .hithere {
+    animation: hithere 3s ease infinite;
+  }
+  
+  @keyframes hithere {
+    15% { transform: scale(1.1); }
+    20%, 30% { transform: rotate(-10deg) scale(1.1); }
+    25% { transform: rotate(10deg) scale(1.1); }
+    35% { transform: rotate(0deg) scale(1.1); }
+    50% { transform: scale(1); }
+  }
+  
 
+  .mediconImage {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 12% auto 0;
+  }
+  
