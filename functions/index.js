@@ -28,17 +28,21 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
   try {
     const now = new Date();
 
-    const hours = (now.getHours() - 8) % 24;
+    const hours = (now.getHours() + 16) % 24;
     const adjustedHours = (hours < 10) ? `0${hours}` : hours;
     const minutes = now.getMinutes();
     const adjustedMinutes = (minutes < 10) ? `0${minutes}` : minutes;
     const currentTime = `${adjustedHours}:${adjustedMinutes}`;
 
+    console.log("Current Time:", currentTime);
+
     const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday",
       "thursday", "friday", "saturday"];
     const day = now.getDay();
-    const adjustment = hours < 8 ? -1 : 0;
+    const adjustment = hours + 8 >= 24 ? 6 : 0;
     const currentDay = daysOfWeek[(day + adjustment) % 7] || "unknown";
+
+    console.log("Current Day:", currentDay);
 
     // Reference to the root of your database
     const rootRef = admin.database().ref();
