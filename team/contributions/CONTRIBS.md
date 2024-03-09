@@ -5,6 +5,7 @@ Coding:
 - delete button for medicine -> adjusted delete to only delete medicine for that specific day
 - edit button for medicine (just an adjusted add medicine using the same path)
 - other simple and straightforward final touches before code freeze
+
 NonCoding:
 - managed and added issues to the kanban board
 - helped make demo recording for mvp
