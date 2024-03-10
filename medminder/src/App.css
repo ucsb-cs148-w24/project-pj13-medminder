@@ -6,7 +6,7 @@
     width: 100px;
     font-weight: bold;
     font-size: large;
-    margin-top: 5%;  
+    margin-top: 30%;  
 }
 
 .signin:hover {
@@ -49,6 +49,7 @@ body {
     justify-content: center;
     min-width: 400px;
     min-height: 500px; 
+    z-index: 0;
 }
 
 .mediconImage {
@@ -68,85 +69,6 @@ body {
 }
 
 @media (min-width: 769px) {
-    /* .circle{
-        margin-top: 10%;
-        width: 100px;
-        height: 100px;
-        background: linear-gradient(132deg,white,#1769c0, black);
-        -moz-border-radius: 60px;
-        -webkit-border-radius: 60px;
-        border-radius: 60px;
-        animation: BackgroundGradient 30s ease infinite; 
-    
-    } */
 
-    /* .circle2{
-        margin-top: 0%;
-        width: 100px;
-        height: 100px;
-        background: linear-gradient(132deg,white,#1769c0, black);
-        -moz-border-radius: 60px;
-        -webkit-border-radius: 60px;
-        border-radius: 60px;
-        animation: BackgroundGradient 30s ease infinite; 
-        margin-left: 85%;
-        margin-right: 25%;
-    
-    }
-
-    .circle3{
-        margin-top:-80%;
-        width: 100px;
-        height: 100px;
-        background: linear-gradient(132deg,white,#1769c0, black);
-        -moz-border-radius: 60px;
-        -webkit-border-radius: 60px;
-        border-radius: 60px;
-        animation: BackgroundGradient 30s ease infinite; 
-        margin-left: 10%;
-        margin-right: 35%;
-    
-    }
-    .circle4{
-        margin-top: 0%;
-        width: 100px;
-        height: 100px;
-        background: linear-gradient(132deg,white,#1769c0, black);
-        -moz-border-radius: 60px;
-        -webkit-border-radius: 60px;
-        border-radius: 60px;
-        animation: BackgroundGradient 30s ease infinite; 
-        margin-left:80%;
-        margin-right: 45%;
-    
-    }
-
-    .circle5{
-        margin-top: -0%;
-        width: 100px;
-        height: 100px;
-        background: linear-gradient(132deg,white,#1769c0, black);
-        -moz-border-radius: 60px;
-        -webkit-border-radius: 60px;
-        border-radius: 60px;
-        animation: BackgroundGradient 30s ease infinite; 
-        margin-left: -15%;
-        margin-right: 50%;
-    
-    }
-
-    .circle6{
-        margin-top: 10%;
-        width: 100px;
-        height: 100px;
-        background: linear-gradient(132deg,white,#1769c0, black);
-        -moz-border-radius: 60px;
-        -webkit-border-radius: 60px;
-        border-radius: 60px;
-        animation: BackgroundGradient 30s ease infinite; 
-        margin-left: 85%;
-        margin-right: 25%;
-    
-    }  */
 }
 
