@@ -60,12 +60,10 @@
 
 .arrow-right {
   right: -25%;
-  top: -30%;
 }
 
 .arrow-left {
-  left: -34%;
-  top: -30%;
+  left: -25%
 }
 
 .arrow-left:hover, .arrow-right:hover {
@@ -87,7 +85,6 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/*today button*/
 .todayButton {
   font-size: 18px;
   font-weight: bold;
@@ -99,7 +96,7 @@
   border: 20px;
   border-radius: 8px;
   position: relative;
-  left: 3.6%;
+  text-align: center;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.4s;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
