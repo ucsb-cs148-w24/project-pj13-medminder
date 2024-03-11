@@ -45,7 +45,6 @@ const SignIn = () => {
                     console.log('Returning User.');
                 } else {
                     console.log('New User.');
-                    signInheader()
                     
 
                     const userInfo = {
