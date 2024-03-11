@@ -7,7 +7,7 @@ import medicon from '../images/medicon.png';
 function Home() {
   return (
     <div className="Home">
-        <img src={medicon} alt="Medicon" className="mediconImage hithere" />
+        <img src={medicon} alt="Medicon" className="mediconImage" />
 
         <h1 className="title">Medminder</h1>
       <p className="slogan">Your medicine reminder... one pill at a time</p>
