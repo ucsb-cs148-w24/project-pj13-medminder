@@ -12,24 +12,8 @@ import "./AlertPopupWithButton/AlertPopup.css";
 const SignIn = () => {
     
     const navigate = useNavigate();
-    const [sex, setSex] = useState("");
-    const [age, setAge] = useState("");
 
-    const signInheader = () =>{
-        <div className="modal-content">
-                    <h3>Welcome to medminder!</h3>
-                    <input className='textbox'
-                    placeholder="What is your sex?"
-                    value={sex}
-                                    onChange={(e) => setSex(e.target.value)}
-                                />
-                    <input className='textbox'
-                    placeholder="What is your age?"
-                    value={sex}
-                                    onChange={(e) => setAge(e.target.value)}
-                                />
-                                </div>
-    }
+
 
     //const setAccessToken = useAuthContext();
     const logGoogleUser = async (name) => {
@@ -68,15 +52,21 @@ const SignIn = () => {
                         Name: response.user.displayName,
                         Email: email,
                         // default values, to be updated later
-                        Sex: sex,
-                        Age: age,
+                        Sex: "F",
+                        Age: "24",
                         DOB: "01/01/2000",
                     };
 
+                    const userPref = {
+                        Email: true,
+                    };
             
                     // Store user data under "Users/{email}/UserInfo"
                     const userRef = ref(database, `Users/${userId}/UserInfo`);
                     set(userRef, userInfo);
+
+                    const userRef_preferences = ref(database, `Users/${userId}/UserPref`);
+                    set(userRef_preferences, userPref);
                 }
             }).catch((error) => {
                 console.error('Error querying the database:', error);

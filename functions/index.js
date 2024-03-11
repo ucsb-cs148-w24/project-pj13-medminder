@@ -26,19 +26,27 @@ transporter.verify((error, success) => {
 // Cloud Function to send email notifications
 exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
   try {
+    // Grab current date, time zone: UTC if run by Google Functions
     const now = new Date();
 
-    const hours = (now.getHours() - 8) % 24;
-    const adjustedHours = (hours < 10) ? `0${hours}` : hours;
+    // Convert UTC to PDT (UTC-7)
+    const shift = 7;
+
+    const hours = (now.getHours() + (24 - shift)) % 24;
+    const formatHours = (hours < 10) ? `0${hours}` : hours;
     const minutes = now.getMinutes();
-    const adjustedMinutes = (minutes < 10) ? `0${minutes}` : minutes;
-    const currentTime = `${adjustedHours}:${adjustedMinutes}`;
+    const formatMinutes = (minutes < 10) ? `0${minutes}` : minutes;
+    const currentTime = `${formatHours}:${formatMinutes}`;
+
+    console.log("Current Time:", currentTime);
 
     const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday",
       "thursday", "friday", "saturday"];
     const day = now.getDay();
-    const adjustment = hours < 8 ? -1 : 0;
+    const adjustment = hours + shift >= 24 ? 6 : 0;
     const currentDay = daysOfWeek[(day + adjustment) % 7] || "unknown";
+
+    console.log("Current Day:", currentDay);
 
     // Reference to the root of your database
     const rootRef = admin.database().ref();
@@ -58,6 +66,16 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
       const email =
         (await rootRef.child(`/Users/${userID}/UserInfo/Email`).once("value"))
             .val();
+
+      const notifOn =
+        (await rootRef.child(`/Users/${userID}/UserPref/Email`).once("value"))
+            .val();
+
+      // If Email Notifications are tooggled off, skip user
+      if (!notifOn) {
+        console.log("skipped:", userID);
+        continue;
+      }
 
       for (const alertKey of Object.keys(alerts)) {
         const alert = alerts[alertKey];
