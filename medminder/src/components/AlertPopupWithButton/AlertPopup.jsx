@@ -195,12 +195,17 @@ export default function AlertPopup(props) {
                             
                                 <h4 className='header'>Medicine Name:</h4>
                                 <div className="row">
+                                <div>
                                 <input className='textbox'
                                     placeholder="Enter the name of the medicine..."
                                     value={medicineName}
                                     onChange={(e) => setMedicineName(e.target.value)}
                                 />
-                                <p>   Mic: {listening ? 'on' : 'off'}</p>
+                                </div>
+                                <div>
+                                <p>Mic: {listening ? 'on' : 'off'}</p>
+                                </div>
+                                <div>
                                 <button
                                     className="mic"
                                     onTouchStart={startListening}
@@ -209,8 +214,10 @@ export default function AlertPopup(props) {
                                     onMouseUp={SpeechRecognition.abortListening}
                                     title="hold mic icon to say medicine name"
                                     ><CiMicrophoneOn /></button>
+                                </div>
                                 <button className="reset" title="reset medicine name" onClick={resetTranscript}><GrPowerReset />
                                 </button>
+                                
                                 </div>
                                 
                                 
