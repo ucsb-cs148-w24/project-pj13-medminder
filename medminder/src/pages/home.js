@@ -13,6 +13,7 @@ function Home() {
       <p className="slogan">Your medicine reminder... one pill at a time</p>
       <SignIn />
     <div className="circlesContainer">
+
       <div className="circle"></div>
       <div className="circle2"></div>
       <div className="circle3"></div>
