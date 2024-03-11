@@ -4,7 +4,6 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import '../App.css';
 import { GoogleAuthProvider } from "firebase/auth";
-import { useEffect, useState } from "react";
 import "./AlertPopupWithButton/AlertPopup.css";
 
 //import { useAuthContext } from "./AuthContext";
