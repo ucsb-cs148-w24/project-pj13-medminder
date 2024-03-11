@@ -44,7 +44,7 @@ const Alert = ({alert, displayTime, dateObj}) => {
             <p style={styles.detail}>{alert.medicineName}</p>
             <p style={styles.detail}>{alert.dosageAmount + " " + alert.dosageUnits}</p>
             <p style={styles.detail}>{convertTo12HourFormat(displayTime)}</p>
-            <DeleteAlert timestamp={alert.timestamp}/>
+            <DeleteAlert timestamp={alert.timestamp} date={dateObj}/>
             <AlertPopupWithButton timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount} 
               dosageUnits={alert.dosageUnits} selectedHour={alert.selectedHour} selectedMinute={alert.selectedMinute}
               time={alert.time} day={alert.day} editing={true} TextInButton={<AiFillEdit />} buttonDesign={"edit"}/>

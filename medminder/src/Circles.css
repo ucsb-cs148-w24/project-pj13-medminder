@@ -1,0 +1,50 @@
+/* Default styles for all circles */
+.circle, .circle2, .circle3, .circle4, .circle5, .circle6 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(132deg, white, #1769c0, black);
+    border-radius: 50%;
+    z-index: 1; /* Set a higher z-index */
+}
+
+.circle {
+    margin-top: -350px;
+    margin-left: 0px;
+}
+
+.circle2 {
+    margin-top: -475px;
+    margin-left: 250px;
+}
+
+.circle3 {
+    margin-top: -375px;
+    margin-left: 1100px;
+}
+
+.circle4 {
+    margin-top: -125px;
+    margin-left: 1200px;
+}
+
+.circle5 {
+    margin-top: 150px;
+    margin-left: 1175px;
+}
+
+.circle6 {
+    margin-top: 75px;
+    margin-left: 175px;
+}
+
+/* @media (min-width: 769px) {
+
+}  */
+/* Media query for screens smaller than 769px */
+@media (max-width: 768px) {
+    .circle, .circle2, .circle3, .circle4, .circle5, .circle6 {
+        display: none; 
+        
+    }
+}

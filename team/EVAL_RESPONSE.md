@@ -1,12 +1,12 @@
-## Provide feedback based on the team's USERFEEDBACK_NEEDS.md:
+## Provide feedback based on the team's USER_FEEDBACK_NEEDS.md:
 Would having a way to view more than one day at once be useful to implement?
-- 7/8 of the other team's members said a weekly view would be nice to have. There's only 1 week left before the code freeze and we think implementing a weekly or monthly view would take too much time
+- 6/7 of the other team's members said a weekly view would be nice to have. There's only 1 week left before the code freeze and we think implementing a weekly or monthly view would take too much time.
 
 Are there any parts of the UI that seem cluttered or confusing?
-- everyone mentioned the 5 buttons on the right of each alert being confusing, we are making each alert overall bigger to make it easier for users to access as well as adding a label for each of the button when a user hovers over them
+- 6/7 of the other team's members mentioned the 5 buttons on the right of each alert being confusing. We are making each alert overall bigger to make it easier for users to access as well as adding a label for each of the button when a user hovers over them.
 
 Are there any functionalities that would make using the app more convenient?
-- a few functionalities that could be reasonabley added is a tutorial for how to use the app or an about page. A few of the other suggestions are out of the scope for what our medicine reminder app should do such as allowing the user to know where their nearest pharmacist is or having the app figure out which medicines shouldnt be taken alongside one another
+- A few functionalities that could be reasonably added is a tutorial for how to use the app or an about page. A few of the other suggestions are out of the scope for what our medicine reminder app should do such as allowing the user to know where their nearest pharmacist is or having the app figure out which medicines shouldn't be taken alongside one another.
 
 ## Please provide a summary of the features of the product as you understood them, and what you liked or thought could be improved about each:
 - change the add to google calendar button to not allow the user to add to google calender multiple times for the same exact alert
