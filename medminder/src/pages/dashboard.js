@@ -4,6 +4,7 @@ import { FaRegQuestionCircle } from "react-icons/fa";
 import AlertPopupWithButton from "../components/AlertPopupWithButton/AlertPopupWithButton.jsx";
 import DateNavigator from "../components/SetDateOnMain.jsx";
 import SignOut from "../components/SignOut.jsx";
+import EmailToggle from "../components/EmailToggle.jsx"
 import ProfileDropdown from '../components/ProfileDropdown.jsx';
 
 import '../Dash-style.css';
@@ -17,6 +18,7 @@ function Dashboard() {
         <div className="header-content">
           <h1>Medminder</h1> {}
         </div>
+        <EmailToggle />
         <button onClick={() => setIsOpen(true)}><FaRegQuestionCircle /></button>
         <SignOut />
       </header>
