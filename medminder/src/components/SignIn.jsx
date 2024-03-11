@@ -45,10 +45,17 @@ const SignIn = () => {
                         Age: 24,
                         DOB: "01/01/2000",
                     };
+
+                    const userPref = {
+                        Email: true,
+                    };
             
                     // Store user data under "Users/{email}/UserInfo"
                     const userRef = ref(database, `Users/${userId}/UserInfo`);
                     set(userRef, userInfo);
+
+                    const userRef_preferences = ref(database, `Users/${userId}/UserPref`);
+                    set(userRef_preferences, userPref);
                 }
             }).catch((error) => {
                 console.error('Error querying the database:', error);
