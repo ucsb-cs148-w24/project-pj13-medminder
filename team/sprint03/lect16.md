@@ -28,7 +28,7 @@ Vaishnavi:
 Fixed errors on last PR, approved Michael's PR, working on asking User Info when account is created
 
 Edwin: 
-Finished mobile UI view so that everything scales correctly, approved PRs
+Finished mobile UI view so that everything scales correctly, approved PRs, working on mobile view for dashboard
 
 Tim: 
 Working on alert UI
