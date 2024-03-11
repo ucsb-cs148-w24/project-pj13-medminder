@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTour } from '@reactour/tour'
+import { FaRegQuestionCircle } from "react-icons/fa";
 import AlertPopupWithButton from "../components/AlertPopupWithButton/AlertPopupWithButton.jsx";
 import DateNavigator from "../components/SetDateOnMain.jsx";
 import SignOut from "../components/SignOut.jsx";
@@ -7,12 +9,15 @@ import ProfileDropdown from '../components/ProfileDropdown.jsx';
 import '../Dash-style.css';
 
 function Dashboard() {
+  const { setIsOpen } = useTour()
+
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
         <div className="header-content">
           <h1>Medminder</h1> {}
         </div>
+        <button onClick={() => setIsOpen(true)}><FaRegQuestionCircle /></button>
         <SignOut />
       </header>
       <div className="nav">
