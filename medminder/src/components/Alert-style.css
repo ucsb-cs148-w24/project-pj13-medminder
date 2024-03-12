@@ -48,7 +48,6 @@
 
 .action-item {
     margin: 5px 0;
-    font-size: 5px;
 }
 
 .complete-button {
@@ -88,9 +87,9 @@
     text-align: center; /* Center the text inside the button */
     line-height: 40px; /* Vertically center the text based on the height */
     cursor: pointer; /* Changes the cursor to a pointer on hover */
-    border-radius: 0px; /* Optional: adds rounded corners */
+    border-radius: 5px; /* Optional: adds rounded corners */
     padding: 0; /* Removes default padding to ensure uniformity */
-    margin: 0px; /* Optional: adds space around buttons */
+    margin: 1px; /* Optional: adds space around buttons */
 }
 
 .delete{
