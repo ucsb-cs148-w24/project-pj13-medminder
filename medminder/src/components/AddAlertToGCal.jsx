@@ -1,5 +1,4 @@
 import React from 'react';
-import { AiFillCalendar } from 'react-icons/ai';
 import '../Dash-style.css';
 
 export default function CreateGCalEvent(props) {
@@ -88,8 +87,8 @@ export default function CreateGCalEvent(props) {
     }
 
     return (
-      <button className="addToCalendar" onClick={createEvent}>
-          <AiFillCalendar/>
-      </button>
+        <button title="add notification to google calendar" className="addToCalendar" onClick={createEvent}>
+            Calendar
+        </button>
     )
 }
