@@ -54,7 +54,6 @@
   font-size: x-large;
   border: none;
   transition: all 0.25s ease;
-  z-index: 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
