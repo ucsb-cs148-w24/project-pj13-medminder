@@ -73,7 +73,7 @@ const MedicineInfoButton = (props) => {
 
   return (
     <div>
-      <button className="complete" onClick={openPopup}>
+      <button className="complete" title="get info about medicine" onClick={openPopup}>
         <BsFillInfoCircleFill />
       </button>
 

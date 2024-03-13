@@ -81,7 +81,7 @@
   font-size: 25px;
 }
 
-.edit:hover, .delete:hover, .complete:hover {
+.edit:hover, .delete:hover, .complete:hover, .addToCalendar:hover {
   cursor: pointer;
   transform: scale(1.05);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
