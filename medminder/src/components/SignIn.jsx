@@ -4,11 +4,13 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import '../App.css';
 import { GoogleAuthProvider } from "firebase/auth";
+import { useState, useEffect } from "react";
 //import { useAuthContext } from "./AuthContext";
-
+//import UpdateDatabase from "./UpdateDatabase";
 const SignIn = () => {
     
     const navigate = useNavigate();
+    //const [firstLogin, setFirstLogin] = useState(false);
 
     //const setAccessToken = useAuthContext();
     const logGoogleUser = async (name) => {
@@ -16,6 +18,7 @@ const SignIn = () => {
             const response = await signInWithGooglePopup();
             console.log(response);
             navigate("/dashboard");
+
 
             const userId = response.user.uid;
             const email = response.user.email;
@@ -34,9 +37,12 @@ const SignIn = () => {
             get(check).then((snapshot) => {
                 if (snapshot.exists()) {
                     // The user exists
+                    localStorage.setItem("new_user", false)
                     console.log('Returning User.');
                 } else {
                     console.log('New User.');
+                    localStorage.setItem("new_user", true)
+
                     const userInfo = {
                         Name: response.user.displayName,
                         Email: email,
@@ -56,19 +62,31 @@ const SignIn = () => {
 
                     const userRef_preferences = ref(database, `Users/${userId}/UserPref`);
                     set(userRef_preferences, userPref);
+                    
+                    
+
+                    
                 }
             }).catch((error) => {
                 console.error('Error querying the database:', error);
             });
-        }catch(err){
+
+        }
+
+        catch(err){
             console.log("Caught Error: Firebase: Error (auth/popup-closed-by-user)");
         }
 
     }
 
+    
+
     return (
+        
         <div>
+            
             <button onClick={logGoogleUser} className="signin">Sign In</button>
+
         </div>
     )
 }
