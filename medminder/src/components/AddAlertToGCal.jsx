@@ -88,8 +88,8 @@ export default function CreateGCalEvent(props) {
     }
 
     return (
-      <button className="addToCalendar" onClick={createEvent}>
-          <AiFillCalendar/>
-      </button>
+        <button title="add notification to google calendar" className="addToCalendar" onClick={createEvent}>
+            <AiFillCalendar/>
+        </button>
     )
 }
