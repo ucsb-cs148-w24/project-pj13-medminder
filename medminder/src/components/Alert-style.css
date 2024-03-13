@@ -5,7 +5,7 @@
     padding: 15px;
     margin: 10px auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     position: relative;
     width: 80%;
@@ -16,6 +16,7 @@
 .alert-details {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
     flex-grow: 1;
     margin-left: 30px;
@@ -23,7 +24,7 @@
 
 .alert-detail {
     margin-right: 60px;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .more-actions {
