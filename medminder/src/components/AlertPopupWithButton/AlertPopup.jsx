@@ -186,9 +186,8 @@ export default function AlertPopup(props) {
             </button>
 
             {popup && (
-                <div className="modal">
-                    <div onClick={togglePopup} className="overlay"></div>
-                    <div className="modal-content">
+                <div className="modal" onClick={togglePopup}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
 
                             <h1 className='main-header'>{props.editing ? `🦠 Edit a Medicine 💊` : `🦠 Add a Medicine 💊`}</h1>
                             
