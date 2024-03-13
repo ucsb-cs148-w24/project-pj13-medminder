@@ -5,7 +5,7 @@
     padding: 15px;
     margin: 10px auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: relative;
     width: 80%;
@@ -16,15 +16,18 @@
 .alert-details {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    width: 80%; /* Ensure the alert-details take the full width of the container */
+    justify-content: space-between;
+    align-items: left;
     flex-grow: 1;
-    margin-left: 30px;
+    margin-left: 40px;
 }
 
 .alert-detail {
-    margin-right: 60px;
+    margin-right: 40px;
     font-size: 24px;
+    flex-basis: 33.333%;
+    align-items: left;
 }
 
 .more-actions {
