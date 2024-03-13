@@ -2,7 +2,6 @@ import React from 'react';
 import { useAuthContext } from './AuthContext';
 import { ref, remove, set, onValue } from 'firebase/database';
 import { database } from '../utils/firebase.utils';
-import { AiFillRest } from "react-icons/ai";
 import '../Dash-style.css';
 
 export default function DeleteAlert(props) {
@@ -58,6 +57,6 @@ export default function DeleteAlert(props) {
     }
 
     return (
-        <button className="delete" title="delete medicine" onClick={deleteAlert}><AiFillRest data-testid="delete-icon"/></button>
+        <button className="delete" onClick={deleteAlert}>Delete</button>
     );
 }
