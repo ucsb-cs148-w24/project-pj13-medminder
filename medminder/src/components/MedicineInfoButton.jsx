@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BsFillInfoCircleFill } from 'react-icons/bs';
 import './MedicineInfoButton.css';
+import './Alert-style.css';
 
 const MedicineInfoButton = (props) => {
   const [showPopup, setShowPopup] = useState(false);
@@ -73,8 +73,8 @@ const MedicineInfoButton = (props) => {
 
   return (
     <div>
-      <button className="info" onClick={openPopup}>
-        <BsFillInfoCircleFill />
+      <button className="complete medicine-info-container" onClick={openPopup}>
+        Info
       </button>
 
       {showPopup && (
