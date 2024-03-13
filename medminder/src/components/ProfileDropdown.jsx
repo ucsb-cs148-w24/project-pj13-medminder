@@ -70,7 +70,16 @@ function ProfileDropdown() {
 
   return (
     <div>
-      <select onChange={handleSelectChange} value={selectedItem}>
+      <select style={{
+          width: 120,
+          fontWeight: "bold",
+          marginTop: 20,
+          marginLeft: 20,
+          padding: 8,
+          borderRadius: 2,
+          border: "none"
+        }}
+        onChange={handleSelectChange} value={selectedItem}>
         {profiles.map((profile, index) => (
           <option key={index} value={profile}>{profile}</option>
         ))}

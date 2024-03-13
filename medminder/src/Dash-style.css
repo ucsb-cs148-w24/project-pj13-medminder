@@ -137,23 +137,20 @@
 .addProfileButton {
   font-size: 12px;
   font-weight: bold;
-  padding: 10px 20px;
-  margin: 5px 0;
+  padding: 10px 15px;
+  margin: 20px 5px;
+  margin-right: 20px;
   background-color:#ffffff;
   border-color: black;
   color: black;
   border: 20px;
-  border-radius: 8px;
-  position: relative;
-  left: 3.6%;
+  border-radius: 5px;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.4s;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   font-family: Urbanist;
 }
 
 .addProfileButton:hover {
-  transform: scale(1.05);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
