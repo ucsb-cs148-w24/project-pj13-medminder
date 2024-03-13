@@ -10,7 +10,7 @@ import ProfileDropdown from '../components/ProfileDropdown.jsx';
 import '../Dash-style.css';
 
 function Dashboard() {
-  const { setIsOpen } = useTour()
+  const { setIsOpen } = useTour();
 
   return (
     <div className="dashboard-container">
@@ -19,7 +19,7 @@ function Dashboard() {
           <h1>Medminder</h1> {}
         </div>
         <EmailToggle />
-        <button onClick={() => setIsOpen(true)}><FaRegQuestionCircle /></button>
+        <button className='tourButton' onClick={() => setIsOpen(true)}><FaRegQuestionCircle size={30}/></button>
         <SignOut />
       </header>
       <div className="nav">

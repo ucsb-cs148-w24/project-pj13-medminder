@@ -75,7 +75,7 @@ function ProfileDropdown() {
           <option key={index} value={profile}>{profile}</option>
         ))}
       </select>
-      <button onClick={handleAddProfile}>Add A Profile</button>
+      <button className='new-profile' onClick={handleAddProfile}>Add A Profile</button>
     </div>
   );
 }

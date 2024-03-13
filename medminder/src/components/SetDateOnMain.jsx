@@ -52,7 +52,7 @@ const DateNavigator = () => {
             <h2 style={dateStyle}>
                 {formatDate(currentDate)}
             </h2>
-            <input type="date" value={formatDatePicker(currentDate)} onChange={handleChange}/>
+            <input classname="date-pick" type="date" value={formatDatePicker(currentDate)} onChange={handleChange}/>
             <div className='date'>
                 <div className='alignment'>
                     <button className="todayButton" onClick={goToToday}>Today</button>
