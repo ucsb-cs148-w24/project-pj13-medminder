@@ -25,6 +25,7 @@
 | 2/28/2024 | Michael Cheng     | Lecture 13 stand-up                       |
 | 3/1/2024  | Edwin Yee         | Lab 08 stand-up                           |
 | 3/6/2024  | Timothy Choi      | Lecture 15 stand-up                       |
+| 3/6/2024  | Edwin Yee         | Lecture 17 stand-up                       |
 
 
 Roles:
