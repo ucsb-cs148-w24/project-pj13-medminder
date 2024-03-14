@@ -20,6 +20,7 @@ body.active-modal {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 300;
 }
 
 .modal-content {

@@ -1,7 +1,6 @@
 import AlertPopupWithButton from "../components/AlertPopupWithButton/AlertPopupWithButton.jsx";
 import DateNavigator from "../components/SetDateOnMain.jsx";
 import SignOut from "../components/SignOut.jsx";
-import EmailToggle from "../components/EmailToggle.jsx"
 import ProfileDropdown from '../components/ProfileDropdown.jsx';
 import Settings from "../components/settings.jsx";
 import '../Dash-style.css';

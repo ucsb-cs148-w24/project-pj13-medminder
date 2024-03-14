@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import EmailToggle from './EmailToggle';
 import { update } from './update';
 import { useAuthContext } from './AuthContext';
 import { IoSettingsOutline } from "react-icons/io5";
+import "./AlertPopupWithButton/AlertPopup.css"
 import "../Dash-style.css";
 
 
@@ -14,8 +15,24 @@ const Settings = () => {
     const[dob, setDob] = useState("")
     const email = auth.currentUser.email;
     const userId = auth.currentUser.uid;
+    const popupRef = useRef(null);
 
     const[popup, setPopup] = useState(false)
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (popupRef.current && !popupRef.current.contains(event.target)) {
+                setPopup(false);
+            }
+        };
+
+        if (popup) {
+            document.addEventListener("click", handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, [popup]);
 
     const submitForm = (event) =>{
         console.log("hi")
@@ -27,6 +44,13 @@ const Settings = () => {
         setPopup(!popup);
     };
 
+
+    document.onkeydown = function (event) {
+        if (event.key === "Escape") {
+            setPopup(false);
+        }
+    };
+
     return(
         <div>
             <button className='notifButton' onClick={togglePopup}>
@@ -34,9 +58,9 @@ const Settings = () => {
             </button>
 
             {popup && (
-                <div className="modal">
-                    <div onClick={togglePopup} className="overlay"></div>
-                    <div className="modal-content">
+                <div className="modal" ref={popupRef}>
+                    <div onClick={togglePopup}></div>
+                    <div className="modal-content" onClick={(e) => {e.stopPropagation(); togglePopup();}}>
                     <h1 className='main-header'> Update your settings </h1>
                     <h4 className='header'>Turn on/off Email Notifications</h4>
                     <EmailToggle/>
