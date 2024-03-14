@@ -7,7 +7,7 @@ export const handleSubmit = (formData, userId, clearForm, togglePopup, timestamp
     const dataRef = ref(database, `Users/${userId}/${userProfile}/` + timestamp);
 
     set(dataRef, formData)
-        .then(() => alert('Data sent to Firebase!'))
+        .then(() => alert('Alert has been successfully created!'))
         .catch((error) => alert('Failed to send data: ' + error.message));
 
     clearForm();
