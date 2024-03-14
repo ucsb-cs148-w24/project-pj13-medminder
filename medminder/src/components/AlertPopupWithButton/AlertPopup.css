@@ -9,34 +9,83 @@ body.active-modal {
     font-size: 18px;
 }
 
-.modal, .overlay {
-    width: 100vw;
-    height: 100vh;
+.modal{
+    position: fixed;
+    background: rgba(46, 46, 46, 0.6);
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    position: fixed;
-    z-index: 200;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.overlay {
-    background: rgba(100, 100, 100, 0.51);
-}
 .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     background: #95cfeb;
+    border-radius: 8px;
     z-index: 300;
     padding: 20px 30px;
     border-radius: 10px;
     width: 450px;
     height: 600px;
     text-align: left;
-    animation: popupAnimation 0.2s ease-out forwards;
+    animation: boringAnimation .3s ease-out forwards;
 }
+
+@keyframes boringAnimation {
+    0% {
+        transform: scale(.0);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes ohdear {
+    0% {
+      transform: translate(50%,-80%) scale(0) rotateZ(0deg);
+      opacity: 0;
+    }
+    12% {
+        transform: translate(-50%, -40%) scale(.12) rotateZ(225deg);
+        opacity: .12;
+    }
+    25% {
+        transform: translate(-80%, -20%) scale(.25) rotateZ(450deg);
+        opacity: .25;
+    }
+    38% {
+        transform: translate(-60%, 25%) scale(.38) rotateZ(675deg);
+        opacity: .38;
+    }
+    50% {
+        transform: translate(0%, 40%) scale(.50) rotateZ(900deg);
+        opacity: .50;
+    }
+    62% {
+        transform: translate(60%, 25%) scale(.62) rotateZ(1125deg);
+        opacity: .62;
+    }
+    75% {
+        transform: translate(80%, -20%) scale(.75) rotateZ(1350deg);
+        opacity: .75;
+    }
+    88% {
+        transform: translate(50%, -40%) scale(.88) rotateZ(1575deg);
+        opacity: .88;
+    }
+    100% {
+      transform: translate(0%, 0%) scale(1) rotateZ(1800deg);
+      opacity: 1;
+    }
+}
+
 
 .close-modal {
     position: absolute;

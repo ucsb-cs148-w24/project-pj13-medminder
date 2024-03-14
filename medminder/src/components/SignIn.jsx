@@ -4,11 +4,16 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import '../App.css';
 import { GoogleAuthProvider } from "firebase/auth";
+import "./AlertPopupWithButton/AlertPopup.css";
+
 //import { useAuthContext } from "./AuthContext";
 const SignIn = () => {
     
     const navigate = useNavigate();
 
+
+
+    //const setAccessToken = useAuthContext();
     const logGoogleUser = async (name) => {
         try{
             const response = await signInWithGooglePopup();
@@ -18,6 +23,7 @@ const SignIn = () => {
 
             const userId = response.user.uid;
             const email = response.user.email;
+            
 
             const apiAuth = GoogleAuthProvider.credentialFromResult(response);
             const accessToken = apiAuth.accessToken;
@@ -30,19 +36,22 @@ const SignIn = () => {
             const userRef = ref(database, `Users/${userId}`);
             const check = query(userRef);
 
+
+
             get(check).then((snapshot) => {
                 if (snapshot.exists()) {
                     // The user exists
                     console.log('Returning User.');
                 } else {
                     console.log('New User.');
+                    
 
                     const userInfo = {
                         Name: response.user.displayName,
                         Email: email,
                         // default values, to be updated later
-                        Sex: "X",
-                        Age: 24,
+                        Sex: "F",
+                        Age: "24",
                         DOB: "01/01/2000",
                     };
 
@@ -82,6 +91,7 @@ const SignIn = () => {
             <button onClick={logGoogleUser} className="signin">Sign In</button>
 
         </div>
+        
     )
 }
 

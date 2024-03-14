@@ -5,6 +5,10 @@ import { handleSubmit } from './formHandlers.js';
 import { useUserId } from "../AuthContext";
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 import { useAuthContext } from '../AuthContext';
+import { CiMicrophoneOn } from "react-icons/ci";
+import { GrPowerReset } from "react-icons/gr";
+
+
 
 export default function AlertPopup(props) {
     const auth = useAuthContext();
@@ -177,31 +181,46 @@ export default function AlertPopup(props) {
     
     return (
         <>
-            <button onClick={props.editing ? togglePopup2 : togglePopup} className={props.buttonDesign}>
+            <button onClick={props.editing ? togglePopup2 : togglePopup} className={props.buttonDesign} title={props.editing ? "edit medicine" : "add medicine"}>
                 {props.TextInButton}
             </button>
 
             {popup && (
-                <div className="modal">
-                    <div onClick={togglePopup} className="overlay"></div>
-                    <div className="modal-content">
+                <div className="modal" onClick={togglePopup}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
 
                             <h1 className='main-header'>{props.editing ? `🦠 Edit a Medicine 💊` : `🦠 Add a Medicine 💊`}</h1>
                             
+                            
                                 <h4 className='header'>Medicine Name:</h4>
-                                <p>Microphone: {listening ? 'on' : 'off'}</p>
-                                <button
-                                    onTouchStart={startListening}
-                                    onMouseDown={startListening}
-                                    onTouchEnd={SpeechRecognition.abortListening}
-                                    onMouseUp={SpeechRecognition.abortListening}
-                                    >Hold to say medicine name</button>
-                                <button onClick={resetTranscript}>reset</button>
+                                <div className="row">
+                                <div>
                                 <input className='textbox'
                                     placeholder="Enter the name of the medicine..."
                                     value={medicineName}
                                     onChange={(e) => setMedicineName(e.target.value)}
                                 />
+                                </div>
+                                <div>
+                                <p>Mic: {listening ? 'on' : 'off'}</p>
+                                </div>
+                                <div>
+                                <button
+                                    className="mic"
+                                    onTouchStart={startListening}
+                                    onMouseDown={startListening}
+                                    onTouchEnd={SpeechRecognition.abortListening}
+                                    onMouseUp={SpeechRecognition.abortListening}
+                                    title="hold mic icon to say medicine name"
+                                    ><CiMicrophoneOn /></button>
+                                </div>
+                                <button className="reset" title="reset medicine name" onClick={resetTranscript}><GrPowerReset />
+                                </button>
+                                
+                                </div>
+                                
+                                
+                                
 
 
                             
