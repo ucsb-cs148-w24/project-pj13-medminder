@@ -1,7 +1,6 @@
-import { getDatabase, ref, set } from 'firebase/database';
+import { ref, set } from 'firebase/database';
 
-export const update = (name, sex, age, dob, email, userId, togglePopup) => {
-    const database = getDatabase();
+export const update = (name, sex, age, dob, email, userId, togglePopup, database) => {
     const userRef = ref(database, `Users/${userId}/UserInfo`);
     const updateInfo = {
         Name: name,

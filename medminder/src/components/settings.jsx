@@ -1,34 +1,49 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import EmailToggle from './EmailToggle';
 import { update } from './update';
-import { useAuthContext } from './AuthContext';
 import { MdSettings } from "react-icons/md";
 import "./AlertPopupWithButton/AlertPopup.css"
 import "../Dash-style.css";
 
 
 
-const Settings = () => {
-    const auth = useAuthContext();
-    const [sex, setSex] = useState("")
-    const[age, setAge] = useState(0)
-    const[name, setName] = useState("")
-    const[dob, setDob] = useState("")
-    const email = auth.currentUser.email;
-    const userId = auth.currentUser.uid;
-
+const Settings = (props) => {
+    
+    const [sex, setSex] = useState("hi")
+    const[age, setAge] = useState(5)
+    const[name, setName] = useState("hi")
+    const[dob, setDob] = useState(props.date)
+    const userId = props.userId;
+    //Fill with existing values
+    
     const[popup, setPopup] = useState(false)
+    useEffect(() => {
+        setSex(props.sex);
+    }, [props.sex])
+
+    useEffect(() => {
+        setName(props.name);
+    }, [props.name])
+
+    useEffect(() => {
+        setAge(props.age);
+    }, [props.age])
+
+    useEffect(() => {
+        setDob(props.dob);
+    }, [props.dob])
 
 
     const submitForm = (event) =>{
-        console.log("hi")
         event.preventDefault();
-        update(name, sex, age, dob, email, userId, togglePopup)
+        update(name, sex, age, dob, props.email, userId, togglePopup, props.database)
     };
 
     const togglePopup = () => {
         setPopup(!popup);
     };
+
+   
 
 
     document.onkeydown = function (event) {
