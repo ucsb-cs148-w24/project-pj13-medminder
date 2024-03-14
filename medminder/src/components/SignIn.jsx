@@ -4,15 +4,11 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import '../App.css';
 import { GoogleAuthProvider } from "firebase/auth";
-import { useState, useEffect } from "react";
 //import { useAuthContext } from "./AuthContext";
-//import UpdateDatabase from "./UpdateDatabase";
 const SignIn = () => {
     
     const navigate = useNavigate();
-    //const [firstLogin, setFirstLogin] = useState(false);
 
-    //const setAccessToken = useAuthContext();
     const logGoogleUser = async (name) => {
         try{
             const response = await signInWithGooglePopup();
@@ -37,11 +33,9 @@ const SignIn = () => {
             get(check).then((snapshot) => {
                 if (snapshot.exists()) {
                     // The user exists
-                    localStorage.setItem("new_user", false)
                     console.log('Returning User.');
                 } else {
                     console.log('New User.');
-                    localStorage.setItem("new_user", true)
 
                     const userInfo = {
                         Name: response.user.displayName,
