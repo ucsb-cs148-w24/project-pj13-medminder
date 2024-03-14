@@ -37,7 +37,7 @@ body {
 }
 .Home {
     background-color: white;
-    height: 80%;
+    height: 100%;
     width: 70%;
     border: 5px solid #7b98ff;
     font-size: 35px;
@@ -75,5 +75,11 @@ body {
 
 @media (min-width: 769px) {
 
+}
+
+@media (max-width: 768px) {
+    .home-page {
+        overflow-y: auto;
+    }
 }
 
