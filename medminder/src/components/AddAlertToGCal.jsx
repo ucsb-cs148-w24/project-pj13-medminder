@@ -1,18 +1,27 @@
 import React from 'react';
 import '../Dash-style.css';
+import { useState } from 'react';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
+import { nanoid } from 'nanoid';
+
 
 export default function CreateGCalEvent(props) {
+    const [disableButton, setDisableButton] = useState(false);
     const accessToken = localStorage.getItem("accessToken"); //useAccessToken();
 
-    const alertTime = "" + props.alert.time;
-    const hours = Number(alertTime.substring(0, alertTime.indexOf(':')));
-    const minutes = Number(("" + alertTime).substring(alertTime.indexOf(':') + 1));
-
-    const date_target = props.dateObj;
-    try {date_target.setHours(hours, minutes);}
-    catch {console.error('problem setting hours for gcal date');}
+    
 
     const createEvent = async () => {
+      const alertTime = "" + props.time; //props.alert.time;
+      const hours = Number(alertTime.substring(0, alertTime.indexOf(':')));
+      const minutes = Number(("" + alertTime).substring(alertTime.indexOf(':') + 1));\
+
+      const date_target = props.dateObj;
+      try {date_target.setHours(hours, minutes);}
+      catch {console.error('problem setting hours for gcal date');}
+
+      setDisableButton(true);
         let event = {
           'summary': 'take ' + props.alert.medicineName + ' | reminder by MedMinder',
           'description': 'Dosage amount: ' + props.alert.dosageAmount + props.alert.dosageUnits,
@@ -40,6 +49,7 @@ export default function CreateGCalEvent(props) {
 
 
         let retrievedEvents = [];
+        let sessionExpired = false;
         await fetch(`https://www.googleapis.com/calendar/v3/calendars/primary/events?${params.toString()}`, {
           method: 'GET',
           headers: {
@@ -49,12 +59,37 @@ export default function CreateGCalEvent(props) {
         })
         .then(response => response.json())
         .then(events => {
-          retrievedEvents = events.items;
-          console.log('Events retrieved: ', events.items);
+          if (events.error) {
+            Toastify({
+              text: "Google auth session expired, please login again to use google calendar",
+              duration: 3000,
+              newWindow: false,
+              close: true,
+              gravity: "top", // `top` or `bottom`
+              position: "right", 
+              stopOnFocus: true, 
+              style: {
+                background: "#000000",
+              },
+              offset: {
+                y: 65
+              },
+            }).showToast();
+            sessionExpired = true;
+            return;
+          }
+          else {
+            retrievedEvents = events.items;
+          }
         })
         .catch((error) => {
           console.error('Error retrieving events: ', error);
         });
+
+        if (sessionExpired) {
+          setDisableButton(false);
+          return;
+        }
 
         // looks at event, if event starts at the exact time of the current event + has the same description we consider it a dupe
         let dupeEvent = false;
@@ -65,7 +100,7 @@ export default function CreateGCalEvent(props) {
         );
         
         if (!dupeEvent) {
-          fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
+          await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${accessToken}`,
@@ -75,22 +110,68 @@ export default function CreateGCalEvent(props) {
           })
           .then(response => response.json())
           .then(data => {
+            setDisableButton(false);
+            Toastify({
+              text: "Event created for " + props.alert.medicineName + " at " + props.time,
+              duration: 3000,
+              newWindow: false,
+              close: true,
+              gravity: "top", // `top` or `bottom`
+              position: "right", 
+              stopOnFocus: true, 
+              style: {
+                background: "#00b09b",
+              },
+              offset: {
+                y: 65
+              },
+            }).showToast();
             console.log('Event created: ', data);
             alert('Successfully added alert to Google Calendar.')
           })
           .catch((error) => {
+            Toastify({
+              text: "An internal error occurred",
+              duration: 3000,
+              newWindow: false,
+              close: true,
+              gravity: "top", // `top` or `bottom`
+              position: "right", 
+              stopOnFocus: true, 
+              style: {
+                background: "#b50505",
+              },
+              offset: {
+                y: 65
+              },
+            }).showToast();
+            setDisableButton(false);
             console.error('Error creating event: ', error);
           });
         }
         else {
-          console.log('Event already exists!')
-          alert('Alert already added to Google Calendar.')
+          Toastify({
+            text: "Event already exists!",
+            duration: 3000,
+            newWindow: false,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", 
+            stopOnFocus: true, 
+            style: {
+              background: "#b50505",
+            },
+            offset: {
+              y: 65
+            },
+          }).showToast();
+          setDisableButton(false);
         }
     }
 
     return (
-        <button title="add notification to google calendar" className="addToCalendar" onClick={createEvent}>
-            Add to Cal
-        </button>
+      <button className="addToCalendar" onClick={createEvent} disabled={disableButton} key={nanoid()}>
+          <AiFillCalendar/>
+      </button>
     )
 }
