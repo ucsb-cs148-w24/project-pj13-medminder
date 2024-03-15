@@ -146,6 +146,20 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.profileDropdown {
+  width: 120px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 8px 8px;
+  border-radius: 2px;
+  border: none;
+}
+
+.profileDropdownOption {
+  font-weight: bold;
+}
+
 /* Misc */
 .alignment {
   display: flex;
