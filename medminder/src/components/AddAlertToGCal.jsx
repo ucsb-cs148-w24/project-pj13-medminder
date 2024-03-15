@@ -21,6 +21,13 @@ export default function CreateGCalEvent(props) {
       try {date_target.setHours(hours, minutes);}
       catch {console.error('problem setting hours for gcal date');}
 
+      const convertTo12HourFormat = (time) => {
+        const [hours, minutes] = time.split(':').map(Number);
+        const isPM = hours >= 12;
+        const convertedHours = hours % 12 || 12;
+        return `${convertedHours.toString()}:${minutes.toString().padStart(2, '0')} ${isPM ? 'PM' : 'AM'}`;
+      };
+
       setDisableButton(true);
         let event = {
           'summary': 'take ' + props.alert.medicineName + ' | reminder by MedMinder',
@@ -112,7 +119,7 @@ export default function CreateGCalEvent(props) {
           .then(data => {
             setDisableButton(false);
             Toastify({
-              text: "Event created for " + props.alert.medicineName + " at " + props.time,
+              text: "Event created for " + props.alert.medicineName + " at " + convertTo12HourFormat(props.time),
               duration: 3000,
               newWindow: false,
               close: true,
