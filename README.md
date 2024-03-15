@@ -67,3 +67,6 @@ None
 ## License
 [MIT License](https://github.com/ucsb-cs148-w24/project-pj13-medminder?tab=MIT-1-ov-file)
 
+## Deployment
+App is deployed on this link https://med--minder.web.app/
+
