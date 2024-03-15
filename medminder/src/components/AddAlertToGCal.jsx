@@ -13,7 +13,7 @@ export default function CreateGCalEvent(props) {
     
 
     const createEvent = async () => {
-      const alertTime = "" + props.alert.time;
+      const alertTime = "" + props.time;
       const hours = Number(alertTime.substring(0, alertTime.indexOf(':')));
       const minutes = Number(("" + alertTime).substring(alertTime.indexOf(':') + 1));
 
@@ -72,7 +72,7 @@ export default function CreateGCalEvent(props) {
                 background: "#000000",
               },
               offset: {
-                y: 65
+                y: 95
               },
             }).showToast();
             sessionExpired = true;
@@ -123,11 +123,10 @@ export default function CreateGCalEvent(props) {
                 background: "#00b09b",
               },
               offset: {
-                y: 65
+                y: 95
               },
             }).showToast();
             console.log('Event created: ', data);
-            alert('Successfully added alert to Google Calendar.')
           })
           .catch((error) => {
             Toastify({
@@ -142,7 +141,7 @@ export default function CreateGCalEvent(props) {
                 background: "#b50505",
               },
               offset: {
-                y: 65
+                y: 95
               },
             }).showToast();
             setDisableButton(false);
@@ -162,7 +161,7 @@ export default function CreateGCalEvent(props) {
               background: "#b50505",
             },
             offset: {
-              y: 65
+              y: 95
             },
           }).showToast();
           setDisableButton(false);

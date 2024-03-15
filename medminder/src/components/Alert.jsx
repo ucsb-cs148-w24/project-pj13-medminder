@@ -50,8 +50,8 @@ const Alert = ({ alert, displayTime, dateObj }) => {
                         <AlertPopupWithButton className="action-item" timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount}
                             dosageUnits={alert.dosageUnits} selectedHour={alert.selectedHour} selectedMinute={alert.selectedMinute}
                             time={alert.time} day={alert.day} editing={true} TextInButton="Edit" buttonDesign={"edit"}>Edit</AlertPopupWithButton>
-                        <CreateGCalEvent className="action-item" alert={alert} dateObj={dateObj}>Add to Calendar</CreateGCalEvent>
-                        <DeleteAlert className="action-item" timestamp={alert.timestamp} time={alert.timestamp}>Delete</DeleteAlert>
+                        <CreateGCalEvent className="action-item" alert={alert} dateObj={dateObj} time={displayTime}>Add to Calendar</CreateGCalEvent>
+                        <DeleteAlert className="action-item" timestamp={alert.timestamp} date={dateObj}>Delete</DeleteAlert>
                     </div>
                 )}
             </div>
