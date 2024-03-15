@@ -54,7 +54,7 @@ const Settings = (props) => {
 
     return(
         <div>
-            <button className='notifButton-settings' onClick={togglePopup}><MdSettings /></button>
+            <button className='notifButton' onClick={togglePopup}><MdSettings /></button>
 
             {popup && (
                 <div className="modal" onClick={togglePopup}>
