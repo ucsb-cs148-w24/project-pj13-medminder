@@ -169,7 +169,7 @@ export default function CreateGCalEvent(props) {
     }
 
     return (
-      <button className="addToCalendar" onClick={createEvent} disabled={disableButton} key={nanoid()}>
+      <button title="add notification to google calendar" className="addToCalendar" onClick={createEvent} disabled={disableButton} key={nanoid()}>
           Add to Cal
       </button>
     )
