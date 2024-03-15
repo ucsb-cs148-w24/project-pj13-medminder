@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import EmailToggle from './EmailToggle';
-import { update } from './update';
+import { Update } from './update';
 import { MdSettings } from "react-icons/md";
 import "./AlertPopupWithButton/AlertPopup.css"
 import "../Dash-style.css";
+import { ref, get, child } from 'firebase/database';
+
 
 
 
@@ -14,7 +16,20 @@ const Settings = (props) => {
     const[name, setName] = useState("hi")
     const[dob, setDob] = useState(props.date)
     const userId = props.userId;
+    const [numProfile, setProfile] = useState(1)
+    const dataRef = ref(props.database);
+
     //Fill with existing values
+
+    get(child(dataRef, `Users/${userId}/UserInfo/numProfiles`)).then((snapshot) => {
+        if (snapshot.exists()) {
+          setProfile(snapshot.val());
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
     
     const[popup, setPopup] = useState(false)
     useEffect(() => {
@@ -36,7 +51,7 @@ const Settings = (props) => {
 
     const submitForm = (event) =>{
         event.preventDefault();
-        update(name, sex, age, dob, userId, props.email, togglePopup, props.database)
+        Update(name, sex, age, dob, userId, props.email, togglePopup, props.database, numProfile)
     };
 
     const togglePopup = () => {

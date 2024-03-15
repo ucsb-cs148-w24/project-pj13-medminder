@@ -60,6 +60,8 @@ get(child(dataRef, `Users/${userId}/UserInfo/Sex`)).then((snapshot) => {
     }).catch((error) => {
     console.error(error);
     });
+
+  
   console.log(new_user)
 
 
