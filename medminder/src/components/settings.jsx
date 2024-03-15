@@ -36,7 +36,7 @@ const Settings = (props) => {
 
     const submitForm = (event) =>{
         event.preventDefault();
-        update(name, sex, age, dob, props.email, userId, togglePopup, props.database)
+        update(name, sex, age, dob, userId, props.email, togglePopup, props.database)
     };
 
     const togglePopup = () => {

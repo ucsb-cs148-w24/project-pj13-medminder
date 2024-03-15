@@ -97,6 +97,8 @@ body.active-modal {
     font-size: 20px;
     border-radius: 10px;
     padding: 4px 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.4s;
 }
 
 .clear-modal {
@@ -108,6 +110,8 @@ body.active-modal {
     font-size: 20px;
     border-radius: 10px;
     padding: 4px 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.4s;
 }
 
 .submit-modal {
@@ -120,18 +124,26 @@ body.active-modal {
     background-color: rgb(255, 255, 121);
     border-radius: 10px;
     padding: 4px 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.4s;
 }
 
 .submit-modal:hover {
     background-color: yellow;
+    transform: scale(1.05);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .clear-modal:hover {
     background-color: rgb(220, 220, 220);
+    transform: scale(1.05);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .close-modal:hover {
     background-color: rgb(220, 220, 220);
+    transform: scale(1.05);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -210,7 +222,14 @@ body.active-modal {
     transition: background-color 0.3s;
     aspect-ratio: 1 / 1;
     margin: 5px;
-  }
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.4s;
+}
+
+.day-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
 
 .random-text {
     font-size: 12px;
