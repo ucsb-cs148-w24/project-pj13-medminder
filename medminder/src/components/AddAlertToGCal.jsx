@@ -13,9 +13,9 @@ export default function CreateGCalEvent(props) {
     
 
     const createEvent = async () => {
-      const alertTime = "" + props.time; //props.alert.time;
+      const alertTime = "" + props.alert.time;
       const hours = Number(alertTime.substring(0, alertTime.indexOf(':')));
-      const minutes = Number(("" + alertTime).substring(alertTime.indexOf(':') + 1));\
+      const minutes = Number(("" + alertTime).substring(alertTime.indexOf(':') + 1));
 
       const date_target = props.dateObj;
       try {date_target.setHours(hours, minutes);}
@@ -171,7 +171,7 @@ export default function CreateGCalEvent(props) {
 
     return (
       <button className="addToCalendar" onClick={createEvent} disabled={disableButton} key={nanoid()}>
-          <AiFillCalendar/>
+          Add to Cal
       </button>
     )
 }
