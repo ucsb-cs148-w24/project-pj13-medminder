@@ -76,6 +76,7 @@ export default function CreateGCalEvent(props) {
           .then(response => response.json())
           .then(data => {
             console.log('Event created: ', data);
+            alert('Successfully added alert to Google Calendar.')
           })
           .catch((error) => {
             console.error('Error creating event: ', error);
@@ -83,12 +84,13 @@ export default function CreateGCalEvent(props) {
         }
         else {
           console.log('Event already exists!')
+          alert('Alert already added to Google Calendar.')
         }
     }
 
     return (
         <button title="add notification to google calendar" className="addToCalendar" onClick={createEvent}>
-            Calendar
+            Add to Cal
         </button>
     )
 }

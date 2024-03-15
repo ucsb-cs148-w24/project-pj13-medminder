@@ -1,5 +1,6 @@
 /* Dashboard Layout and Header */
 .dashboard-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -8,8 +9,9 @@
 }
 
 .dashboard-header {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex;
   align-items: center;
   padding: 20px 20px;
   background-color: #1769c0;
@@ -20,7 +22,7 @@
 
 .header-content h1 {
   margin: 0; /* Removes default margin */
-  font-size: 1.5rem; /* Adjusts the size */
+  font-size: 3rem; /* Adjusts the size */
   color: #ffffff; /* Sets the text color */
   /* Add more styling as needed */
 }
@@ -32,16 +34,20 @@
 
 /* Sign-out Button */
 .sign-out {
+  position: relative;
   background-color: #ffffff;
-  border-radius: 15px;
-  margin-left: auto; /* Aligns the sign-out button to the right */
-  padding: 5px 5px;
+  border-color: #BF9270;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: x-large;
+  border: none;
+  transition: all 0.25s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  height: 45px;
+  min-width: 140px;
+  margin-left: auto;
+  margin-right: 3%;
   font-family: Urbanist;
-}
-
-.sign-out:hover {
-  box-shadow: 0 1.2em 1.6em 0 rgba(0,0,0,0.24), 0 1.7em 5em 0 rgba(0,0,0,0.19);
-  cursor: pointer;
 }
 
 /* Arrow Navigation */
@@ -89,10 +95,10 @@
 
 /*notification toggle button*/
 .notifButton {
+  position: relative;
   font-size: 18px;
   font-weight: bold;
   padding: 10px 20px;
-  margin: 10px 10px;
   background-color:#ffffff;
   border-color: black;
   color: black;
@@ -101,7 +107,7 @@
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.4s;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  margin-left: 10px;
+  margin-left: 5%;
 }
 
 .notifButton:hover {

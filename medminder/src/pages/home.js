@@ -5,7 +5,7 @@ import medicon from '../images/medicon.png';
 
 function Home() {
   return (
-    <div>
+    <div className='home-page'>
       <div className="Home">
         <img src={medicon} alt="Medicon" className="mediconImage" />
         <h1 className="title">Medminder</h1>
