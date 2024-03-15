@@ -128,13 +128,13 @@
       width: 100%;
   }
 
-  /* .arrow-right {
-    right: -25%;
+  .arrow-right {
+    right: -5%;
   }
   
   .arrow-left {
-    left: -25%
-  } */
+    left: -5%
+  }
 }
 
 @media (min-width: 769px) {
