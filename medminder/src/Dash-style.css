@@ -18,37 +18,11 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-
-
-.header-content h1 {
-  margin: 0; /* Removes default margin */
-  font-size: 3rem; /* Adjusts the size */
-  color: #ffffff; /* Sets the text color */
-  /* Add more styling as needed */
-}
-
 .dashboard-main {
   margin-top: 60px;
   text-align: center;
 }
 
-/* Sign-out Button */
-.sign-out {
-  position: relative;
-  background-color: #ffffff;
-  border-color: #BF9270;
-  border-radius: 5px;
-  padding: 5px 15px;
-  font-size: x-large;
-  border: none;
-  transition: all 0.25s ease;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  height: 45px;
-  min-width: 140px;
-  margin-left: auto;
-  margin-right: 3%;
-  font-family: Urbanist;
-}
 
 /* Arrow Navigation */
 .arrow-right, .arrow-left {
@@ -135,6 +109,22 @@
   .arrow-left {
     left: -5%
   }
+
+    /* Sign-out Button */
+  .sign-out {
+    background-color: #ffffff;
+    border-radius: 15px;
+    margin-left: auto; /* Aligns the sign-out button to the right */
+    padding: 5px 5px;
+  }
+  
+  .header-content h1 {
+    margin: 0; /* Removes default margin */
+    font-size: 1.5rem; /* Adjusts the size */
+    color: #ffffff; /* Sets the text color */
+    /* Add more styling as needed */
+  }
+  
 }
 
 @media (min-width: 769px) {
@@ -144,5 +134,31 @@
   
   .arrow-left {
     left: -25%
+  }
+
+    /* Sign-out Button */
+  .sign-out {
+    position: relative;
+    background-color: #ffffff;
+    border-color: #BF9270;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: x-large;
+    border: none;
+    transition: all 0.25s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    height: 45px;
+    min-width: 140px;
+    margin-left: auto;
+    margin-right: 3%;
+    font-family: Urbanist;
+  }
+
+  
+  .header-content h1 {
+    margin: 0; /* Removes default margin */
+    font-size: 3rem; /* Adjusts the size */
+    color: #ffffff; /* Sets the text color */
+    /* Add more styling as needed */
   }
 }
