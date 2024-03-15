@@ -70,12 +70,12 @@ function ProfileDropdown() {
 
   return (
     <div>
-      <select onChange={handleSelectChange} value={selectedItem}>
+      <select className="profileDropdown" onChange={handleSelectChange} value={selectedItem}>
         {profiles.map((profile, index) => (
-          <option key={index} value={profile}>{profile}</option>
+          <option className="profileDropdownOption" key={index} value={profile}>{profile}</option>
         ))}
       </select>
-      <button onClick={handleAddProfile}>Add A Profile</button>
+      <button className="addProfileButton" onClick={handleAddProfile}>Add A Profile</button>
     </div>
   );
 }

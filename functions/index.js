@@ -57,16 +57,6 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
 
     // Iterate through UserIDs
     for (const userID of userIDs) {
-      console.log("UserID:", userID);
-      // Get all alerts for the current user
-      const alertsSnapshot =
-        await rootRef.child(`/Users/${userID}/UserData`).once("value");
-      const alerts = alertsSnapshot.val() || {};
-
-      const email =
-        (await rootRef.child(`/Users/${userID}/UserInfo/Email`).once("value"))
-            .val();
-
       const notifOn =
         (await rootRef.child(`/Users/${userID}/UserPref/Email`).once("value"))
             .val();
@@ -77,21 +67,46 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
         continue;
       }
 
-      for (const alertKey of Object.keys(alerts)) {
-        const alert = alerts[alertKey];
-        const alertTime = alert.time;
-        const isDay = alert.day[currentDay];
+      console.log("UserID:", userID);
 
-        console.log("time:", alertTime);
+      const email =
+        (await rootRef.child(`/Users/${userID}/UserInfo/Email`).once("value"))
+            .val();
 
-        if (isDay && alertTime == currentTime) {
-          const amt = alert.dosageAmount;
-          const unit = alert.dosageUnits;
-          const name = alert.medicineName;
+      const numProfiles =
+        (await rootRef.child(`/Users/${userID}/UserInfo/numProfiles`)
+            .once("value")).val();
 
-          const subject = "Medicine Notification";
-          const body = `This is a reminder to take ${amt} ${unit} of ${name}!`;
-          sendEmail(email, subject, body);
+      for (let i = 1; i <= numProfiles; i++) {
+        if (i == 1) {
+          console.log("Original Profile");
+        } else {
+          console.log("Profile", i);
+        }
+        // Get all alerts for the current user
+        const alertsSnapshot =
+          await rootRef.child(`/Users/${userID}/UserData${i != 1 ? i : ""}`)
+              .once("value");
+        const alerts = alertsSnapshot.val() || {};
+
+        for (const alertKey of Object.keys(alerts)) {
+          const alert = alerts[alertKey];
+          const alertTime = alert.time;
+          const isDay = alert.day[currentDay];
+
+          console.log("time:", alertTime);
+
+          if (isDay && alertTime == currentTime) {
+            const amt = alert.dosageAmount;
+            const unit = alert.dosageUnits;
+            const name = alert.medicineName;
+
+            const patient = i != 1 ? " for Profile " + i : "";
+            const subject = "Medicine Notification" + patient;
+            const body = `This is a reminder${patient} to take ` +
+                         `${amt} ${unit} of ${name}!`;
+            sendEmail(email, subject, body);
+          }
         }
       }
     }
@@ -110,13 +125,6 @@ exports.sendScheduledEmails = functions.https.onRequest(async (req, res) => {
  * @param {string} body - body of email to be sent
  */
 function sendEmail(dest, sub, body) {
-  // const mailOptions = {
-  // from: username,
-  // to: "medminder.notifications@gmail.com",
-  // subject: "Medicine Notification",
-  // text: "This is a reminder to take X units of Medication Y!",
-  // };
-
   const mailOptions = {
     from: username,
     to: dest,
