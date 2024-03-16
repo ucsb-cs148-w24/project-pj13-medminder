@@ -284,5 +284,92 @@ body.active-modal {
     border: 2px solid rgb(0, 163, 196);
 }
 
-  
-  
+/* Screen width below 300px */
+@media only screen and (max-width: 299px) {
+    .main-header {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+
+    .textbox {
+        width: 100px;
+    }
+    
+    .textbox-num {
+        width: 100px;
+    }
+
+    .day-button {
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+    }
+
+    .selector {
+        width: 50px;
+    }
+
+    
+    .submit-modal {
+        font-size: 15px;
+    }
+
+    .clear-modal {
+       font-size: 15px;
+    }
+}
+
+/* Screen width in between 300px and 600px */
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+    .main-header {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 35px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+
+    .textbox {
+        width: 150px;
+    }
+    
+    .textbox-num {
+        width: 150px;
+    }
+
+    .day-button {
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+    }
+
+    .selector {
+        width: 50px;
+    }
+
+}
+
+@media only screen and (min-width: 601px) {
+   
+
+}
+
+/* Short screen */
+@media only screen and (max-height: 650px) {
+    /* Remove the add a medicine text to save space */
+    .main-header {
+        margin-top:20px;
+        font-size: 0px;
+    }
+
+    .modal-content {
+        height: 500px;
+    }
+}
