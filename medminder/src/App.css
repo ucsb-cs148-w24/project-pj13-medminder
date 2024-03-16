@@ -52,8 +52,6 @@ body {
     align-items: center;
     text-align: center;
     justify-content: center;
-    min-width: 400px;
-    min-height: 500px; 
     z-index: 0;
 }
 
@@ -78,14 +76,3 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 9999;
 }
-/* Media query for screens smaller than 768px (typical for mobile devices) */
-@media (max-width: 768px) {
-    .Home {
-        width: 100%;
-    }
-}
-
-@media (min-width: 769px) {
-
-}
-
