@@ -45,7 +45,7 @@ const Alert = ({ alert, displayTime, dateObj }) => {
                     ...
                 </div>
                 {showMoreActions && (
-                    <div className="popup" ref={popupRef}>
+                    <div className="popup-alerts" ref={popupRef}>
                         <MedicineInfoButton className="action-item" medicineName={alert.medicineName}>Info</MedicineInfoButton>
                         <AlertPopupWithButton className="action-item" timestamp={alert.timestamp} medicineName={alert.medicineName} dosageAmount={alert.dosageAmount}
                             dosageUnits={alert.dosageUnits} selectedHour={alert.selectedHour} selectedMinute={alert.selectedMinute}

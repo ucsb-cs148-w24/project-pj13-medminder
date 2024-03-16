@@ -7,7 +7,6 @@ import { GoogleAuthProvider } from "firebase/auth";
 import "./AlertPopupWithButton/AlertPopup.css";
 
 //import { useAuthContext } from "./AuthContext";
-
 const SignIn = () => {
     
     const navigate = useNavigate();
@@ -20,6 +19,7 @@ const SignIn = () => {
             const response = await signInWithGooglePopup();
             console.log(response);
             navigate("/dashboard");
+
 
             const userId = response.user.uid;
             const email = response.user.email;
@@ -65,19 +65,31 @@ const SignIn = () => {
 
                     const userRef_preferences = ref(database, `Users/${userId}/UserPref`);
                     set(userRef_preferences, userPref);
+                    
+                    
+
+                    
                 }
             }).catch((error) => {
                 console.error('Error querying the database:', error);
             });
-        }catch(err){
+
+        }
+
+        catch(err){
             console.log("Caught Error: Firebase: Error (auth/popup-closed-by-user)");
         }
 
     }
 
+    
+
     return (
+        
         <div>
+            
             <button onClick={logGoogleUser} className="signin">Sign In</button>
+
         </div>
         
     )

@@ -60,6 +60,7 @@
   transition: transform 0.3s, box-shadow 0.4s;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   font-family: Urbanist;
+  z-index: 10;
 }
 
 .todayButton:hover {
@@ -139,10 +140,12 @@
 
   .arrow-right {
     right: -5%;
+    z-index: 10;
   }
   
   .arrow-left {
-    left: -5%
+    left: -5%;
+    z-index: 10;
   }
 
     /* Sign-out Button */
@@ -165,10 +168,12 @@
 @media (min-width: 769px) {
   .arrow-right {
     right: -25%;
+    z-index: 10;
   }
   
   .arrow-left {
-    left: -25%
+    left: -25%;
+    z-index: 10;
   }
 
     /* Sign-out Button */
