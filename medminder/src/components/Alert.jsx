@@ -14,7 +14,6 @@ const Alert = ({ alert, displayTime, dateObj, causedByDelete, setCausedByDelete,
     useEffect(() => {
       return () => {
         const deleteOnDismount = async () => {
-          console.log("HOOOOKAH HOOOKAH POOOKAH");
           const accessToken = localStorage.getItem("accessToken");
 
 
