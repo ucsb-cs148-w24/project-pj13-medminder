@@ -2,12 +2,14 @@ body.active-modal {
     overflow-y: hidden;
 }
 
+
 .btn-modal {
     padding: 10px 20px;
     display: block;
     margin: 100px auto 0;
     font-size: 18px;
 }
+
 
 .modal{
     position: fixed;
@@ -17,11 +19,13 @@ body.active-modal {
     right: 0;
     bottom: 0;
 
+
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 300;
 }
+
 
 .modal-content {
     position: relative;
@@ -36,6 +40,7 @@ body.active-modal {
     animation: boringAnimation .3s ease-out forwards;
 }
 
+
 @keyframes boringAnimation {
     0% {
         transform: scale(.0);
@@ -47,6 +52,7 @@ body.active-modal {
         transform: scale(1);
     }
 }
+
 
 @keyframes ohdear {
     0% {
@@ -88,6 +94,8 @@ body.active-modal {
 }
 
 
+
+
 .close-modal {
     position: absolute;
     top: 10px;
@@ -101,6 +109,7 @@ body.active-modal {
     transition: transform 0.3s, box-shadow 0.4s;
 }
 
+
 .clear-modal {
     position: absolute;
     bottom: 10px;
@@ -113,6 +122,7 @@ body.active-modal {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.4s;
 }
+
 
 .submit-modal {
     position: absolute;
@@ -128,17 +138,20 @@ body.active-modal {
     transition: transform 0.3s, box-shadow 0.4s;
 }
 
+
 .submit-modal:hover {
     background-color: yellow;
     transform: scale(1.05);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+
 .clear-modal:hover {
     background-color: rgb(220, 220, 220);
     transform: scale(1.05);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
+
 
 .close-modal:hover {
     background-color: rgb(220, 220, 220);
@@ -149,10 +162,15 @@ body.active-modal {
 
 
 
+
+
+
+
 .row {
     display: flex;
     align-items: center;
 }
+
 
 .header {
     margin-top: 10px;
@@ -160,12 +178,14 @@ body.active-modal {
     font-size: 20px
 }
 
+
 .main-header {
     text-align: center;
     margin-top: 35px;
     margin-bottom: 15px;
     font-size: 40px;
 }
+
 
 .textbox {
     width: 300px;
@@ -182,6 +202,7 @@ body.active-modal {
     border: 2px solid rgb(0, 163, 196);
 }
 
+
 .textbox-num {
     width: 200px;
     padding: 10px;
@@ -197,6 +218,7 @@ body.active-modal {
     border: 2px solid rgb(0, 163, 196);
 }
 
+
 .selector {
     width: 100px;
     padding: 10px;
@@ -208,9 +230,11 @@ body.active-modal {
     border: 2px solid lightgray;
   }
 
+
 .selector:focus {
     border: 2px solid rgb(0, 163, 196);
 }
+
 
 .day-button {
     width: 50px; /* Set a fixed width */
@@ -226,15 +250,18 @@ body.active-modal {
     transition: transform 0.3s, box-shadow 0.4s;
 }
 
+
 .day-button:hover {
     transform: scale(1.05);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+
 .random-text {
     font-size: 12px;
     margin-left: 15px;
 }
+
 
 .random-text2 {
     font-size: 14px;
@@ -242,11 +269,13 @@ body.active-modal {
     font-weight: bold;
 }
 
+
 .random-text3 {
     font-size: 14px;
     margin-left: 60px;
     font-weight: bold;
 }
+
 
 .hour-selector {
     width: 100px;
@@ -260,13 +289,16 @@ body.active-modal {
     margin-left: 15px;
 }
 
+
 .hour-selector:focus {
     border: 2px solid rgb(0, 163, 196);
 }
 
+
 .hour-selector::-webkit-scrollbar {
     width: 0;
 }
+
 
 .minute-selector {
     width: 100px;
@@ -280,9 +312,116 @@ body.active-modal {
 }
 
 
+
+
 .minute-selector:focus {
     border: 2px solid rgb(0, 163, 196);
 }
 
-  
-  
+
+/* Screen width below 300px */
+@media only screen and (max-width: 299px) {
+    .main-header {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+
+    .modal-content {
+        width: 80%;
+    }
+
+
+    .textbox {
+        width: 100px;
+    }
+   
+    .textbox-num {
+        width: 100px;
+    }
+
+
+    .day-button {
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+    }
+
+
+    .selector {
+        width: 50px;
+    }
+
+
+   
+    .submit-modal {
+        font-size: 15px;
+    }
+
+
+    .clear-modal {
+       font-size: 15px;
+    }
+}
+
+
+/* Screen width in between 300px and 600px */
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+    .main-header {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 35px;
+    }
+
+
+    .modal-content {
+        width: 80%;
+    }
+
+
+    .textbox {
+        width: 150px;
+    }
+   
+    .textbox-num {
+        width: 150px;
+    }
+
+
+    .day-button {
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+    }
+
+
+    .selector {
+        width: 50px;
+    }
+
+
+}
+
+
+@media only screen and (min-width: 601px) {
+   
+
+
+}
+
+
+/* Short screen */
+@media only screen and (max-height: 650px) {
+    /* Remove the add a medicine text to save space */
+    .main-header {
+        margin-top:20px;
+        font-size: 0px;
+    }
+
+
+    .modal-content {
+        height: 500px;
+    }
+}
+
