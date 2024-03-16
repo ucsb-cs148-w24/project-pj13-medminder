@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useAuthContext, AuthContext } from './AuthContext';
-import { ref, set, onValue, query, get, } from 'firebase/database';
+import { ref, set, onValue, query, get, remove } from 'firebase/database';
 import { database } from '../utils/firebase.utils';
 
 function ProfileDropdown() {
@@ -68,6 +68,25 @@ function ProfileDropdown() {
     setSelectedItem(event.target.value);
   };
 
+  const handleDeleteProfile = () => {
+    const isConfirmed = window.confirm("Are you sure you want to delete the last profile?");
+    if (isConfirmed){
+      const userRef = ref(database, `Users/${userId}/UserInfo/numProfiles`);
+      if (numProfiles === auth.currentProfile) {
+        setCurrentProfile("UserData");
+        setSelectedItem("Profile 1");
+      }
+      const newNumProfiles = numProfiles - 1;
+      setNumProfiles(newNumProfiles); // Update state
+      set(userRef, newNumProfiles); // Update database
+
+      const toDelete = String(profiles[profiles.length - 1]).replace("Profile ", "UserData");
+      const userRefClear = ref(database, `Users/${userId}/${toDelete}`);
+      remove(userRefClear);
+      
+    }
+  };
+
   return (
     <div>
       <select className="profileDropdown" onChange={handleSelectChange} value={selectedItem}>
@@ -76,6 +95,7 @@ function ProfileDropdown() {
         ))}
       </select>
       <button className="addProfileButton" onClick={handleAddProfile}>Add A Profile</button>
+      {(numProfiles > 1) && <button className="deleteProfileButton" onClick={handleDeleteProfile}>Delete Last Profile</button>}
     </div>
   );
 }

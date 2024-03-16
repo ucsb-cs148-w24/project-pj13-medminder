@@ -91,12 +91,12 @@
 }
 
 /* Add profile button */
-.addProfileButton {
+.addProfileButton, .deleteProfileButton {
   font-size: 12px;
   font-weight: bold;
-  padding: 10px 15px;
+  padding: 10px 10px;
   margin: 20px 5px;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   background-color:#ffffff;
   border-color: black;
   color: black;
@@ -107,7 +107,8 @@
   font-family: Urbanist;
 }
 
-.addProfileButton:hover {
+.addProfileButton:hover, .deleteProfileButton:hover {
+  transform: scale(1.05);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -116,6 +117,7 @@
   font-weight: bold;
   margin-top: 20px;
   margin-left: 20px;
+  margin-right: 10px;
   padding: 8px 8px;
   border-radius: 2px;
   border: none;
