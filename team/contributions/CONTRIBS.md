@@ -48,9 +48,10 @@ NonCoding:
 ### Vaishnavi Himakunthala
 
 1. Made design doc
-2. Made preliminary design for UI
-3. Made a PR template
-4. Added speech to text feature for medicine name
+2. Made preliminary design for UI and set up pages + navigation of the app
+4. Made a PR template
+5. Added speech to text feature for medicine name
+6. Made the settings panel
 
 ### Timothy Choi
 1. Created DateNavigator component to go back and forth through the days of the week
