@@ -7,8 +7,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import { useAuthContext } from '../AuthContext';
 import { CiMicrophoneOn } from "react-icons/ci";
 import { GrPowerReset } from "react-icons/gr";
-
-
+import Toastify from 'toastify-js';
 
 export default function AlertPopup(props) {
     const auth = useAuthContext();
@@ -115,13 +114,55 @@ export default function AlertPopup(props) {
         event.preventDefault();
 
         if (medicineName==="") {
-            alert("Please enter a medicine name")
+            Toastify({
+                text: "Enter a medicine name",
+                duration: 3000,
+                newWindow: false,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", 
+                stopOnFocus: true, 
+                style: {
+                  background: "#b50505",
+                },
+                offset: {
+                  y: 95
+                },
+              }).showToast();
         }
         else if (dosageAmount==="" || dosageUnits==="-") {
-            alert("Please enter an amount or units for your dosage")
+            Toastify({
+                text: "Enter a valid dosage amount and unit",
+                duration: 3000,
+                newWindow: false,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", 
+                stopOnFocus: true, 
+                style: {
+                  background: "#b50505",
+                },
+                offset: {
+                  y: 95
+                },
+              }).showToast();
         }
         else if (time==="") {
-            alert("Please enter a time to take your medicine")
+            Toastify({
+                text: "Enter a valid time",
+                duration: 3000,
+                newWindow: false,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", 
+                stopOnFocus: true, 
+                style: {
+                  background: "#b50505",
+                },
+                offset: {
+                  y: 95
+                },
+              }).showToast();
         }
         else if (
             !sunday &&
@@ -132,7 +173,21 @@ export default function AlertPopup(props) {
             !friday &&
             !saturday
         ) {
-            alert("Please select a day to set the alert for")
+            Toastify({
+                text: "Select a valid day",
+                duration: 3000,
+                newWindow: false,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", 
+                stopOnFocus: true, 
+                style: {
+                  background: "#b50505",
+                },
+                offset: {
+                  y: 95
+                },
+              }).showToast();
         }
 
         else {
