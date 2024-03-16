@@ -4,20 +4,20 @@ import { ref, remove, set, onValue } from 'firebase/database';
 import { database } from '../utils/firebase.utils';
 import '../Dash-style.css';
 
-export default function DeleteAlert(props) {
+export default function DeleteAlert({ timestamp, date, onCalendarDelete}) {
 
     const auth = useAuthContext();
     const userId = auth.currentUser.uid;
     const userProfile = auth.currentProfile;
-    const dataRef = ref(database, 'Users/' + userId + '/' + userProfile + '/' + props.timestamp);
+    const dataRef = ref(database, 'Users/' + userId + '/' + userProfile + '/' + timestamp);
 
-    const current_day = props.date.getDay();
+    const current_day = date.getDay();
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     const dayToRemove = days[current_day]
     // file path to set a specific day to false
-    const dataRef2 = ref(database, 'Users/' + userId + '/' + userProfile + '/' + props.timestamp + '/day/' + dayToRemove);
+    const dataRef2 = ref(database, 'Users/' + userId + '/' + userProfile + '/' + timestamp + '/day/' + dayToRemove);
     // file path to access all the other days and check if they're false, if so delete the entire medicine object
-    const dataRef3 = ref(database, 'Users/' + userId + '/' + userProfile + '/' + props.timestamp + '/day/');
+    const dataRef3 = ref(database, 'Users/' + userId + '/' + userProfile + '/' + timestamp + '/day/');
 
 
 
@@ -27,6 +27,8 @@ export default function DeleteAlert(props) {
         const isConfirmed = window.confirm('Are you sure you want to remove this medicine?');
 
         // If the user confirms, proceed with the delete operation
+
+        await onCalendarDelete(true, timestamp);
         if (isConfirmed) {
             try {
 
@@ -54,6 +56,7 @@ export default function DeleteAlert(props) {
                 console.error('Error deleting data:', error);
             }
         }
+        await onCalendarDelete(false);
     }
 
     return (
