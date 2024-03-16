@@ -60,4 +60,5 @@ NonCoding:
 2. Worked on UI for dashboard (header, alerts component, buttons)
 3. Worked on UI for sign in page
 4. Worked on DeleteAlert component and confirmation popup
+5. Worked on UI for alert component - added dropdown menu to each alert
 
