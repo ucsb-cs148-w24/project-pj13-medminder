@@ -101,7 +101,7 @@ const Alert = ({ alert, displayTime, dateObj, causedByDelete, setCausedByDelete,
             if (res.status === 204) {
               Toastify({
                 text: "Google calendar event deleted for " + alert.medicineName + " at " + convertTo12HourFormat(displayTime),
-                duration: 3000,
+                duration: 1500,
                 newWindow: false,
                 close: true,
                 gravity: "top", // `top` or `bottom`
@@ -120,7 +120,7 @@ const Alert = ({ alert, displayTime, dateObj, causedByDelete, setCausedByDelete,
               const error = await res.text;
               Toastify({
                 text: "Alert deleted but calendar event deletion failed.",
-                duration: 3000,
+                duration: 1500,
                 newWindow: false,
                 close: true,
                 gravity: "top", // `top` or `bottom`
