@@ -10,8 +10,8 @@ const MedicineModal = (props) => {
     const [medicationDetails, setMedicationDetails] = useState([]);
     
     useEffect(() => {
-        // Run checkMedicationTime every 10 seconds
-        const intervalId = setInterval(checkMedicationTime, 10000);
+        // Run checkMedicationTime every 60 seconds
+        const intervalId = setInterval(checkMedicationTime, 60000);
     
         // Cleanup the interval on component unmount
         return () => clearInterval(intervalId);
