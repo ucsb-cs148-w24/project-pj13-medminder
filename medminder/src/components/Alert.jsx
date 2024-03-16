@@ -6,7 +6,7 @@ import MedicineInfoButton from './MedicineInfoButton.jsx';
 import CreateGCalEvent from './AddAlertToGCal.jsx';
 import Toastify from 'toastify-js';
 
-const Alert = ({ alert, displayTime, dateObj, causedByDelete, setCausedByDelete}) => {
+const Alert = ({ alert, displayTime, dateObj, causedByDelete, setCausedByDelete, deletingTimestamp}) => {
     const [isComplete, setIsComplete] = useState(false);
     const [showMoreActions, setShowMoreActions] = useState(false);
     const popupRef = useRef(null);
@@ -138,7 +138,7 @@ const Alert = ({ alert, displayTime, dateObj, causedByDelete, setCausedByDelete}
           }
         }
 
-        if (causedByDelete)
+        if (causedByDelete && deletingTimestamp === alert.timestamp)
           deleteOnDismount();
       };
     }, [causedByDelete]); // eslint-disable-line react-hooks/exhaustive-deps

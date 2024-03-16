@@ -28,7 +28,7 @@ export default function DeleteAlert({ timestamp, date, onCalendarDelete}) {
 
         // If the user confirms, proceed with the delete operation
 
-        await onCalendarDelete();
+        await onCalendarDelete(true, timestamp);
         if (isConfirmed) {
             try {
 
@@ -56,6 +56,7 @@ export default function DeleteAlert({ timestamp, date, onCalendarDelete}) {
                 console.error('Error deleting data:', error);
             }
         }
+        await onCalendarDelete(false);
     }
 
     return (

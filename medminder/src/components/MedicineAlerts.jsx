@@ -9,9 +9,11 @@ const DataDisplay = (props) => {
     const userId = auth.currentUser.uid;
     const userProfile = auth.currentProfile;
     const [causedByDeleteMain, setCausedByDeleteMain] = useState(false);
+    const [deletingTimestamp, setDeletingTimestamp] = useState("");
 
-    const deleteCalendarEventMain = () => {
-        setCausedByDeleteMain(true);
+    const deleteCalendarEventMain = (val, timestamp = "") => {
+        setCausedByDeleteMain(val);
+        setDeletingTimestamp(timestamp);
     }
 
     useEffect(() => {
@@ -59,10 +61,9 @@ const DataDisplay = (props) => {
     const currentData = data.filter(alert => alert.day[days[props.date]] === true);
     // Push Alerts to aray based on frequency
     for (let i = 0; i < currentData.length; i++) {
-        console.log("item: ", i);
         // If frequenmcy is not valid or evals to <= 0 push base time with no repeats
         if (isNaN(Number(currentData[i].selectedMinute)) || isNaN(Number(currentData[i].selectedHour)) || (Number(currentData[i].selectedHour) <= 0 && Number(currentData[i].selectedMinute) <= 0)){
-            alertArray.push(<Alert key={currentData[i].time} alert={currentData[i]} displayTime={currentData[i].time} dateObj={props.dateObj} causedByDelete={causedByDeleteMain} setCausedByDelete={deleteCalendarEventMain}/>);
+            alertArray.push(<Alert key={currentData[i].time} alert={currentData[i]} displayTime={currentData[i].time} dateObj={props.dateObj} causedByDelete={causedByDeleteMain} setCausedByDelete={deleteCalendarEventMain} deletingTimestamp={deletingTimestamp}/>);
             continue;
         }
 
@@ -72,7 +73,7 @@ const DataDisplay = (props) => {
         while(updatedTime !== -1){
             updatedTime = addFrequencyToTime(currentData[i].time, Number(currentData[i].selectedHour) * j, Number(currentData[i].selectedMinute) * j);
             if (updatedTime !== -1){
-                alertArray.push(<Alert key={updatedTime} alert={currentData[i]} displayTime={updatedTime} dateObj={props.dateObj} causedByDelete={causedByDeleteMain} setCausedByDelete={deleteCalendarEventMain}/>);
+                alertArray.push(<Alert key={updatedTime} alert={currentData[i]} displayTime={updatedTime} dateObj={props.dateObj} causedByDelete={causedByDeleteMain} setCausedByDelete={deleteCalendarEventMain} deletingTimestamp={deletingTimestamp}/>);
             }
             j++;
         }
