@@ -11,8 +11,6 @@ const SignIn = () => {
     
     const navigate = useNavigate();
 
-
-
     //const setAccessToken = useAuthContext();
     const logGoogleUser = async (name) => {
         try{
@@ -20,10 +18,8 @@ const SignIn = () => {
             console.log(response);
             navigate("/dashboard");
 
-
             const userId = response.user.uid;
             const email = response.user.email;
-            
 
             const apiAuth = GoogleAuthProvider.credentialFromResult(response);
             const accessToken = apiAuth.accessToken;
@@ -36,23 +32,21 @@ const SignIn = () => {
             const userRef = ref(database, `Users/${userId}`);
             const check = query(userRef);
 
-
-
             get(check).then((snapshot) => {
                 if (snapshot.exists()) {
                     // The user exists
                     console.log('Returning User.');
                 } else {
                     console.log('New User.');
-                    
 
                     const userInfo = {
                         Name: response.user.displayName,
                         Email: email,
-                        // default values, to be updated later
-                        Sex: "F",
-                        Age: "24",
-                        DOB: "01/01/2000",
+                        // NULL values, to be updated later
+                        Sex: "",
+                        Age: "",
+                        DOB: "",
+                        numProfiles: 1,
                     };
 
                     const userPref = {
@@ -65,9 +59,6 @@ const SignIn = () => {
 
                     const userRef_preferences = ref(database, `Users/${userId}/UserPref`);
                     set(userRef_preferences, userPref);
-                    
-                    
-
                     
                 }
             }).catch((error) => {
@@ -82,16 +73,10 @@ const SignIn = () => {
 
     }
 
-    
-
     return (
-        
         <div>
-            
             <button onClick={logGoogleUser} className="signin">Sign In</button>
-
         </div>
-        
     )
 }
 
