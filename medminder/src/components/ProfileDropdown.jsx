@@ -71,11 +71,12 @@ function ProfileDropdown() {
   const handleDeleteProfile = () => {
     const isConfirmed = window.confirm("Are you sure you want to delete the last profile?");
     if (isConfirmed){
-      const userRef = ref(database, `Users/${userId}/UserInfo/numProfiles`);
-      if (numProfiles === auth.currentProfile) {
+      if ("UserData" + numProfiles === auth.currentProfile) {
         setCurrentProfile("UserData");
         setSelectedItem("Profile 1");
       }
+
+      const userRef = ref(database, `Users/${userId}/UserInfo/numProfiles`);
       const newNumProfiles = numProfiles - 1;
       setNumProfiles(newNumProfiles); // Update state
       set(userRef, newNumProfiles); // Update database
